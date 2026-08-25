@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>LASIN Exercise 3 — Vegetables — Listen and Choose</title>
+<style>
+/* =========================================================
+   LASIN Exercise 3 — scoped styles for safe later combining
+   Copied from the approved Exercise 2 visual/interaction shell
+   ========================================================= */
+#lasin-ex3-root,
+#lasin-ex3-root * { box-sizing:border-box; }
+#lasin-ex3-root {
+  --blue:#103d9b;
+  --blue2:#0b2f7e;
+  --soft:#eef4ff;
+  --line:#dbe7ff;
+  --good:#1d9d58;
+  --bad:#d93b3b;
+  --text:#102247;
+  --bravo-bg:#dff7df;
+  --gold:#d4a017;
+  width:100%;
+  min-height:100vh;
+  min-height:100dvh;
+  background:#fff;
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  overflow-x:hidden;
+}
+#lasin-ex3-root button { font:inherit; -webkit-tap-highlight-color:transparent; }
+#lasin-ex3-root .ex3-shell { width:min(1180px,100%); margin:auto; text-align:center; }
+#lasin-ex3-root .ex3-topbar {
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+}
+#lasin-ex3-root .ex3-title {
+  grid-column:2;
+  color:var(--blue);
+  font-weight:900;
+  font-size:clamp(25px,3.3vw,42px);
+  line-height:1.05;
+}
+#lasin-ex3-root .ex3-progress {
+  justify-self:end;
+  color:var(--blue2);
+  font-size:clamp(16px,2vw,22px);
+  font-weight:900;
+  background:var(--soft);
+  border:2px solid var(--line);
+  border-radius:999px;
+  padding:8px 14px;
+  min-width:86px;
+}
+#lasin-ex3-root .ex3-instruction {
+  margin:0 auto 8px;
+  color:#526580;
+  font-size:clamp(15px,1.7vw,19px);
+  font-weight:800;
+}
+#lasin-ex3-root .ex3-audio-btn {
+  width:78px;
+  height:78px;
+  border:0;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--blue);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  margin:5px auto 12px;
+  box-shadow:0 9px 24px rgba(20,64,140,.15);
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+#lasin-ex3-root .ex3-audio-btn:hover { box-shadow:0 11px 30px rgba(20,64,140,.22); }
+#lasin-ex3-root .ex3-audio-btn:active { transform:scale(.92); }
+#lasin-ex3-root .ex3-audio-btn svg { width:45px; height:45px; fill:currentColor; }
+#lasin-ex3-root .ex3-audio-btn.is-playing { animation:ex3Pulse 1s ease-in-out infinite alternate; }
+@keyframes ex3Pulse { from{transform:scale(1)} to{transform:scale(1.07)} }
+#lasin-ex3-root .ex3-status {
+  min-height:24px;
+  margin:-4px auto 7px;
+  font-size:15px;
+  font-weight:800;
+  color:#718096;
+}
+#lasin-ex3-root .ex3-choice-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:stretch;
+  width:min(1080px,100%);
+  margin:0 auto;
+}
+#lasin-ex3-root .ex3-choice {
+  position:relative;
+  border:3px solid var(--line);
+  border-radius:24px;
+  background:#fff;
+  padding:8px;
+  cursor:pointer;
+  overflow:hidden;
+  box-shadow:0 10px 28px rgba(20,64,140,.08);
+  transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#lasin-ex3-root .ex3-choice:hover { transform:translateY(-2px); box-shadow:0 13px 34px rgba(20,64,140,.12); }
+#lasin-ex3-root .ex3-choice:active { transform:scale(.985); }
+#lasin-ex3-root .ex3-choice img {
+  width:100%;
+  height:min(67vh,700px);
+  object-fit:contain;
+  display:block;
+  border-radius:17px;
+  background:#fff;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+#lasin-ex3-root .ex3-choice.correct-pending {
+  border-color:var(--good);
+  box-shadow:0 0 0 6px rgba(29,157,88,.13),0 12px 30px rgba(20,64,140,.10);
+}
+#lasin-ex3-root .ex3-choice.wrong {
+  border-color:var(--bad);
+  box-shadow:0 0 0 5px rgba(217,59,59,.10);
+  animation:ex3Shake .36s ease;
+}
+@keyframes ex3Shake {
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-8px)}
+  50%{transform:translateX(8px)}
+  75%{transform:translateX(-5px)}
+}
+#lasin-ex3-root .ex3-choice.locked { pointer-events:none; }
+#lasin-ex3-root .ex3-bravo {
+  position:fixed;
+  inset:0;
+  z-index:2147483000;
+  background:var(--bravo-bg);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:24px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .13s ease;
+}
+#lasin-ex3-root .ex3-bravo.show { opacity:1; pointer-events:auto; }
+#lasin-ex3-root .ex3-bravo img {
+  width:min(440px,78vw);
+  max-height:56vh;
+  object-fit:contain;
+  border-radius:18px;
+  box-shadow:0 12px 34px rgba(37,92,46,.18);
+}
+#lasin-ex3-root .ex3-bravo-text {
+  color:var(--gold);
+  font-size:clamp(54px,10vw,112px);
+  line-height:1;
+  font-weight:1000;
+  letter-spacing:1px;
+  text-shadow:0 3px 0 #fff,0 7px 18px rgba(122,91,0,.18);
+}
+#lasin-ex3-root .ex3-finish {
+  width:min(700px,94vw);
+  margin:auto;
+  padding:36px 24px;
+  border:2px solid var(--line);
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 14px 38px rgba(28,68,140,.10);
+}
+#lasin-ex3-root .ex3-finish h2 {
+  margin:0 0 10px;
+  color:var(--blue);
+  font-size:clamp(38px,7vw,72px);
+}
+#lasin-ex3-root .ex3-finish p {
+  margin:0 0 24px;
+  color:var(--text);
+  font-size:clamp(22px,3.5vw,34px);
+  font-weight:900;
+}
+#lasin-ex3-root .ex3-restart {
+  border:0;
+  border-radius:999px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:900;
+  font-size:22px;
+  padding:14px 30px;
+  cursor:pointer;
+}
+#lasin-ex3-root .hidden { display:none!important; }
+@media (max-width:760px) {
+  #lasin-ex3-root { padding:10px; align-items:flex-start; }
+  #lasin-ex3-root .ex3-shell { padding-top:5px; }
+  #lasin-ex3-root .ex3-topbar { grid-template-columns:1fr auto; }
+  #lasin-ex3-root .ex3-title { grid-column:1; justify-self:start; text-align:left; font-size:26px; }
+  #lasin-ex3-root .ex3-progress { grid-column:2; grid-row:1; }
+  #lasin-ex3-root .ex3-audio-btn { width:68px; height:68px; margin-bottom:9px; }
+  #lasin-ex3-root .ex3-audio-btn svg { width:39px; height:39px; }
+  #lasin-ex3-root .ex3-choice-grid { gap:8px; }
+  #lasin-ex3-root .ex3-choice { padding:3px; border-radius:15px; border-width:2px; }
+  #lasin-ex3-root .ex3-choice img { height:min(63vh,540px); border-radius:12px; }
+}
+@media (max-width:420px) {
+  #lasin-ex3-root .ex3-title { font-size:22px; }
+  #lasin-ex3-root .ex3-progress { font-size:14px; min-width:72px; padding:7px 10px; }
+  #lasin-ex3-root .ex3-instruction { font-size:13px; }
+  #lasin-ex3-root .ex3-choice-grid { gap:5px; }
+}
+</style>
+</head>
+<body style="margin:0;background:#fff">
+<div id="lasin-ex3-root" data-lasin-ex3></div>
+
+<script>
+(function(){
+'use strict';
+
+const DEFAULTS = {
+  assetBase: './assets/',
+  firstAudioDelay: 1500,
+  nextAudioDelay: 1700,
+  questionAnswerGap: 1700,
+  correctToBravoDelay: 500,
+  bravoDuration: 2000
+};
+
+const VEG = {
+  carrots: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/carrots_singular.mp3', pluralAudio:'audio/answers/carrots_plural.mp3',
+    singularImage:'images/carrots_singular.png', pluralImage:'images/carrots_plural.png'
+  },
+  onions: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/onions_singular.mp3', pluralAudio:'audio/answers/onions_plural.mp3',
+    singularImage:'images/onions_singular.jpg', pluralImage:'images/onions_plural.jpg'
+  },
+  peppers: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/peppers_singular.mp3', pluralAudio:'audio/answers/peppers_plural.mp3',
+    singularImage:'images/peppers_singular.jpg', pluralImage:'images/peppers_plural.jpg'
+  },
+  cabbages: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/cabbages_singular.mp3', pluralAudio:'audio/answers/cabbages_plural.mp3',
+    singularImage:'images/cabbages_singular.jpg', pluralImage:'images/cabbages_plural.jpg'
+  },
+  potatoes: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/potatoes_singular.mp3', pluralAudio:'audio/answers/potatoes_plural.mp3',
+    singularImage:'images/potatoes_singular.jpg', pluralImage:'images/potatoes_plural.jpg'
+  },
+  tomatoes: {
+    question:'audio/question.mp3',
+    singularAudio:'audio/answers/tomatoes_singular.mp3', pluralAudio:'audio/answers/tomatoes_plural.mp3',
+    singularImage:'images/tomatoes_singular.jpg', pluralImage:'images/tomatoes_plural.jpg'
+  }
+};
+
+// 24 questions: each of the 12 singular/plural targets appears exactly twice.
+// The sequence mirrors the approved Exercise 2 distribution pattern.
+const QUESTIONS = [
+  ['carrots',true], ['onions',false], ['peppers',true], ['cabbages',false],
+  ['potatoes',true], ['tomatoes',false], ['carrots',false], ['onions',true],
+  ['peppers',false], ['cabbages',true], ['potatoes',false], ['tomatoes',true],
+  ['peppers',false], ['carrots',true], ['tomatoes',false], ['onions',true],
+  ['potatoes',false], ['cabbages',true], ['peppers',true], ['carrots',false],
+  ['tomatoes',true], ['onions',false], ['potatoes',true], ['cabbages',false]
+].map((x,i)=>({veg:x[0], singular:x[1], swap:[0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,0,0,1,1,0,0,1,1,0][i]===1}));
+
+let state = null;
+
+function join(base,path){ return base.replace(/\/?$/,'/') + path.replace(/^\//,''); }
+
+function headphoneSVG(){
+  return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8C18.75 8 8 18.75 8 32v15.5C8 52.2 11.8 56 16.5 56H22V35H14v-3C14 22.06 22.06 14 32 14s18 8.06 18 18v3h-8v21h5.5c4.7 0 8.5-3.8 8.5-8.5V32C56 18.75 45.25 8 32 8zM18 41h-4v6.5c0 1.38 1.12 2.5 2.5 2.5H18V41zm28 9h1.5c1.38 0 2.5-1.12 2.5-2.5V41h-4v9z"/></svg>';
+}
+
+function template(){
+  return `
+    <section class="ex3-shell" aria-label="Exercise 3 Listen and Choose">
+      <div class="ex3-quiz">
+        <div class="ex3-topbar">
+          <div></div>
+          <div class="ex3-title">Exercise 3 · Listen and Choose</div>
+          <div class="ex3-progress" aria-live="polite">1 / 24</div>
+        </div>
+        <div class="ex3-instruction">Listen to the question and answer. Choose the matching picture.</div>
+        <button class="ex3-audio-btn" type="button" aria-label="Listen again" title="Listen again">${headphoneSVG()}</button>
+        <div class="ex3-status" aria-live="polite"></div>
+        <div class="ex3-choice-grid" role="group" aria-label="Choose the matching picture">
+          <button class="ex3-choice" data-choice="0" type="button"><img draggable="false" alt="Picture choice 1"></button>
+          <button class="ex3-choice" data-choice="1" type="button"><img draggable="false" alt="Picture choice 2"></button>
+        </div>
+      </div>
+      <div class="ex3-finish hidden">
+        <h2>Excellent!</h2>
+        <p>You finished all 24 questions.</p>
+        <button class="ex3-restart" type="button">Play Again</button>
+      </div>
+      <div class="ex3-bravo" aria-hidden="true">
+        <img alt="Bravo celebration">
+        <div class="ex3-bravo-text">Bravo!</div>
+      </div>
+    </section>`;
+}
+
+function mount(root, options={}){
+  if(!root) throw new Error('LASIN Exercise 3: root element is required.');
+  if(state) destroy();
+  const config = Object.assign({}, DEFAULTS, options);
+  root.innerHTML = template();
+  state = {
+    root, config, index:0, locked:false, started:false,
+    autoTimer:null, answerTimer:null, wrongTimer:null,
+    questionAudio:new Audio(), answerAudio:new Audio(), chimeAudio:new Audio(),
+    els:{
+      quiz:root.querySelector('.ex3-quiz'),
+      finish:root.querySelector('.ex3-finish'),
+      progress:root.querySelector('.ex3-progress'),
+      audioBtn:root.querySelector('.ex3-audio-btn'),
+      status:root.querySelector('.ex3-status'),
+      choices:[...root.querySelectorAll('.ex3-choice')],
+      images:[...root.querySelectorAll('.ex3-choice img')],
+      bravo:root.querySelector('.ex3-bravo'),
+      bravoImg:root.querySelector('.ex3-bravo img'),
+      restart:root.querySelector('.ex3-restart')
+    }
+  };
+  state.questionAudio.preload='auto';
+  state.answerAudio.preload='auto';
+  state.chimeAudio.preload='auto';
+  state.chimeAudio.src=join(config.assetBase,'ui/success-chime.wav');
+  state.els.bravoImg.src=join(config.assetBase,'ui/bravo.gif');
+
+  state.els.audioBtn.addEventListener('click', onListen);
+  state.els.choices.forEach((b,i)=>b.addEventListener('click',()=>choose(i)));
+  state.els.restart.addEventListener('click', restart);
+  preloadImages(config.assetBase);
+  renderQuestion();
+  return api;
+}
+
+function preloadImages(base){
+  Object.values(VEG).forEach(v=>{
+    [v.singularImage,v.pluralImage].forEach(src=>{ const im=new Image(); im.src=join(base,src); });
+  });
+  const gif=new Image(); gif.src=join(base,'ui/bravo.gif');
+}
+
+function stopAudio(){
+  if(!state) return;
+  [state.questionAudio,state.answerAudio,state.chimeAudio].forEach(a=>{
+    try{ a.pause(); a.currentTime=0; }catch(e){}
+  });
+  state.els.audioBtn.classList.remove('is-playing');
+}
+
+function cancelTimers(){
+  if(!state) return;
+  if(state.autoTimer) clearTimeout(state.autoTimer);
+  if(state.answerTimer) clearTimeout(state.answerTimer);
+  if(state.wrongTimer) clearTimeout(state.wrongTimer);
+  state.autoTimer=state.answerTimer=state.wrongTimer=null;
+}
+
+function scheduleAudio(ms){
+  if(!state) return;
+  if(state.autoTimer) clearTimeout(state.autoTimer);
+  state.autoTimer=setTimeout(()=>{ state.autoTimer=null; playCurrentSequence(false); },ms);
+}
+
+function current(){ return QUESTIONS[state.index]; }
+
+function renderQuestion(){
+  if(!state) return;
+  stopAudio();
+  cancelTimers();
+  state.locked=false;
+  const q=current();
+  const v=VEG[q.veg];
+  state.els.progress.textContent=`${state.index+1} / ${QUESTIONS.length}`;
+  state.els.status.textContent='';
+  state.els.choices.forEach(b=>b.classList.remove('correct-pending','wrong','locked'));
+
+  const singularSrc=join(state.config.assetBase,v.singularImage);
+  const pluralSrc=join(state.config.assetBase,v.pluralImage);
+  const pair=q.swap ? [pluralSrc,singularSrc] : [singularSrc,pluralSrc];
+  const flags=q.swap ? [false,true] : [true,false];
+  state.els.images[0].src=pair[0];
+  state.els.images[1].src=pair[1];
+  state.els.images[0].alt=flags[0] ? `${q.veg} — singular` : `${q.veg} — plural`;
+  state.els.images[1].alt=flags[1] ? `${q.veg} — singular` : `${q.veg} — plural`;
+  state.els.choices[0].dataset.singular=String(flags[0]);
+  state.els.choices[1].dataset.singular=String(flags[1]);
+
+  if(state.started){
+    const delay = state.index===0 ? state.config.firstAudioDelay : state.config.nextAudioDelay;
+    scheduleAudio(delay);
+  }
+}
+
+async function playCurrentSequence(manual){
+  if(!state || state.locked) return;
+  if(state.autoTimer){ clearTimeout(state.autoTimer); state.autoTimer=null; }
+  if(state.answerTimer){ clearTimeout(state.answerTimer); state.answerTimer=null; }
+  stopAudio();
+  const q=current();
+  const v=VEG[q.veg];
+  state.els.audioBtn.classList.add('is-playing');
+  state.els.status.textContent='Listen…';
+
+  state.questionAudio.src=join(state.config.assetBase,v.question);
+  state.answerAudio.src=join(state.config.assetBase,q.singular ? v.singularAudio : v.pluralAudio);
+
+  try{
+    await state.questionAudio.play();
+  }catch(err){
+    state.els.audioBtn.classList.remove('is-playing');
+    state.els.status.textContent='Tap the headphones to listen.';
+    return;
+  }
+
+  state.questionAudio.onended=()=>{
+    if(!state || state.locked) return;
+    state.answerTimer=setTimeout(async()=>{
+      if(!state || state.locked) return;
+      state.answerTimer=null;
+      try{
+        await state.answerAudio.play();
+      }catch(err){
+        state.els.audioBtn.classList.remove('is-playing');
+        state.els.status.textContent='Tap the headphones to listen again.';
+      }
+    },state.config.questionAnswerGap);
+  };
+  state.answerAudio.onended=()=>{
+    if(!state) return;
+    state.els.audioBtn.classList.remove('is-playing');
+    state.els.status.textContent='Choose the matching picture.';
+  };
+}
+
+function onListen(){
+  if(!state || state.locked) return;
+  playCurrentSequence(true);
+}
+
+function choose(choiceIndex){
+  if(!state || state.locked) return;
+  const q=current();
+  const btn=state.els.choices[choiceIndex];
+  const pickedSingular=btn.dataset.singular==='true';
+  if(pickedSingular===q.singular){
+    state.locked=true;
+    stopAudio();
+    cancelTimers();
+    state.els.choices.forEach(b=>b.classList.add('locked'));
+    btn.classList.add('correct-pending');
+    state.els.status.textContent='';
+    setTimeout(showBravo,state.config.correctToBravoDelay);
+  }else{
+    btn.classList.remove('wrong');
+    void btn.offsetWidth;
+    btn.classList.add('wrong');
+    state.els.status.textContent='Try again.';
+    if(state.wrongTimer) clearTimeout(state.wrongTimer);
+    state.wrongTimer=setTimeout(()=>{
+      if(!state) return;
+      btn.classList.remove('wrong');
+      state.els.status.textContent='';
+    },780);
+  }
+}
+
+async function showBravo(){
+  if(!state) return;
+  state.els.bravo.classList.add('show');
+  state.els.bravo.setAttribute('aria-hidden','false');
+  try{
+    state.chimeAudio.currentTime=0;
+    await state.chimeAudio.play();
+  }catch(e){}
+  setTimeout(()=>{
+    if(!state) return;
+    state.els.bravo.classList.remove('show');
+    state.els.bravo.setAttribute('aria-hidden','true');
+    advance();
+  },state.config.bravoDuration);
+}
+
+function advance(){
+  if(!state) return;
+  if(state.index < QUESTIONS.length-1){
+    state.index++;
+    renderQuestion();
+  }else{
+    finish();
+  }
+}
+
+function finish(){
+  if(!state) return;
+  stopAudio();
+  cancelTimers();
+  state.els.quiz.classList.add('hidden');
+  state.els.finish.classList.remove('hidden');
+  const detail={exercise:3,name:'Listen and Choose',questions:QUESTIONS.length};
+  state.root.dispatchEvent(new CustomEvent('lasin-exercise-complete',{bubbles:true,detail}));
+  if(typeof state.config.onComplete==='function') state.config.onComplete(detail);
+}
+
+function restart(){
+  if(!state) return;
+  state.index=0;
+  state.locked=false;
+  state.els.finish.classList.add('hidden');
+  state.els.quiz.classList.remove('hidden');
+  renderQuestion();
+}
+
+function start(){
+  if(!state) throw new Error('LASIN Exercise 3: mount() must be called before start().');
+  if(state.started) return;
+  state.started=true;
+  const delay = state.index===0 ? state.config.firstAudioDelay : state.config.nextAudioDelay;
+  scheduleAudio(delay);
+}
+
+function destroy(){
+  if(!state) return;
+  stopAudio();
+  cancelTimers();
+  state.root.innerHTML='';
+  state=null;
+}
+
+const api={mount,start,restart,destroy,questions:QUESTIONS.slice()};
+window.LASINExercise3=api;
+
+// Standalone mode. In the combined LASIN project, mount/start can be called by the parent menu instead.
+function boot(){
+  const root=document.getElementById('lasin-ex3-root');
+  if(root){ mount(root); start(); }
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
+else boot();
+})();
+</script>
+</body>
+</html>
