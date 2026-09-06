@@ -1,0 +1,327 @@
+[
+  {
+    "path": "README_GITHUB_UPLOAD.txt",
+    "bytes": 1528,
+    "sha256": "0dd3fb85c41cf503cd53082d4ed736304ab3c3a890ab64b55c0bada0ea96e52c"
+  },
+  {
+    "path": "index.html",
+    "bytes": 41365,
+    "sha256": "0aca20ed06ff4e7d19172b59c02082f4e3946366ee3b9c00ae503356508fca19"
+  },
+  {
+    "path": "lessons/exercise-01/index.html",
+    "bytes": 1152181,
+    "sha256": "e8e2bc67c91e4d7aaf88d810ce8eb39a1fcf42386969c16e988702ac3843e00c"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/cabbages_no.mp3",
+    "bytes": 73908,
+    "sha256": "a6b538152ebf57c588ed383649e6922ad06f0eaa6e7d1876aa697fdb0e7d54f2"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/cabbages_yes.mp3",
+    "bytes": 64713,
+    "sha256": "42b881d21efc9cf5dc9989594c6e675294ba849811ba2124d2df66c48dc7990e"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/carrots_no.mp3",
+    "bytes": 68474,
+    "sha256": "aa86589bcb7f16da312fc3ffac11f5209e7bdadab19e3c9bd92dff75064e97b6"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/carrots_yes.mp3",
+    "bytes": 61787,
+    "sha256": "74accb157605fad54bce3d6e30ae3019e6ca7447ef13784f961d29e180b09723"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/onions_no.mp3",
+    "bytes": 73908,
+    "sha256": "3929c398cd9c83de5d3827a08302f7ff5389548283eff3179ff45ba6905291d3"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/onions_yes.mp3",
+    "bytes": 61787,
+    "sha256": "bb279858594c52d964d2a12c22b27d83a4eb57bad1a8ab6fd6267eff756f29b5"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/peppers_no.mp3",
+    "bytes": 70564,
+    "sha256": "cc525d128461a7b8d041fad2532628e52dac2ba42ebe3aaf48108e8192c9ac1e"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/peppers_yes.mp3",
+    "bytes": 65549,
+    "sha256": "be579717ec7760a61a75afefda7b08df34aae1bd5ef03a028ad510dcf759b32e"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/potatoes_no.mp3",
+    "bytes": 70146,
+    "sha256": "23de5fa48fcd645cb1b5af98ca1c482a9b64075e4feed00a32c43027b01d5cb0"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/potatoes_yes.mp3",
+    "bytes": 67639,
+    "sha256": "69b90882797674f4a4ff9460d28ae4154f540abb349384394a3d4e67a60c66df"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/tomatoes_no.mp3",
+    "bytes": 67639,
+    "sha256": "fca0eeedd3c3bdf49161bffda2902098f676930ccf149e51a4b63a3af23e0a37"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/answers/tomatoes_yes.mp3",
+    "bytes": 63877,
+    "sha256": "e94b6b316b12efb6b52772ea70c98c06489c458562a02752598b82c93f90cc6c"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/cabbages.mp3",
+    "bytes": 51338,
+    "sha256": "c7a5b31f7247b7018f7fbac7ce93db567427ed2b97024baa803fa7f878d4c686"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/carrots.mp3",
+    "bytes": 53010,
+    "sha256": "61b60a18ee6a4a0b0faf460cab4ec00128d13c4ec9561f6ee5055c7190c9dbda"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/onions.mp3",
+    "bytes": 54264,
+    "sha256": "7a0c1c5afb289980b52fb86430996dc9f6e6b4d7eca94afae9e446b70727af91"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/peppers.mp3",
+    "bytes": 53846,
+    "sha256": "0ce2ffc9872a069ca3bf9e5d59013a77a7a187cea3d77a92ce08d3ab28e8aaa9"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/potatoes.mp3",
+    "bytes": 50502,
+    "sha256": "52f2bd715549fe602d498b5844da113f09a83cbf6d46781e4137b6e958540229"
+  },
+  {
+    "path": "lessons/exercise-02/assets/audio/questions/tomatoes.mp3",
+    "bytes": 54264,
+    "sha256": "2ed1f53a3c943b486946dd6b4b33253c1c68879fa19b9e05a1aecdfdd3842141"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/cabbages_no.png",
+    "bytes": 1942129,
+    "sha256": "a5820da0b9891e589b5b3d900521ba66f73facd81ddd8c4fad194ce288e5c527"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/cabbages_yes.png",
+    "bytes": 2048499,
+    "sha256": "af246f3fa1e8cddd0fcd34e6d188d454ca1148c56593a610c50c3072006946ab"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/carrots_no.png",
+    "bytes": 1818049,
+    "sha256": "f2bd5ab8417d457da37c6765365cf04536c247c32f6ce1255c7401b9b7a7daa4"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/carrots_yes.png",
+    "bytes": 1814459,
+    "sha256": "2b2dfb5d71266885ce65660c0ed7d053bc9c5b8a30be401d2a167c345866f556"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/onions_no.png",
+    "bytes": 4135158,
+    "sha256": "f50a8b45cd319757a151eb827d704fe258787f982b4fbbec07e7443074d99ed4"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/onions_yes.png",
+    "bytes": 3833252,
+    "sha256": "2b6642c520df4a36708e9a21aa28127c0745eb6b26120d545d8f3ee069863e40"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/peppers_no.png",
+    "bytes": 1096521,
+    "sha256": "f3b17e622dc0fe9da8eac0d2d9980f8f1817b04a393d607b0f3c0717560ab571"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/peppers_yes.png",
+    "bytes": 1664567,
+    "sha256": "4b4acf1fb7f47880f50b2d47275c2f8564f7806390661baa770ceed747009172"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/potatoes_no.png",
+    "bytes": 1575977,
+    "sha256": "ad4163f28c7a52211fd20b9ad0200ec9b220d4aa673ae89047184d50462b7b3e"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/potatoes_yes.png",
+    "bytes": 1596613,
+    "sha256": "6a9566fda72d11d19d65a2ca1b2478b3d5d45c7f6bf31f4dc0e32cd298205f35"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/tomatoes_no.png",
+    "bytes": 1896508,
+    "sha256": "b39fcfdc5e7fed5fde91ee8d4173fcfc560be90737951d1676a3d72fe41110cd"
+  },
+  {
+    "path": "lessons/exercise-02/assets/images/tomatoes_yes.png",
+    "bytes": 1919016,
+    "sha256": "76d9ee893c974740ade89d4a44e7c4338056fe826194703bc523f867a9d85578"
+  },
+  {
+    "path": "lessons/exercise-02/assets/ui/bravo.gif",
+    "bytes": 374673,
+    "sha256": "2d142341c47fd8fcfc3795812e382caec85a3f7ce9c81971192f1aa355b3f500"
+  },
+  {
+    "path": "lessons/exercise-02/assets/ui/success-chime.wav",
+    "bytes": 63548,
+    "sha256": "2d2a5890a78f00f8b53108059e5991f89213e4043987e5fa934aabdbda0e49d5"
+  },
+  {
+    "path": "lessons/exercise-02/index.html",
+    "bytes": 20712,
+    "sha256": "b98b962cc093eb34c3126baaf0f8a16d98fa4a71fbcc2caa772df26ce8ae6134"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/cabbages_plural.mp3",
+    "bytes": 55100,
+    "sha256": "4b349d65c7dd230ef0ff779c390905bee95f3ab8a866ecca7cc4a316e05216b3"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/cabbages_singular.mp3",
+    "bytes": 51338,
+    "sha256": "158015c576168f4516a546ef352e0d6f2399e30d843487675fc92b7df1bb42b4"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/carrots_plural.mp3",
+    "bytes": 55936,
+    "sha256": "135497070b05b9c00f4a5789f5b822be2d16e3568c045d1871db8419ccf40516"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/carrots_singular.mp3",
+    "bytes": 52174,
+    "sha256": "476715505212d51e2168d75163566e94fbb221ebbacb87e24399ef2eead2ef63"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/onions_plural.mp3",
+    "bytes": 58861,
+    "sha256": "4d90f0b3e089eb1cae31414ff984af38fc0c40eb24f108c60e39202dde5b9568"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/onions_singular.mp3",
+    "bytes": 55100,
+    "sha256": "a638c35dccba01a3fcd68ccb43bc238ab3abb347a86ee87cb70d1278698afe01"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/peppers_plural.mp3",
+    "bytes": 55100,
+    "sha256": "65f013485d7eeb0a53bf2c5c49d610e07065df65dff9bf37166732788f9ab0fc"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/peppers_singular.mp3",
+    "bytes": 52174,
+    "sha256": "705d82301a75e5eac66dc1a223bacf8add57fda70c906920a14dd019bcdef6e7"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/potatoes_plural.mp3",
+    "bytes": 53010,
+    "sha256": "72ce86061084b22c71b0cbf3ef19e74b30a113acf65a5a4f8fa3e0c988fb60b4"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/potatoes_singular.mp3",
+    "bytes": 51338,
+    "sha256": "6d81c26dea6053d45214edfe79f25a7d81adbcc86fa46e9f480d218f7c422c8e"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/tomatoes_plural.mp3",
+    "bytes": 62623,
+    "sha256": "40a8faafb25a6d9530fabf9c556eb11867897440f9998cc605c71f1a7899d58e"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/answers/tomatoes_singular.mp3",
+    "bytes": 60951,
+    "sha256": "70fc9815e404ec2cc7eb415ad9c6c964a2ab27bcb0d2408395e778bd73f25463"
+  },
+  {
+    "path": "lessons/exercise-03/assets/audio/question.mp3",
+    "bytes": 46323,
+    "sha256": "863c1ca447a2089892b5d670c792740593639c5ef3ebce5f299ca0c4c30e0769"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/cabbages_plural.jpg",
+    "bytes": 460022,
+    "sha256": "5b896f3de758c3cb7534781ddf38c97c505d5cd70428e868b1d429751a6e93a5"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/cabbages_singular.jpg",
+    "bytes": 462660,
+    "sha256": "590e0f222f05209fe825839394019d1ce7e56a890bb35abfece4f964b11dba49"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/carrots_plural.png",
+    "bytes": 2702726,
+    "sha256": "6111dd98e2f1585ffe53921454bc26b8f144c8b66abfc9763c0008c6029a0ca6"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/carrots_singular.png",
+    "bytes": 2300514,
+    "sha256": "47c7544c9585ec1fbdeb8dc72e88a916374687d1e73bc3a9e96b92f1af1d16ce"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/onions_plural.jpg",
+    "bytes": 441667,
+    "sha256": "e86cab94f9816557f89d98208d11df8f65c566daffeccb89d1f519d2b3bc49a4"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/onions_singular.jpg",
+    "bytes": 435945,
+    "sha256": "3d35c20049d6be2f20bd33f875eb8473f67ed9d841b81b39a140014f231a5701"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/peppers_plural.jpg",
+    "bytes": 448822,
+    "sha256": "727386cf984f8c79308d84ebee1f2cfb33163168dc77fe0aeda4130f4b20ae6c"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/peppers_singular.jpg",
+    "bytes": 430002,
+    "sha256": "9ee024ac3e75f58808af11fd7bf69f9af7e7337cfa1f7faf6fb24f85b228cda7"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/potatoes_plural.jpg",
+    "bytes": 455292,
+    "sha256": "f065e0fe1ead6764a4fbfc1ddd8694cfb7cc4bde836f0de9b287583dbc8bdac3"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/potatoes_singular.jpg",
+    "bytes": 448169,
+    "sha256": "9bd801164a6fde8c2a1a4e20a3d35a8c83d327ce72347ca1f876b9250a00ae06"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/tomatoes_plural.jpg",
+    "bytes": 465091,
+    "sha256": "881d38b2741131c1740c9a1649a5e83c8610ab332b462b6b13d2d5a366b8423b"
+  },
+  {
+    "path": "lessons/exercise-03/assets/images/tomatoes_singular.jpg",
+    "bytes": 453662,
+    "sha256": "47e72339130c9bd1b3e87b68b837696458d3fed95fe0ea5323cbd379af49e51f"
+  },
+  {
+    "path": "lessons/exercise-03/assets/ui/bravo.gif",
+    "bytes": 374673,
+    "sha256": "2d142341c47fd8fcfc3795812e382caec85a3f7ce9c81971192f1aa355b3f500"
+  },
+  {
+    "path": "lessons/exercise-03/assets/ui/success-chime.wav",
+    "bytes": 55166,
+    "sha256": "26813cc44a2f103365bb1cae98d16d7ffa3f6a3333dd3d2243d128b942759a84"
+  },
+  {
+    "path": "lessons/exercise-03/index.html",
+    "bytes": 20964,
+    "sha256": "5086fee3c0ef198851d2e17faff84d40d855ec999918de851e6b6e8f9c21abbe"
+  },
+  {
+    "path": "lessons/exercise-04/index.html",
+    "bytes": 2988159,
+    "sha256": "6dfff9572af349ef132e66f9fd2feb055bf10a66effc91f3d26ca320203dc272"
+  }
+]

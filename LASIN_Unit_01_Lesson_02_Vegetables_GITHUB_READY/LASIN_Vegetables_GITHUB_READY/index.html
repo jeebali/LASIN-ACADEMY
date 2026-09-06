@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eef3f8">
+<title>LASIN | Unit 01 Lesson 02 | Vegetables | Motivation Challenge</title>
+<style>
+:root{
+  --lasin-motivation-blue:#0968df;
+  --lasin-motivation-blue-2:#0b7cf5;
+  --lasin-motivation-ink:#10213a;
+  --lasin-motivation-soft:#eef6ff;
+  --lasin-motivation-line:#dce9f8;
+  --lasin-motivation-green:#18a86b;
+  --lasin-motivation-red:#e45757;
+  --lasin-motivation-gold:#ffb800;
+  --lasin-motivation-shadow:0 18px 50px rgba(20,54,96,.18);
+  --lasin-motivation-bar-h:74px;
+}
+#lasin-motivation-root,#lasin-motivation-root *{box-sizing:border-box}
+#lasin-motivation-spacer{width:100%;height:0;transition:height .28s ease;pointer-events:none}
+#lasin-motivation-root.lasin-motivation-started #lasin-motivation-spacer{height:var(--lasin-motivation-bar-h)}
+#lasin-motivation-topbar{
+  position:fixed;inset:0 0 auto 0;z-index:2147483000;height:var(--lasin-motivation-bar-h);
+  display:grid;grid-template-columns:minmax(130px,1.25fr) minmax(120px,.9fr) minmax(165px,1.2fr) minmax(110px,.8fr);
+  align-items:center;gap:8px;padding:10px 16px;color:#fff;
+  background:linear-gradient(135deg,var(--lasin-motivation-blue),var(--lasin-motivation-blue-2));
+  box-shadow:0 9px 28px rgba(3,67,145,.22);transform:translateY(-105%);opacity:0;
+  transition:transform .32s ease,opacity .32s ease;font-family:Arial,Helvetica,sans-serif;
+}
+#lasin-motivation-root.lasin-motivation-started #lasin-motivation-topbar{transform:translateY(0);opacity:1}
+.lasin-motivation-stat{min-width:0;height:50px;display:flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(255,255,255,.2);border-radius:15px;background:rgba(255,255,255,.11);backdrop-filter:blur(8px)}
+.lasin-motivation-stat-icon{width:29px;height:29px;flex:0 0 29px;display:grid;place-items:center;border-radius:10px;background:rgba(255,255,255,.18);font-size:17px}
+.lasin-motivation-stat-copy{min-width:0}.lasin-motivation-stat-label{display:block;font-size:10px;line-height:1.05;opacity:.8;text-transform:uppercase;letter-spacing:.8px;font-weight:700}.lasin-motivation-stat-value{display:block;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;line-height:1.15;font-weight:800}
+#lasin-motivation-points{transition:transform .18s ease}#lasin-motivation-points.lasin-motivation-bump{transform:scale(1.2)}
+#lasin-motivation-timer-wrap{position:absolute;left:0;right:0;bottom:0;height:4px;overflow:hidden;background:rgba(255,255,255,.18)}
+#lasin-motivation-timer-fill{height:100%;width:100%;background:#fff;transform-origin:left center;transition:width .18s linear}
+#lasin-motivation-start-screen,#lasin-motivation-results-screen{position:fixed;inset:0;z-index:2147483500;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 15% 20%,rgba(40,145,255,.18),transparent 34%),radial-gradient(circle at 85% 75%,rgba(0,105,223,.16),transparent 34%),rgba(247,251,255,.97);font-family:Arial,Helvetica,sans-serif}
+#lasin-motivation-start-screen.lasin-motivation-hidden,#lasin-motivation-results-screen.lasin-motivation-hidden{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease}
+.lasin-motivation-card{width:min(620px,94vw);border:1px solid var(--lasin-motivation-line);border-radius:28px;padding:28px;background:#fff;box-shadow:var(--lasin-motivation-shadow)}
+.lasin-motivation-brand{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:18px;color:var(--lasin-motivation-blue);font-size:13px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase}.lasin-motivation-brand-dot{width:9px;height:9px;border-radius:50%;background:var(--lasin-motivation-blue);box-shadow:0 0 0 7px rgba(9,104,223,.1)}
+.lasin-motivation-motto{margin:0 0 24px;padding:18px 20px;text-align:center;border-radius:20px;color:#fff;background:linear-gradient(135deg,var(--lasin-motivation-blue),var(--lasin-motivation-blue-2));box-shadow:0 13px 28px rgba(9,104,223,.2);font-size:clamp(22px,4.5vw,34px);line-height:1.08;font-weight:900}
+.lasin-motivation-name-label{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;margin:0 0 8px 8px;color:#fff;background:var(--lasin-motivation-blue);border-radius:10px 10px 5px 5px;font-size:13px;font-weight:800}
+#lasin-motivation-name-input{width:100%;height:62px;border:2px solid #bfd9f8;border-radius:17px;outline:none;padding:0 18px;color:var(--lasin-motivation-ink);background:#fbfdff;font-size:22px;font-weight:700;transition:border-color .2s ease,box-shadow .2s ease}
+#lasin-motivation-name-input:focus{border-color:var(--lasin-motivation-blue);box-shadow:0 0 0 5px rgba(9,104,223,.09)}
+#lasin-motivation-start-btn,#lasin-motivation-restart-btn{width:100%;min-height:58px;margin-top:16px;border:0;border-radius:17px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--lasin-motivation-blue),var(--lasin-motivation-blue-2));box-shadow:0 12px 25px rgba(9,104,223,.22);font-size:18px;font-weight:900;transition:transform .15s ease,filter .15s ease}
+#lasin-motivation-start-btn:hover,#lasin-motivation-restart-btn:hover{filter:brightness(1.04)}#lasin-motivation-start-btn:active,#lasin-motivation-restart-btn:active{transform:scale(.985)}#lasin-motivation-start-error{min-height:20px;margin-top:8px;text-align:center;color:var(--lasin-motivation-red);font-size:13px;font-weight:700}
+.lasin-motivation-points-pop{position:fixed;z-index:2147483600;left:50%;top:44%;transform:translate(-50%,-50%) scale(.72);pointer-events:none;text-align:center;filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));animation:lasin-motivation-pop 1.25s cubic-bezier(.2,.78,.25,1) forwards;font-family:Arial,Helvetica,sans-serif}
+.lasin-motivation-points-pop-main{display:block;color:#fff;-webkit-text-stroke:3px var(--lasin-motivation-blue);paint-order:stroke fill;font-size:clamp(54px,11vw,112px);line-height:.9;font-weight:1000;letter-spacing:-3px}.lasin-motivation-points-pop-sub{display:inline-block;margin-top:8px;padding:8px 14px;border-radius:999px;color:#fff;background:var(--lasin-motivation-blue);font-size:15px;font-weight:900;letter-spacing:1px}
+@keyframes lasin-motivation-pop{0%{opacity:0;transform:translate(-50%,-50%) scale(.55)}16%{opacity:1;transform:translate(-50%,-50%) scale(1.13)}30%{transform:translate(-50%,-50%) scale(1)}72%{opacity:1}100%{opacity:0;transform:translate(-50%,-95%) scale(.9)}}
+#lasin-motivation-results-screen{z-index:2147483700}.lasin-motivation-results-title{margin:0;text-align:center;color:var(--lasin-motivation-ink);font-size:clamp(30px,6vw,48px);font-weight:950}.lasin-motivation-results-sub{margin:8px 0 22px;text-align:center;color:#63748c;font-size:15px;font-weight:700}.lasin-motivation-rating{width:max-content;max-width:100%;margin:0 auto 22px;padding:9px 17px;border-radius:999px;color:#fff;background:var(--lasin-motivation-blue);font-size:14px;font-weight:950;letter-spacing:1px}.lasin-motivation-results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.lasin-motivation-result-box{padding:17px;border:1px solid var(--lasin-motivation-line);border-radius:18px;background:#f9fcff;text-align:center}.lasin-motivation-result-label{display:block;color:#73839a;font-size:11px;font-weight:900;letter-spacing:.8px;text-transform:uppercase}.lasin-motivation-result-value{display:block;margin-top:5px;color:var(--lasin-motivation-ink);font-size:27px;font-weight:950}.lasin-motivation-result-box.lasin-motivation-wide{grid-column:1/-1}#lasin-motivation-result-accuracy{color:var(--lasin-motivation-blue);font-size:42px}
+#lasin-demo-shell{max-width:980px;margin:0 auto;padding:28px 18px 80px;font-family:Arial,Helvetica,sans-serif;color:var(--lasin-motivation-ink)}.lasin-demo-note{padding:16px 18px;border:1px solid #cfe3fb;border-radius:16px;background:#f4f9ff;line-height:1.55}.lasin-demo-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}.lasin-demo-nav button,.lasin-demo-controls button{border:1px solid #bdd6f3;border-radius:13px;background:#fff;color:#174165;font-weight:850;cursor:pointer;padding:12px}.lasin-demo-nav button:hover,.lasin-demo-controls button:hover{background:#eef6ff}.lasin-demo-panel{margin-top:18px;padding:20px;border:1px solid #dfe9f5;border-radius:20px;background:#fff;box-shadow:0 10px 28px rgba(25,61,100,.08)}.lasin-demo-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.lasin-demo-status{margin-top:12px;padding:12px;border-radius:12px;background:#f7faff;border:1px solid #dfe9f5;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:pre-wrap}
+@media(max-width:720px){:root{--lasin-motivation-bar-h:128px}#lasin-motivation-topbar{grid-template-columns:1fr 1fr;height:var(--lasin-motivation-bar-h);padding:9px 10px}.lasin-motivation-stat{height:49px}.lasin-demo-nav{grid-template-columns:1fr 1fr}}
+
+
+:root{
+  --lasin-shell-bg:#eef3f8;
+  --lasin-shell-card:#ffffff;
+  --lasin-shell-ink:#10213a;
+  --lasin-shell-muted:#63748c;
+  --lasin-shell-blue:#0968df;
+  --lasin-shell-line:#dce6f2;
+  --lasin-shell-nav-h:82px;
+}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--lasin-shell-bg);font-family:Arial,Helvetica,sans-serif;color:var(--lasin-shell-ink)}
+body{min-height:100vh;min-height:100dvh}
+#lasin-lesson-shell{height:calc(100dvh - var(--lasin-motivation-bar-h));display:flex;flex-direction:column;min-height:0;background:var(--lasin-shell-bg)}
+#lasin-lesson-nav{height:var(--lasin-shell-nav-h);flex:0 0 var(--lasin-shell-nav-h);display:grid;grid-template-columns:minmax(230px,1fr) auto;align-items:center;gap:16px;padding:10px max(14px,env(safe-area-inset-right)) 10px max(14px,env(safe-area-inset-left));background:#fff;border-bottom:1px solid var(--lasin-shell-line);box-shadow:0 6px 20px rgba(24,55,95,.08);z-index:50}
+.lasin-shell-heading{min-width:0}.lasin-shell-heading strong{display:block;color:#0b2f7e;font-size:clamp(16px,1.6vw,22px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lasin-shell-heading span{display:block;margin-top:3px;color:var(--lasin-shell-muted);font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lasin-lesson-tabs{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0}
+.lasin-lesson-tab{border:1px solid #bfd4ef;background:#f8fbff;color:#174165;border-radius:14px;min-height:52px;padding:7px 14px;cursor:pointer;font-weight:900;box-shadow:0 5px 13px rgba(27,74,130,.05);transition:transform .14s ease,background .14s ease,border-color .14s ease,color .14s ease;white-space:nowrap}
+.lasin-lesson-tab:hover{background:#eef6ff;transform:translateY(-1px)}.lasin-lesson-tab.active{background:linear-gradient(135deg,#0968df,#0b7cf5);border-color:#0968df;color:#fff;box-shadow:0 7px 17px rgba(9,104,223,.20)}
+.lasin-lesson-tab small{display:block;margin-top:2px;font-size:9px;line-height:1;text-transform:uppercase;letter-spacing:.55px;opacity:.72}
+#lasin-frame-stage{position:relative;flex:1;min-height:0;overflow:hidden;background:#fff}
+.lasin-lesson-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;display:none}.lasin-lesson-frame.active{display:block}
+#lasin-loading{position:absolute;inset:0;display:none;place-items:center;background:#f8fbff;z-index:10;color:#31577f;font-size:16px;font-weight:900}#lasin-loading.show{display:grid}
+#lasin-loading span{padding:13px 18px;border:1px solid #cfe0f2;border-radius:14px;background:#fff;box-shadow:0 8px 22px rgba(24,55,95,.08)}
+@media(max-width:900px){
+  :root{--lasin-shell-nav-h:112px}
+  #lasin-lesson-nav{grid-template-columns:1fr;align-content:center;gap:7px;padding-top:7px;padding-bottom:7px}
+  .lasin-shell-heading{text-align:center}.lasin-shell-heading span{display:none}
+  #lasin-lesson-tabs{justify-content:flex-start;overflow-x:auto;overscroll-behavior-inline:contain;padding:1px 2px 3px;scrollbar-width:none}#lasin-lesson-tabs::-webkit-scrollbar{display:none}
+  .lasin-lesson-tab{min-height:48px;padding:6px 12px;font-size:13px;flex:0 0 auto}
+}
+@media(max-width:720px){
+  #lasin-lesson-shell{height:calc(100dvh - var(--lasin-motivation-bar-h))}
+}
+@media(max-width:430px){:root{--lasin-shell-nav-h:105px}.lasin-shell-heading strong{font-size:15px}.lasin-lesson-tab{min-height:45px;padding:5px 10px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<div id="lasin-motivation-root">
+  <div id="lasin-motivation-spacer" aria-hidden="true"></div>
+  <header id="lasin-motivation-topbar" aria-label="Student progress">
+    <div class="lasin-motivation-stat"><span class="lasin-motivation-stat-icon">👤</span><span class="lasin-motivation-stat-copy"><span class="lasin-motivation-stat-label">Student</span><span id="lasin-motivation-student" class="lasin-motivation-stat-value">—</span></span></div>
+    <div class="lasin-motivation-stat"><span class="lasin-motivation-stat-icon">⭐</span><span class="lasin-motivation-stat-copy"><span class="lasin-motivation-stat-label">Points</span><span id="lasin-motivation-points" class="lasin-motivation-stat-value">0</span></span></div>
+    <div class="lasin-motivation-stat"><span class="lasin-motivation-stat-icon">🎯</span><span class="lasin-motivation-stat-copy"><span id="lasin-motivation-mode-label" class="lasin-motivation-stat-label">Scored</span><span id="lasin-motivation-progress" class="lasin-motivation-stat-value">0 / 96</span></span></div>
+    <div class="lasin-motivation-stat"><span class="lasin-motivation-stat-icon">⏱️</span><span class="lasin-motivation-stat-copy"><span class="lasin-motivation-stat-label">Timer</span><span id="lasin-motivation-timer" class="lasin-motivation-stat-value">—</span></span></div>
+    <div id="lasin-motivation-timer-wrap" aria-hidden="true"><div id="lasin-motivation-timer-fill"></div></div>
+  </header>
+  <section id="lasin-motivation-start-screen">
+    <div class="lasin-motivation-card">
+      <div class="lasin-motivation-brand"><span class="lasin-motivation-brand-dot"></span>LASIN Student Challenge</div>
+      <div class="lasin-motivation-motto">Answer faster, get more points!</div>
+      <label class="lasin-motivation-name-label" for="lasin-motivation-name-input">✍️ Type your name</label>
+      <input id="lasin-motivation-name-input" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Your name">
+      <button id="lasin-motivation-start-btn" type="button">Start</button>
+      <div id="lasin-motivation-start-error" role="status"></div>
+    </div>
+  </section>
+  <section id="lasin-motivation-results-screen" class="lasin-motivation-hidden" aria-live="polite">
+    <div class="lasin-motivation-card">
+      <h1 id="lasin-motivation-results-title" class="lasin-motivation-results-title">Great work!</h1>
+      <p class="lasin-motivation-results-sub">Here is your final result.</p>
+      <div id="lasin-motivation-rating" class="lasin-motivation-rating">EXCELLENT</div>
+      <div class="lasin-motivation-results-grid">
+        <div class="lasin-motivation-result-box"><span class="lasin-motivation-result-label">Points</span><span id="lasin-motivation-result-points" class="lasin-motivation-result-value">0 / 0</span></div>
+        <div class="lasin-motivation-result-box"><span class="lasin-motivation-result-label">Correct</span><span id="lasin-motivation-result-correct" class="lasin-motivation-result-value">0</span></div>
+        <div class="lasin-motivation-result-box"><span class="lasin-motivation-result-label">Wrong</span><span id="lasin-motivation-result-wrong" class="lasin-motivation-result-value">0</span></div>
+        <div class="lasin-motivation-result-box"><span class="lasin-motivation-result-label">Questions</span><span id="lasin-motivation-result-total" class="lasin-motivation-result-value">0</span></div>
+        <div class="lasin-motivation-result-box lasin-motivation-wide"><span class="lasin-motivation-result-label">Accuracy</span><span id="lasin-motivation-result-accuracy" class="lasin-motivation-result-value">0%</span></div>
+      </div>
+      <button id="lasin-motivation-restart-btn" type="button">Restart Challenge</button>
+    </div>
+  </section>
+</div>
+
+<section id="lasin-lesson-shell" aria-label="LASIN lesson">
+  <nav id="lasin-lesson-nav" aria-label="Lesson sections">
+    <div class="lasin-shell-heading">
+      <strong>LASIN • Unit 01 • Lesson 02 • Vegetables</strong>
+      <span>Exercise 01 → Exercise 02 → Exercise 03 → Exercise 04</span>
+    </div>
+    <div id="lasin-lesson-tabs">
+      <button class="lasin-lesson-tab active" type="button" data-lesson-id="exercise-01">Exercise 01<small>24 scored</small></button>
+      <button class="lasin-lesson-tab" type="button" data-lesson-id="exercise-02">Exercise 02<small>24 scored</small></button>
+      <button class="lasin-lesson-tab" type="button" data-lesson-id="exercise-03">Exercise 03<small>24 scored</small></button>
+      <button class="lasin-lesson-tab" type="button" data-lesson-id="exercise-04">Exercise 04<small>24 scored</small></button>
+    </div>
+  </nav>
+  <div id="lasin-frame-stage">
+    <div id="lasin-loading"><span>Opening lesson…</span></div>
+    <iframe class="lasin-lesson-frame active" id="lasin-frame-exercise-01" title="Exercise 01 — Vocabulary Practice" allow="autoplay" data-lesson-id="exercise-01" data-src="lessons/exercise-01/index.html"></iframe>
+    <iframe class="lasin-lesson-frame" id="lasin-frame-exercise-02" title="Exercise 02 — Listen and Choose" allow="autoplay" data-lesson-id="exercise-02" data-src="lessons/exercise-02/index.html"></iframe>
+    <iframe class="lasin-lesson-frame" id="lasin-frame-exercise-03" title="Exercise 03 — Singular and Plural" allow="autoplay" data-lesson-id="exercise-03" data-src="lessons/exercise-03/index.html"></iframe>
+    <iframe class="lasin-lesson-frame" id="lasin-frame-exercise-04" title="Exercise 04 — Listen and Make a Sentence" allow="autoplay" data-lesson-id="exercise-04" data-src="lessons/exercise-04/index.html"></iframe>
+  </div>
+</section>
+
+<script>window.LASIN_MOTIVATION_CONFIG={
+  version:'2.3-strict-audio-gate-github',
+  persistenceKey:'LASIN_U01_L02_VEGETABLES_MOTIVATION_V2_3_GITHUB_SESSION',
+  persistSession:true,
+  finalResultsDelayMs:2700,
+  lessonPlan:[
+    {id:'exercise-01',order:1,label:'Exercise 01',scorable:true,totalQuestions:24,mode:'scored'},
+    {id:'exercise-02',order:2,label:'Exercise 02',scorable:true,totalQuestions:24,mode:'scored'},
+    {id:'exercise-03',order:3,label:'Exercise 03',scorable:true,totalQuestions:24,mode:'scored'},
+    {id:'exercise-04',order:4,label:'Exercise 04',scorable:true,totalQuestions:24,mode:'scored'}
+  ]
+};</script>
+<script>(() => {
+  'use strict';
+
+  const DEFAULT_CONFIG = {
+    version: '2.0',
+    timerSeconds: 20,
+    finalResultsDelayMs: 2700,
+    pointsBands: [
+      { maxSeconds: 5, points: 5 },
+      { maxSeconds: 10, points: 4 },
+      { maxSeconds: 15, points: 3 },
+      { maxSeconds: 20, points: 2 },
+      { maxSeconds: Infinity, points: 1 }
+    ],
+    messageChannel: 'LASIN_MOTIVATION_V2',
+    allowedMessageOrigins: [window.location.origin, 'null'],
+    persistenceKey: 'LASIN_MOTIVATION_V2_SESSION',
+    persistSession: true,
+    lessonPlan: [
+      { id:'vocab', order:0, label:'Vocab', scorable:false, totalQuestions:0, mode:'preview' },
+      { id:'exercise-01', order:1, label:'Exercise 01', scorable:false, totalQuestions:0, mode:'preview' },
+      { id:'exercise-02', order:2, label:'Exercise 02', scorable:true, totalQuestions:24, mode:'scored' },
+      { id:'exercise-03', order:3, label:'Exercise 03', scorable:true, totalQuestions:12, mode:'scored' }
+    ]
+  };
+
+  const userConfig = window.LASIN_MOTIVATION_CONFIG || {};
+  const config = Object.assign({}, DEFAULT_CONFIG, userConfig, {
+    pointsBands: Array.isArray(userConfig.pointsBands) ? userConfig.pointsBands : DEFAULT_CONFIG.pointsBands,
+    lessonPlan: Array.isArray(userConfig.lessonPlan) ? userConfig.lessonPlan : DEFAULT_CONFIG.lessonPlan
+  });
+  const initialExerciseId = (config.lessonPlan[0]&&config.lessonPlan[0].id)||'exercise-01';
+
+  const root = document.getElementById('lasin-motivation-root');
+  const startScreen = document.getElementById('lasin-motivation-start-screen');
+  const resultsScreen = document.getElementById('lasin-motivation-results-screen');
+  const nameInput = document.getElementById('lasin-motivation-name-input');
+  const startBtn = document.getElementById('lasin-motivation-start-btn');
+  const restartBtn = document.getElementById('lasin-motivation-restart-btn');
+  const startError = document.getElementById('lasin-motivation-start-error');
+  const studentEl = document.getElementById('lasin-motivation-student');
+  const pointsEl = document.getElementById('lasin-motivation-points');
+  const modeLabelEl = document.getElementById('lasin-motivation-mode-label');
+  const progressEl = document.getElementById('lasin-motivation-progress');
+  const timerEl = document.getElementById('lasin-motivation-timer');
+  const timerFillEl = document.getElementById('lasin-motivation-timer-fill');
+
+  let hydrating = true;
+
+  const state = {
+    started:false, finished:false, studentName:'', activeExerciseId:initialExerciseId, activeQuestionKey:null,
+    points:0, correct:0, wrong:0, timerRAF:0, finishTimer:0,
+    exercises:new Map(), questions:new Map()
+  };
+
+  function normalizeId(value){ return String(value == null ? '' : value).trim(); }
+  function now(){ return Date.now(); }
+  function exerciseKey(id){ return normalizeId(id); }
+  function questionKey(exerciseId, questionId){ return `${exerciseKey(exerciseId)}::${normalizeId(questionId)}`; }
+
+  function registerExercise(def){
+    if(!def || !normalizeId(def.id)) return null;
+    const id=exerciseKey(def.id);
+    const existing=state.exercises.get(id) || {};
+    const item=Object.assign({id,order:999,label:id,scorable:false,totalQuestions:0,mode:'preview'},existing,def,{id});
+    item.order=Number.isFinite(Number(item.order)) ? Number(item.order) : 999;
+    item.totalQuestions=Math.max(0,Number(item.totalQuestions)||0);
+    item.scorable=Boolean(item.scorable);
+    state.exercises.set(id,item);
+    if(item.scorable){
+      for(let i=1;i<=item.totalQuestions;i++) ensureQuestion(id,String(i),i);
+    }
+    updateHUD();
+    persist();
+    return Object.assign({},item);
+  }
+
+  function registerLessonPlan(plan){
+    (Array.isArray(plan)?plan:[]).forEach(registerExercise);
+    return getLessonPlan();
+  }
+
+  function getLessonPlan(){ return orderedExercises().map(x=>Object.assign({},x)); }
+  function orderedExercises(){ return [...state.exercises.values()].sort((a,b)=>a.order-b.order || a.id.localeCompare(b.id)); }
+
+  function ensureQuestion(exerciseId, questionId, localIndex){
+    const exId=exerciseKey(exerciseId), qId=normalizeId(questionId);
+    if(!exId || !qId) return null;
+    const key=questionKey(exId,qId);
+    if(!state.questions.has(key)){
+      state.questions.set(key,{key,exerciseId:exId,questionId:qId,localIndex:Number(localIndex)||null,readyAt:0,activeElapsedMs:0,runningSince:0,lessonPaused:false,hadMistake:false,completed:false,classification:null,pointsEarned:0,elapsedSeconds:null});
+    }else if(Number(localIndex) && !state.questions.get(key).localIndex){
+      state.questions.get(key).localIndex=Number(localIndex);
+    }
+    return state.questions.get(key);
+  }
+
+  function totalScoredQuestions(){ return orderedExercises().filter(x=>x.scorable).reduce((n,x)=>n+x.totalQuestions,0); }
+  function maxPoints(){ return totalScoredQuestions()*Math.max(...config.pointsBands.map(b=>b.points)); }
+  function completedQuestions(){ return [...state.questions.values()].filter(q=>q.completed && isScorableExercise(q.exerciseId)); }
+  function isScorableExercise(exerciseId){ const ex=state.exercises.get(exerciseKey(exerciseId)); return Boolean(ex&&ex.scorable); }
+
+  function globalIndexFor(exerciseId, localIndex){
+    const exId=exerciseKey(exerciseId); let offset=0;
+    for(const ex of orderedExercises()){
+      if(!ex.scorable) continue;
+      if(ex.id===exId) return offset + Math.max(1,Number(localIndex)||1);
+      offset+=ex.totalQuestions;
+    }
+    return null;
+  }
+
+  function pauseQuestionClock(q){
+    if(!q||!q.runningSince) return;
+    q.activeElapsedMs=(Number(q.activeElapsedMs)||0)+Math.max(0,now()-q.runningSince);
+    q.runningSince=0;
+  }
+
+  function elapsedSecondsFor(q){
+    if(!q) return config.timerSeconds+0.001;
+    const ms=(Number(q.activeElapsedMs)||0)+(q.runningSince?Math.max(0,now()-q.runningSince):0);
+    return Math.max(0,ms/1000);
+  }
+
+  function setActiveExercise(exerciseId){
+    const id=exerciseKey(exerciseId);
+    if(!state.exercises.has(id)) registerExercise({id,label:id});
+    const current=activeQuestion();
+    if(current) pauseQuestionClock(current);
+    state.activeQuestionKey=null;
+    cancelAnimationFrame(state.timerRAF); state.timerRAF=0;
+    state.activeExerciseId=id;
+    if(isScorableExercise(id)){
+      const pending=[...state.questions.values()]
+        .filter(q=>q.exerciseId===id&&!q.completed&&q.readyAt&&!q.lessonPaused)
+        .sort((a,b)=>(b.readyAt||0)-(a.readyAt||0))[0];
+      if(pending){pending.runningSince=now();state.activeQuestionKey=pending.key;runTimer();}
+    }
+    updateHUD(); persist();
+    emit('lasin:motivation-exercise-changed',{exerciseId:id});
+    return true;
+  }
+
+  function questionReady(payload){
+    payload=payload||{}; const exId=exerciseKey(payload.exerciseId||state.activeExerciseId);
+    if(!state.started||state.finished||!isScorableExercise(exId)) return {accepted:false,reason:'not-scorable'};
+    const q=ensureQuestion(exId,payload.questionId,payload.localIndex);
+    if(!q) return {accepted:false,reason:'missing-question-id'};
+    if(q.completed) return {accepted:false,reason:'already-completed'};
+    if(!q.readyAt) q.readyAt=now();
+    q.lessonPaused=false;
+    q.activeElapsedMs=Number(q.activeElapsedMs)||0;
+    q.runningSince=Number(q.runningSince)||0;
+    if(exId===state.activeExerciseId){
+      if(!q.runningSince) q.runningSince=now();
+      state.activeQuestionKey=q.key;
+      runTimer(); updateHUD();
+      emit('lasin:motivation-question-started',{exerciseId:exId,questionId:q.questionId,localIndex:q.localIndex,globalIndex:globalIndexFor(exId,q.localIndex)});
+    }
+    persist();
+    return {accepted:true,key:q.key,active:exId===state.activeExerciseId};
+  }
+
+  function questionPause(payload){
+    payload=payload||{}; const exId=exerciseKey(payload.exerciseId||state.activeExerciseId);
+    if(!state.started||state.finished||!isScorableExercise(exId)) return {accepted:false,reason:'not-scorable'};
+    const q=ensureQuestion(exId,payload.questionId,payload.localIndex);
+    if(!q) return {accepted:false,reason:'missing-question-id'};
+    if(q.completed) return {accepted:false,reason:'already-completed'};
+    pauseQuestionClock(q);
+    q.lessonPaused=true;
+    if(state.activeQuestionKey===q.key){
+      state.activeQuestionKey=null;
+      cancelAnimationFrame(state.timerRAF); state.timerRAF=0;
+      timerEl.textContent='—';
+      timerFillEl.style.width='100%';
+    }
+    updateHUD(); persist();
+    emit('lasin:motivation-question-paused',{exerciseId:exId,questionId:q.questionId,localIndex:q.localIndex});
+    return {accepted:true,key:q.key,lessonPaused:true};
+  }
+
+
+  function questionMistake(payload){
+    payload=payload||{}; const exId=exerciseKey(payload.exerciseId||state.activeExerciseId);
+    if(!state.started||state.finished||!isScorableExercise(exId)) return {accepted:false,reason:'not-scorable'};
+    const q=ensureQuestion(exId,payload.questionId,payload.localIndex);
+    if(!q) return {accepted:false,reason:'missing-question-id'};
+    if(q.completed) return {accepted:false,reason:'already-completed'};
+    q.hadMistake=true; persist();
+    emit('lasin:motivation-mistake-recorded',{exerciseId:exId,questionId:q.questionId,localIndex:q.localIndex});
+    return {accepted:true,key:q.key,hadMistake:true};
+  }
+
+  function pointsForSeconds(seconds){ const band=config.pointsBands.find(b=>seconds<=b.maxSeconds); return band?band.points:1; }
+
+  function questionCompleted(payload){
+    payload=payload||{}; const exId=exerciseKey(payload.exerciseId||state.activeExerciseId);
+    if(!state.started||state.finished||!isScorableExercise(exId)) return {accepted:false,reason:'not-scorable'};
+    const q=ensureQuestion(exId,payload.questionId,payload.localIndex);
+    if(!q) return {accepted:false,reason:'missing-question-id'};
+    if(q.completed) return {accepted:false,reason:'already-completed',result:serializeQuestion(q)};
+    if(payload.hadMistake===true) q.hadMistake=true;
+    q.lessonPaused=false;
+    let seconds;
+    if(Number.isFinite(payload.elapsedSeconds)) seconds=Math.max(0,Number(payload.elapsedSeconds));
+    else if(q.readyAt) seconds=elapsedSecondsFor(q);
+    else seconds=config.timerSeconds+0.001;
+    pauseQuestionClock(q);
+    const clean=!q.hadMistake;
+    const earned=clean?pointsForSeconds(seconds):0;
+    q.completed=true; q.elapsedSeconds=seconds; q.classification=clean?'correct':'wrong'; q.pointsEarned=earned;
+    state.points+=earned; if(clean) state.correct++; else state.wrong++;
+    if(state.activeQuestionKey===q.key) clearActiveTimer();
+    if(clean) showPointsCelebration(earned,payload.anchorElement||null);
+    updateHUD(true); persist();
+    const result=serializeQuestion(q);
+    emit('lasin:score-updated',Object.assign({},result,{totalPoints:state.points,answered:completedQuestions().length,totalQuestions:totalScoredQuestions()}));
+    finishIfComplete();
+    return {accepted:true,result};
+  }
+
+  function serializeQuestion(q){ return {questionKey:q.key,exerciseId:q.exerciseId,questionId:q.questionId,localIndex:q.localIndex,globalIndex:globalIndexFor(q.exerciseId,q.localIndex),correct:q.classification==='correct',wrong:q.classification==='wrong',hadMistake:q.hadMistake,elapsedSeconds:q.elapsedSeconds,pointsEarned:q.pointsEarned}; }
+
+  function clearActiveTimer(){ const q=activeQuestion(); if(q) pauseQuestionClock(q); state.activeQuestionKey=null; cancelAnimationFrame(state.timerRAF); state.timerRAF=0; timerEl.textContent='—'; timerFillEl.style.width='100%'; }
+  function activeQuestion(){ return state.activeQuestionKey?state.questions.get(state.activeQuestionKey):null; }
+
+  function runTimer(){
+    cancelAnimationFrame(state.timerRAF);
+    const frame=()=>{
+      const q=activeQuestion();
+      if(!state.started||state.finished||!q||q.completed) return;
+      const elapsed=q.readyAt?elapsedSecondsFor(q):0;
+      const remaining=Math.max(0,config.timerSeconds-elapsed);
+      timerEl.textContent=`${Math.ceil(remaining)}s`;
+      timerFillEl.style.width=`${Math.max(0,Math.min(1,remaining/config.timerSeconds))*100}%`;
+      state.timerRAF=requestAnimationFrame(frame);
+    };
+    frame();
+  }
+
+  function ratingForAccuracy(accuracy){ if(accuracy>=90)return'EXCELLENT'; if(accuracy>=70)return'VERY GOOD'; if(accuracy>=50)return'GOOD'; return'NOT SO GOOD'; }
+
+  function updateHUD(bumpPoints=false){
+    studentEl.textContent=state.studentName||'—'; pointsEl.textContent=String(state.points);
+    if(bumpPoints){pointsEl.classList.remove('lasin-motivation-bump');void pointsEl.offsetWidth;pointsEl.classList.add('lasin-motivation-bump');setTimeout(()=>pointsEl.classList.remove('lasin-motivation-bump'),220);}
+    const ex=state.exercises.get(state.activeExerciseId);
+    const q=activeQuestion();
+    if(!ex||!ex.scorable){modeLabelEl.textContent='Preview';progressEl.textContent=ex?ex.label:'Preview';timerEl.textContent='—';timerFillEl.style.width='100%';return;}
+    if(q&&!q.completed){modeLabelEl.textContent='Question';const gi=globalIndexFor(q.exerciseId,q.localIndex);progressEl.textContent=gi?`${gi} / ${totalScoredQuestions()}`:`${ex.label}`;return;}
+    modeLabelEl.textContent='Progress';progressEl.textContent=`${completedQuestions().length} / ${totalScoredQuestions()}`;timerEl.textContent='—';timerFillEl.style.width='100%';
+  }
+
+  function showPointsCelebration(points,anchor){
+    const pop=document.createElement('div');pop.className='lasin-motivation-points-pop';pop.innerHTML=`<span class="lasin-motivation-points-pop-main">+${points}</span><span class="lasin-motivation-points-pop-sub">POINT${points===1?'':'S'} ⭐</span>`;
+    if(anchor instanceof Element){const r=anchor.getBoundingClientRect();pop.style.left=`${Math.min(innerWidth-80,Math.max(80,r.left+r.width/2))}px`;pop.style.top=`${Math.min(innerHeight-100,Math.max(120,r.bottom+72))}px`;}
+    document.body.appendChild(pop);pop.addEventListener('animationend',()=>pop.remove(),{once:true});
+  }
+
+  function finishIfComplete(){
+    const total=totalScoredQuestions();
+    if(total<=0||completedQuestions().length<total||state.finished) return false;
+    if(state.finishTimer) return true;
+    const delay=Math.max(0,Number(config.finalResultsDelayMs)||0);
+    if(delay===0) return finish();
+    state.finishTimer=setTimeout(()=>{
+      state.finishTimer=0;
+      finish();
+    },delay);
+    return true;
+  }
+  function finish(){
+    if(state.finished) return false;
+    const total=totalScoredQuestions();
+    if(total===0||completedQuestions().length<total) return false;
+    if(state.finishTimer){clearTimeout(state.finishTimer);state.finishTimer=0;}
+    state.finished=true;
+    clearActiveTimer();
+    const {accuracy,rating}=renderResults();
+    resultsScreen.classList.remove('lasin-motivation-hidden');
+    persist();
+    emit('lasin:motivation-finished',{studentName:state.studentName,points:state.points,maxPoints:maxPoints(),correct:state.correct,wrong:state.wrong,totalQuestions:total,accuracy,rating});
+    return true;
+  }
+
+  function start(name){
+    const clean=String(name??nameInput.value??'').trim(); if(!clean){startError.textContent='Please type your name first.';nameInput.focus();return false;}
+    state.studentName=clean;state.started=true;state.finished=false;startError.textContent='';startScreen.classList.add('lasin-motivation-hidden');resultsScreen.classList.add('lasin-motivation-hidden');root.classList.add('lasin-motivation-started');updateHUD();persist();emit('lasin:motivation-started',{studentName:clean,totalQuestions:totalScoredQuestions(),maxPoints:maxPoints()});return true;
+  }
+
+  function getState(){ return {version:config.version,started:state.started,finished:state.finished,studentName:state.studentName,activeExerciseId:state.activeExerciseId,totalQuestions:totalScoredQuestions(),answered:completedQuestions().length,correct:state.correct,wrong:state.wrong,points:state.points,maxPoints:maxPoints(),activeQuestion:activeQuestion()?serializeQuestion(activeQuestion()):null,lessonPlan:getLessonPlan()}; }
+
+  function emit(name,detail){ document.dispatchEvent(new CustomEvent(name,{detail})); }
+
+  function persist(){
+    if(hydrating||!config.persistSession) return;
+    try{const q=[...state.questions.values()].map(x=>Object.assign({},x));sessionStorage.setItem(config.persistenceKey,JSON.stringify({studentName:state.studentName,started:state.started,finished:state.finished,activeExerciseId:state.activeExerciseId,points:state.points,correct:state.correct,wrong:state.wrong,exercises:[...state.exercises.values()],questions:q}));}catch{}
+  }
+
+  function renderResults(){
+    const total=totalScoredQuestions();
+    const accuracy=total>0?Math.round((state.correct/total)*100):0;
+    const rating=ratingForAccuracy(accuracy);
+    document.getElementById('lasin-motivation-results-title').textContent=`Great work, ${state.studentName}!`;
+    document.getElementById('lasin-motivation-result-points').textContent=`${state.points} / ${maxPoints()}`;
+    document.getElementById('lasin-motivation-result-correct').textContent=String(state.correct);
+    document.getElementById('lasin-motivation-result-wrong').textContent=String(state.wrong);
+    document.getElementById('lasin-motivation-result-total').textContent=String(total);
+    document.getElementById('lasin-motivation-result-accuracy').textContent=`${accuracy}%`;
+    document.getElementById('lasin-motivation-rating').textContent=rating;
+    return {accuracy,rating};
+  }
+
+  function restore(){
+    let saved=null;
+    if(config.persistSession){
+      try{const raw=sessionStorage.getItem(config.persistenceKey);if(raw)saved=JSON.parse(raw);}catch{}
+    }
+    registerLessonPlan(config.lessonPlan);
+    if(saved){
+      (saved.exercises||[]).forEach(registerExercise);
+      state.studentName=saved.studentName||'';state.started=Boolean(saved.started);state.finished=Boolean(saved.finished);state.activeExerciseId=saved.activeExerciseId||initialExerciseId;state.points=Number(saved.points)||0;state.correct=Number(saved.correct)||0;state.wrong=Number(saved.wrong)||0;
+      (saved.questions||[]).forEach(q=>{const restored=Object.assign({activeElapsedMs:0,runningSince:0,lessonPaused:false},q);restored.runningSince=0;state.questions.set(restored.key,restored);});
+      if(state.started){nameInput.value=state.studentName;startScreen.classList.add('lasin-motivation-hidden');root.classList.add('lasin-motivation-started');}
+      if(state.finished){renderResults();resultsScreen.classList.remove('lasin-motivation-hidden');}
+    }
+    hydrating=false;
+    updateHUD();
+    if(state.started&&!state.finished) finishIfComplete();
+    persist();
+  }
+
+  function reset(){ try{sessionStorage.removeItem(config.persistenceKey);}catch{} location.reload(); }
+
+  function handleBridgeMessage(event){
+    const data=event.data; if(!data||data.channel!==config.messageChannel||typeof data.action!=='string')return;
+    if(!config.allowedMessageOrigins.includes(event.origin))return;
+    const p=data.payload||{};
+    if(data.action==='register-exercise') registerExercise(p);
+    else if(data.action==='active-exercise') setActiveExercise(p.exerciseId);
+    else if(data.action==='question-ready') questionReady(p);
+    else if(data.action==='question-pause') questionPause(p);
+    else if(data.action==='question-mistake') questionMistake(p);
+    else if(data.action==='question-completed') questionCompleted(p);
+    else if(data.action==='get-state'&&event.source&&typeof event.source.postMessage==='function') event.source.postMessage({channel:config.messageChannel,action:'state',payload:getState()},'*');
+  }
+  window.addEventListener('message',handleBridgeMessage,false);
+
+  // Same-document custom-event bridge for flat lessons.
+  document.addEventListener('lasin:motivation-register-exercise',e=>registerExercise(e.detail||{}));
+  document.addEventListener('lasin:motivation-active-exercise',e=>setActiveExercise((e.detail||{}).exerciseId));
+  document.addEventListener('lasin:motivation-question-ready',e=>questionReady(e.detail||{}));
+  document.addEventListener('lasin:motivation-question-pause',e=>questionPause(e.detail||{}));
+  document.addEventListener('lasin:motivation-question-mistake',e=>questionMistake(e.detail||{}));
+  document.addEventListener('lasin:motivation-question-completed',e=>questionCompleted(e.detail||{}));
+
+  startBtn.addEventListener('click',()=>start()); nameInput.addEventListener('keydown',e=>{if(e.key==='Enter')start();}); restartBtn.addEventListener('click',reset);
+
+  window.LASINMotivation=Object.freeze({
+    version:config.version,config,registerExercise,registerLessonPlan,setActiveExercise,questionReady,questionPause,questionMistake,questionCompleted,finish,getState,reset,
+    bridgeMessage:(action,payload={})=>({channel:config.messageChannel,action,payload})
+  });
+
+  restore();
+})();</script>
+<script>
+(() => {
+  'use strict';
+  const frames=new Map([...document.querySelectorAll('.lasin-lesson-frame')].map(f=>[f.dataset.lessonId,f]));
+  const loaded=new Set();
+  const loading=document.getElementById('lasin-loading');
+  let activeId='exercise-01';
+
+  function loadFrame(id){
+    if(loaded.has(id)) return;
+    const frame=frames.get(id);
+    if(!frame) throw new Error('Missing lesson frame: '+id);
+    const src=frame.dataset.src;
+    if(!src) throw new Error('Missing lesson path: '+id);
+    loading.classList.add('show');
+    frame.addEventListener('load',()=>loading.classList.remove('show'),{once:true});
+    frame.src=src;
+    loaded.add(id);
+  }
+
+  function openLesson(id){
+    if(!frames.has(id)) return false;
+    activeId=id;
+    document.querySelectorAll('.lasin-lesson-tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.lessonId===id));
+    frames.forEach((frame,key)=>frame.classList.toggle('active',key===id));
+    if(window.LASINMotivation) window.LASINMotivation.setActiveExercise(id);
+    loadFrame(id);
+    return true;
+  }
+
+  document.querySelectorAll('.lasin-lesson-tab').forEach(btn=>btn.addEventListener('click',()=>openLesson(btn.dataset.lessonId)));
+  document.addEventListener('lasin:motivation-started',()=>openLesson(activeId));
+  document.addEventListener('lasin:motivation-exercise-changed',e=>{
+    const id=(e.detail||{}).exerciseId;
+    if(id&&id!==activeId&&frames.has(id)) openLesson(id);
+  });
+
+  const restoredState=window.LASINMotivation?window.LASINMotivation.getState():null;
+  if(restoredState&&restoredState.started&&frames.has(restoredState.activeExerciseId)){
+    activeId=restoredState.activeExerciseId;
+    openLesson(activeId);
+  }else{
+    loadFrame('exercise-01');
+  }
+})();
+</script>
+</body>
+</html>
