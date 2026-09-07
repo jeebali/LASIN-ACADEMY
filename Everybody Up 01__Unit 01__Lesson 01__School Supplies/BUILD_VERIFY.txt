@@ -1,0 +1,23 @@
+LASIN SCHOOL SUPPLIES — FINAL VERIFIED v5
+
+This is the exact build packaged in:
+Everybody Up 01__Unit 01__Lesson 01__School Supplies__FINAL_VERIFIED_v5.zip
+
+Verification:
+- Vocab embedded MP3s: 6
+- Exercise 01 embedded MP3s: 6
+- Exercise 02 embedded MP3s: 12
+- Exercise 03 embedded MP3s: 13
+- Original Audio Setup strings: 0
+- Embed the Original MP3s strings: 0
+- Waiting-for-MP3 setup strings: 0
+- Base64-only startsWith(data:audio) readiness gates: 0
+- External assets required: NO
+- Package structure: one self-contained index.html
+- Scoring: 60 questions / 300 maximum points
+
+index.html SHA-256:
+0e0793a04ecbb82f9b2c0ad5e3868a1e84e90d779ab0c7b4ea770229636a6db1
+
+Build marker in source:
+LASIN BUILD: SCHOOL SUPPLIES FINAL VERIFIED v5 | FULLY EMBEDDED | NO AUDIO SETUP UI
