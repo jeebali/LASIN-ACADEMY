@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F2F6FB">
+<title>Everybody Up 5 | Unit 01 | Lesson 01 | Activities | Vocab</title>
+<style>
+:root{
+  --red:#E21E2B; --blue:#216CDE; --blue-dark:#1154BC; --bg:#EFF3F8;
+  --text:#172033; --muted:#6E788C; --border:#DDE5EF; --white:#FFFFFF;
+  --shadow:0 14px 32px rgba(29,50,81,.11); --soft-red:rgba(226,30,43,.16);
+  --page-width:min(1560px,96vw);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  min-height:100vh;min-height:100dvh;overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  background:radial-gradient(circle at 8% 7%,rgba(33,108,222,.045),transparent 27%),radial-gradient(circle at 94% 92%,rgba(226,30,43,.045),transparent 25%),var(--bg);
+}
+button{font:inherit;touch-action:manipulation}.screen{display:none;min-height:100vh;min-height:100dvh}.screen.active{display:flex}
+
+/* HOME */
+#homeScreen{align-items:center;justify-content:center;padding:max(22px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(22px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+.home-panel{width:min(920px,96vw);background:rgba(255,255,255,.97);border:1px solid rgba(221,229,239,.8);border-radius:34px;box-shadow:0 22px 55px rgba(33,49,76,.13);padding:clamp(24px,4vw,48px);text-align:center}
+.eyebrow{margin:0 0 18px;color:#67738A;font-size:clamp(14px,1.5vw,22px);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.lesson-banner{width:100%;min-height:112px;display:flex;align-items:center;justify-content:center;padding:18px clamp(14px,2.2vw,26px);border-radius:24px;color:#fff;background:var(--red);box-shadow:0 12px 0 rgba(226,30,43,.14),0 18px 30px rgba(226,30,43,.13);font-size:clamp(20px,3.25vw,45px);font-weight:800;letter-spacing:-.025em;line-height:1;white-space:nowrap}
+.home-actions{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:12px}.vocab-btn{width:min(420px,88%);min-height:96px;border:0;border-radius:22px;background:var(--blue);color:#fff;font-size:clamp(34px,4vw,54px);font-weight:800;box-shadow:0 13px 24px rgba(33,108,222,.18);cursor:pointer;transition:transform .17s ease,background .17s ease,box-shadow .17s ease}.vocab-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}.vocab-btn:active{transform:scale(.985)}
+.embed-wrap{width:min(620px,94%);display:block;margin-top:4px}.embed-btn{width:100%;border:1px solid #C8D5E7;border-radius:15px;padding:13px 17px;background:#F7FAFE;color:#36506F;font-size:14px;font-weight:800;cursor:pointer}.embed-help{margin:9px auto 0;color:var(--muted);font-size:12px;line-height:1.45}.embed-status{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.45;text-align:left;border:1px solid var(--border);background:#F7F9FC;color:#506078}.embed-status.show{display:block}.embed-status.error{border-color:#FFD0D5;background:#FFF4F5;color:#981C29}.embed-status.ok{border-color:#CBE9D8;background:#F0FAF5;color:#1C6844}#audioPicker{display:none}
+
+/* LESSON */
+#lessonScreen{flex-direction:column;padding:max(14px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}
+.lesson-header{width:var(--page-width);margin:0 auto 14px;display:grid;grid-template-columns:190px 1fr 190px;align-items:center;gap:12px}.home-btn,.page-pill{min-height:52px;border-radius:15px;border:1px solid var(--border);background:#fff;box-shadow:0 8px 20px rgba(41,59,84,.07)}.home-btn{justify-self:start;padding:0 18px;cursor:pointer;color:#0E2448;font-size:22px;font-weight:800}.header-center{text-align:center;min-width:0}.header-title{margin:0;color:#081C42;font-size:clamp(34px,3.4vw,46px);line-height:1;font-weight:800}.header-sub{margin-top:9px;color:#66748B;font-size:clamp(14px,1.7vw,22px);font-weight:750}.page-pill{justify-self:end;display:flex;align-items:center;justify-content:center;padding:0 16px;color:#68758C;font-size:18px;font-weight:800;white-space:nowrap}
+
+/* NORMAL VOCAB - 3 PER PAGE */
+.cards{width:var(--page-width);margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.4vw,22px);align-items:stretch}
+.card{min-width:0;background:#fff;border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:clamp(10px,1vw,14px);display:flex;flex-direction:column;align-items:center}.picture-frame{width:100%;aspect-ratio:1.42/1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;border:1px solid #DDE5EF;border-radius:19px;padding:clamp(7px,.7vw,11px)}.picture-frame img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;image-rendering:auto}.word-box{width:calc(100% - 6px);min-height:64px;margin-top:clamp(11px,1.1vw,16px);padding:9px 12px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:14px;background:var(--blue);color:#fff;box-shadow:0 7px 14px rgba(33,108,222,.16);font-size:clamp(21px,1.65vw,30px);line-height:1.08;font-weight:700;letter-spacing:.002em}.audio-area{width:100%;margin-top:11px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}.audio-btn{width:56px;height:56px;flex:0 0 56px;border:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;cursor:pointer;box-shadow:0 8px 16px rgba(33,108,222,.18);transition:transform .16s ease,background .16s ease,box-shadow .16s ease}.audio-btn:hover{background:var(--blue-dark);transform:scale(1.045)}.audio-btn:active{transform:scale(.96)}.audio-btn svg{width:27px;height:27px;display:block}.audio-btn.playing{background:var(--red);box-shadow:0 0 0 7px var(--soft-red),0 9px 18px rgba(226,30,43,.18);animation:pulse 1s ease-in-out infinite}.tap-note{min-height:17px;margin-top:7px;color:#79859A;font-size:clamp(10px,.76vw,12px);line-height:1.1;text-align:center;font-weight:650}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+
+/* VERBS PAGE */
+.verbs-page{width:var(--page-width);margin:0 auto;display:none}.verbs-page.active{display:block}.verbs-kicker{text-align:center;color:#68758C;font-size:clamp(13px,1.15vw,17px);font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:2px 0 12px}.verbs-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,.9vw,15px);align-items:stretch}.verb-group{min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 9px 13px;border-radius:23px;background:rgba(255,255,255,.48);border:1px solid rgba(221,229,239,.72);box-shadow:0 10px 26px rgba(29,50,81,.07)}.verb-label{color:#8893A4;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.verb-word{width:100%;min-height:69px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 8px 18px rgba(41,59,84,.08);display:flex;align-items:center;justify-content:center;padding:9px;text-align:center;color:#141A25;font-size:clamp(22px,1.55vw,29px);font-weight:800;line-height:1;white-space:nowrap}.verb-word .ed{color:var(--red)}.verb-audio{display:flex;align-items:center;justify-content:center;min-height:64px;padding:2px 0}.verb-audio .audio-btn{width:52px;height:52px;flex-basis:52px}.verb-audio .audio-btn svg{width:25px;height:25px}.verbs-note{text-align:center;color:#7B879A;font-size:11px;font-weight:700;margin-top:11px}
+
+/* NAV */
+.navbar{width:var(--page-width);margin:12px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}.nav-btn{min-width:150px;min-height:54px;border:0;border-radius:15px;background:var(--blue);color:#fff;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(33,108,222,.14)}.nav-btn.prev{justify-self:start}.nav-btn.next{justify-self:end}.nav-btn:disabled{cursor:default;background:#F4F6F9;color:#939CAB;box-shadow:none}.dots{display:flex;align-items:center;justify-content:center;gap:8px;min-width:90px}.dot{width:12px;height:12px;padding:0;border:0;border-radius:50%;background:#D2DCEB;cursor:pointer;transition:transform .15s ease,background .15s ease}.dot.active{background:var(--blue);transform:scale(1.18)}
+
+@media(max-width:1150px){:root{--page-width:min(980px,97vw)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cards .card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 10px);justify-self:center}.verbs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.verb-word{font-size:clamp(21px,2.5vw,28px)}}
+@media(max-width:850px){:root{--page-width:min(760px,98vw)}#lessonScreen{padding-top:max(10px,env(safe-area-inset-top));padding-left:max(9px,env(safe-area-inset-left));padding-right:max(9px,env(safe-area-inset-right))}.lesson-header{grid-template-columns:122px 1fr 122px;margin-bottom:10px}.home-btn{min-height:46px;padding:0 12px;font-size:17px}.page-pill{min-height:46px;padding:0 11px;font-size:14px}.header-title{font-size:clamp(30px,5vw,40px)}.header-sub{font-size:clamp(12px,2.5vw,18px)}.cards{gap:10px}.card{border-radius:20px;padding:8px}.picture-frame{border-radius:15px;padding:7px}.word-box{min-height:54px;margin-top:9px;border-radius:12px;font-size:clamp(18px,2.7vw,24px)}.audio-btn{width:49px;height:49px;flex-basis:49px}.audio-btn svg{width:23px;height:23px}.nav-btn{min-width:125px;min-height:49px;font-size:17px}.verbs-grid{gap:9px}.verb-group{border-radius:18px;padding:10px 8px}.verb-word{min-height:60px;border-radius:13px}.verb-audio .audio-btn{width:47px;height:47px;flex-basis:47px}}
+@media(max-width:650px){.home-panel{width:min(96vw,560px);border-radius:26px;padding:22px 14px}.eyebrow{font-size:12px;letter-spacing:.12em;margin-bottom:14px}.lesson-banner{min-height:82px;border-radius:18px;padding:14px 8px;font-size:clamp(14px,4.15vw,20px);letter-spacing:-.035em}.home-actions{margin-top:22px}.vocab-btn{min-height:78px;border-radius:18px;font-size:clamp(32px,11vw,46px)}.lesson-header{grid-template-columns:88px 1fr 0;margin-bottom:8px;gap:6px}.home-btn{min-height:42px;padding:0 9px;font-size:14px;border-radius:12px}.page-pill{display:none}.header-title{font-size:clamp(28px,8vw,36px)}.header-sub{margin-top:5px;font-size:clamp(10px,3.15vw,14px);white-space:nowrap}.cards{grid-template-columns:1fr;gap:10px}.cards .card:last-child:nth-child(odd){grid-column:auto;width:100%}.card{padding:8px;border-radius:19px}.picture-frame{aspect-ratio:1.55/1;padding:6px;border-radius:14px}.word-box{width:100%;min-height:49px;margin-top:8px;padding:7px 6px;border-radius:11px;font-size:clamp(18px,5vw,23px)}.audio-area{margin-top:8px}.audio-btn{width:47px;height:47px;flex-basis:47px}.audio-btn svg{width:22px;height:22px}.tap-note{font-size:9.5px;margin-top:6px}.navbar{margin-top:8px}.nav-btn{min-width:96px;min-height:45px;border-radius:12px;font-size:14px}.dots{gap:6px;min-width:54px}.dot{width:10px;height:10px}.verbs-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.verb-group{padding:8px 7px;gap:6px}.verb-word{min-height:55px;font-size:clamp(20px,6vw,25px)}.verb-label{font-size:9px}.verbs-note{font-size:10px}}
+@media(max-width:390px){.word-box{font-size:17px}.audio-btn{width:44px;height:44px;flex-basis:44px}.lesson-banner{font-size:13.8px}.header-sub{font-size:10.5px}.nav-btn{min-width:86px;font-size:13px}.verbs-grid{grid-template-columns:1fr 1fr}.verb-word{font-size:19px}}
+@media(min-width:851px) and (max-height:760px){#lessonScreen{padding-top:8px;padding-bottom:8px}.lesson-header{margin-bottom:8px}.card{padding:7px 9px}.word-box{margin-top:8px;min-height:49px}.audio-area{margin-top:7px}.audio-btn{width:47px;height:47px;flex-basis:47px}.tap-note{margin-top:5px}.navbar{margin-top:7px}.picture-frame{aspect-ratio:1.55/1}.verb-group{padding-top:8px;padding-bottom:8px}.verb-word{min-height:56px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<section id="homeScreen" class="screen active" aria-label="Vocabulary home">
+  <div class="home-panel">
+    <p class="eyebrow">Everybody Up 5 Vocabulary</p>
+    <div class="lesson-banner">Unit 01 | Lesson 01 | Activities</div>
+    <div class="home-actions">
+      <button id="openVocab" class="vocab-btn" type="button">Vocab</button>
+      <div id="embedWrap" class="embed-wrap" style="display: none;">
+        <button id="embedButton" class="embed-btn" type="button">Embed Original MP3s</button>
+        <input id="audioPicker" type="file" accept=".mp3,audio/mpeg" multiple="">
+        <div class="embed-help">One-time teacher setup. Select the 12 original MP3 files: six activity phrases and six present–past verb-pair recordings. The browser will create a standalone student HTML.</div>
+        <div id="embedStatus" class="embed-status show">Checking MP3 files…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessonScreen" class="screen" aria-label="Vocabulary lesson">
+  <header class="lesson-header">
+    <button id="homeButton" class="home-btn" type="button" aria-label="Return to Home">← Home</button>
+    <div class="header-center"><h1 class="header-title">Vocab</h1><div class="header-sub">Unit 01 • Lesson 01 • Activities</div></div>
+    <div id="pagePill" class="page-pill" aria-live="polite">Page 1 of 3</div>
+  </header>
+
+  <main id="cards" class="cards" aria-live="polite" style="display: grid;"><article class="card"><div class="picture-frame"><img src="../assets/7c14d2b00abe53a091ac5107.png" alt="act in a play vocabulary picture" draggable="false"></div><div class="word-box">act in a play</div><div class="audio-area"><button type="button" class="audio-btn " aria-label="Play act in a play twice" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path></svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/5fe2cad90a47dcda36088688.png" alt="learn how to dive vocabulary picture" draggable="false"></div><div class="word-box">learn how to dive</div><div class="audio-area"><button type="button" class="audio-btn " aria-label="Play learn how to dive twice" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path></svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/156fa351e93167d3bd07a167.png" alt="ride a roller coaster vocabulary picture" draggable="false"></div><div class="word-box">ride a roller coaster</div><div class="audio-area"><button type="button" class="audio-btn " aria-label="Play ride a roller coaster twice" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path></svg></button><div class="tap-note">Tap to hear it twice</div></div></article></main>
+  <section id="verbsPage" class="verbs-page" aria-label="Present and past verbs">
+    <div class="verbs-kicker">Present &amp; Past Verbs</div>
+    <div id="verbsGrid" class="verbs-grid"></div>
+    <div class="verbs-note">Tap a headset to hear that verb twice.</div>
+  </section>
+
+  <nav class="navbar" aria-label="Vocabulary pages">
+    <button id="prevButton" class="nav-btn prev" type="button" disabled="">← Previous</button>
+    <div id="dots" class="dots"><button type="button" class="dot active" aria-label="Go to page 1" aria-current="page"></button><button type="button" class="dot" aria-label="Go to page 2"></button><button type="button" class="dot" aria-label="Go to page 3"></button></div>
+    <button id="nextButton" class="nav-btn next" type="button">Next →</button>
+  </nav>
+</section>
+
+<script id="vocab-data" type="application/json">[{"word":"act in a play","image":"../assets/7c14d2b00abe53a091ac5107.png","audio":"../assets/358e64c63724778ed85da7ec.mp3","expectedFile":"act in a play.mp3","kind":"vocab"},{"word":"learn how to dive","image":"../assets/5fe2cad90a47dcda36088688.png","audio":"../assets/ece140a410ce09b59ec39e58.mp3","expectedFile":"learn how to dive.mp3","kind":"vocab"},{"word":"ride a roller coaster","image":"../assets/156fa351e93167d3bd07a167.png","audio":"../assets/7e85e5310075f776cb8325fb.mp3","expectedFile":"ride a roller coaster.mp3","kind":"vocab"},{"word":"read a lot of books","image":"../assets/9cca750ab57f5694f25904b4.png","audio":"../assets/ef139cc4576e4789fa019c30.mp3","expectedFile":"read a lot of books.mp3","kind":"vocab"},{"word":"win a competition","image":"../assets/333fd874944b995033f595e4.png","audio":"../assets/4c2da7e379c46100a26404e9.mp3","expectedFile":"win a competition.mp3","kind":"vocab"},{"word":"sleep late","image":"../assets/5a5cc4c1dc5fd4f456813b69.png","audio":"../assets/7a1bf98f0d314ca7d91bf49a.mp3","expectedFile":"sleep late.mp3","kind":"vocab"}]</script>
+<script id="verb-data" type="application/json">[{"base":"act","past":"acted","pastHtml":"act<span class=\"ed\">ed</span>","pairFile":"act - acted.mp3","pairAudio":"../assets/225f3a4e7d7c6af595956718.mp3"},{"base":"learn","past":"learned","pastHtml":"learn<span class=\"ed\">ed</span>","pairFile":"learn - learned.mp3","pairAudio":"../assets/1b5af8dbf28c4555f654a265.mp3"},{"base":"ride","past":"rode","pastHtml":"rode","pairFile":"ride - rode.mp3","pairAudio":"../assets/a6e1d338d6d0daf27384a71c.mp3"},{"base":"read","past":"read","pastHtml":"read","pairFile":"read - read.mp3","pairAudio":"../assets/c4c78bd8946c0956269fc528.mp3"},{"base":"win","past":"won","pastHtml":"won","pairFile":"win - won.mp3","pairAudio":"../assets/b860c7ec24c2963dde5f11c7.mp3"},{"base":"sleep","past":"slept","pastHtml":"slept","pairFile":"sleep - slept.mp3","pairAudio":"../assets/93b55ec1eda6e911f512bca0.mp3"}]</script>
+<script>
+(()=>{
+  const VOCAB=JSON.parse(document.getElementById('vocab-data').textContent);
+  const VERBS=JSON.parse(document.getElementById('verb-data').textContent);
+  const TOTAL_PAGES=3, GAP_MS=500;
+  let page=0, playToken=0, gapTimer=null, activeButton=null;
+  const audio=new Audio();
+
+  const $=id=>document.getElementById(id);
+  const homeScreen=$('homeScreen'), lessonScreen=$('lessonScreen'), cards=$('cards'), verbsPage=$('verbsPage'), verbsGrid=$('verbsGrid');
+  const pagePill=$('pagePill'), prev=$('prevButton'), next=$('nextButton'), dots=$('dots');
+
+  const headset=()=>`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path></svg>`;
+
+  function stopAudio(){
+    playToken++;
+    if(gapTimer){clearTimeout(gapTimer);gapTimer=null;}
+    audio.pause();
+    try{audio.currentTime=0}catch(e){}
+    audio.onended=null; audio.onerror=null;
+    if(activeButton){activeButton.classList.remove('playing');activeButton.setAttribute('aria-pressed','false');activeButton=null;}
+  }
+
+  function resolveSource(src){return src||'';}
+  function playTwice(src,button,label){
+    stopAudio();
+    src=resolveSource(src);
+    if(!src){alert(`Original MP3 for “${label}” has not been embedded yet.`);return;}
+    const token=playToken;
+    activeButton=button; button.classList.add('playing'); button.setAttribute('aria-pressed','true');
+    audio.src=src; audio.currentTime=0;
+    let count=0;
+    const cleanup=()=>{ if(token!==playToken)return; if(activeButton===button){button.classList.remove('playing');button.setAttribute('aria-pressed','false');activeButton=null;} audio.onended=null; };
+    audio.onended=()=>{
+      if(token!==playToken)return;
+      count++;
+      if(count>=2){cleanup();return;}
+      gapTimer=setTimeout(()=>{ if(token!==playToken)return; audio.currentTime=0; audio.play().catch(cleanup); },GAP_MS);
+    };
+    audio.play().catch(cleanup);
+  }
+
+  function createAudioButton(src,label,extraClass=''){
+    const b=document.createElement('button'); b.type='button'; b.className='audio-btn '+extraClass; b.innerHTML=headset();
+    b.setAttribute('aria-label',`Play ${label} twice`); b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',()=>playTwice(src,b,label)); return b;
+  }
+
+  function renderVocabPage(start){
+    cards.innerHTML=''; cards.style.display='grid'; verbsPage.classList.remove('active');
+    VOCAB.slice(start,start+3).forEach(item=>{
+      const article=document.createElement('article'); article.className='card';
+      const frame=document.createElement('div'); frame.className='picture-frame';
+      const img=document.createElement('img'); img.src=item.image; img.alt=`${item.word} vocabulary picture`; img.draggable=false; frame.appendChild(img);
+      const box=document.createElement('div'); box.className='word-box'; box.textContent=item.word;
+      const aa=document.createElement('div'); aa.className='audio-area'; aa.appendChild(createAudioButton(item.audio,item.word));
+      const note=document.createElement('div'); note.className='tap-note'; note.textContent='Tap to hear it twice'; aa.appendChild(note);
+      article.append(frame,box,aa); cards.appendChild(article);
+    });
+  }
+
+  function renderVerbs(){
+    cards.innerHTML=''; cards.style.display='none'; verbsPage.classList.add('active'); verbsGrid.innerHTML='';
+    VERBS.forEach(v=>{
+      const group=document.createElement('article'); group.className='verb-group';
+      const pLab=document.createElement('div'); pLab.className='verb-label'; pLab.textContent='Present';
+      const pBox=document.createElement('div'); pBox.className='verb-word'; pBox.textContent=v.base;
+      const pairAud=document.createElement('div'); pairAud.className='verb-audio';
+      pairAud.appendChild(createAudioButton(v.pairAudio,`${v.base} - ${v.past}`));
+      const paLab=document.createElement('div'); paLab.className='verb-label'; paLab.textContent='Past';
+      const paBox=document.createElement('div'); paBox.className='verb-word'; paBox.innerHTML=v.pastHtml;
+      group.append(pLab,pBox,pairAud,paLab,paBox); verbsGrid.appendChild(group);
+    });
+  }
+
+  function renderDots(){ dots.innerHTML=''; for(let i=0;i<TOTAL_PAGES;i++){const d=document.createElement('button');d.type='button';d.className='dot'+(i===page?' active':'');d.setAttribute('aria-label',`Go to page ${i+1}`);if(i===page)d.setAttribute('aria-current','page');d.addEventListener('click',()=>goToPage(i));dots.appendChild(d);} }
+  function renderPage(){
+    stopAudio();
+    if(page===0)renderVocabPage(0); else if(page===1)renderVocabPage(3); else renderVerbs();
+    pagePill.textContent=`Page ${page+1} of ${TOTAL_PAGES}`; prev.disabled=page===0; next.disabled=page===TOTAL_PAGES-1; renderDots();
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  function goToPage(n){ if(n<0||n>=TOTAL_PAGES||n===page)return; page=n; renderPage(); }
+
+  $('openVocab').addEventListener('click',()=>{stopAudio();homeScreen.classList.remove('active');lessonScreen.classList.add('active');page=0;renderPage();});
+  $('homeButton').addEventListener('click',()=>{stopAudio();lessonScreen.classList.remove('active');homeScreen.classList.add('active');});
+  prev.addEventListener('click',()=>goToPage(page-1)); next.addEventListener('click',()=>goToPage(page+1));
+  window.addEventListener('message',e=>{const d=e.data;if(d&&d.channel==='LASIN_HOST_V1'&&d.action==='active-state'&&d.payload&&d.payload.active===false)stopAudio();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();}); window.addEventListener('pagehide',stopAudio); window.addEventListener('beforeunload',stopAudio);
+
+  /* Teacher-side original MP3 embedder */
+  const picker=$('audioPicker'), status=$('embedStatus');
+  const norm=s=>String(s||'').split(/[\\/]/).pop().trim().toLowerCase().replace(/[\u2010-\u2015]/g,'-').replace(/\s*-\s*/g,' - ').replace(/\s+/g,' ');
+  const readData=file=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file);});
+  $('embedButton').addEventListener('click',()=>picker.click());
+  picker.addEventListener('change',async()=>{
+    status.className='embed-status show'; status.textContent='Checking MP3 files…';
+    const files=[...picker.files]; const map=new Map(files.map(f=>[norm(f.name),f]));
+    const expected=[];
+    VOCAB.forEach(x=>expected.push({type:'vocab',obj:x,key:'audio',file:x.expectedFile,label:x.word}));
+    VERBS.forEach(v=>expected.push({type:'verb',obj:v,key:'pairAudio',file:v.pairFile,label:`${v.base} - ${v.past}`}));
+    const missing=expected.filter(e=>!map.has(norm(e.file)));
+    if(missing.length){status.className='embed-status show error';status.innerHTML='<strong>Missing MP3 file(s):</strong><br>'+missing.map(m=>'• '+m.file).join('<br>')+'<br><br>Nothing was exported.';picker.value='';return;}
+    try{
+      for(const e of expected)e.obj[e.key]=await readData(map.get(norm(e.file)));
+      document.getElementById('vocab-data').textContent=JSON.stringify(VOCAB);
+      document.getElementById('verb-data').textContent=JSON.stringify(VERBS);
+      const clone=document.documentElement.cloneNode(true);
+      clone.querySelector('#homeScreen').classList.add('active'); clone.querySelector('#lessonScreen').classList.remove('active');
+      clone.querySelectorAll('.playing').forEach(x=>x.classList.remove('playing'));
+      clone.querySelector('#embedWrap').style.display='none';
+      clone.querySelector('#vocab-data').textContent=JSON.stringify(VOCAB); clone.querySelector('#verb-data').textContent=JSON.stringify(VERBS);
+      const blob=new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'}); const url=URL.createObjectURL(blob); const a=document.createElement('a');a.href=url;a.download='Everybody_Up_5_Unit_01_Lesson_01_Activities_Vocab_EMBEDDED.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2500);
+      status.className='embed-status show ok';status.textContent='All original MP3s were embedded. The standalone student HTML has been downloaded.';
+    }catch(err){status.className='embed-status show error';status.textContent='The MP3 files could not be embedded. Please try again.';}
+    picker.value='';
+  });
+
+  renderPage();
+})();
+</script>
+
+</body></html>

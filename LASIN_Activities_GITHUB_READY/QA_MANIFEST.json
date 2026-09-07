@@ -1,0 +1,387 @@
+{
+  "lesson": "Everybody Up 5 | Unit 01 | Lesson 01 | Activities",
+  "motivationVersion": "3.0-activities-adaptive-strict-audio",
+  "sections": [
+    {
+      "id": "vocab",
+      "scored": false,
+      "questions": 0,
+      "role": "preview"
+    },
+    {
+      "id": "exercise-01",
+      "scored": true,
+      "questions": 36,
+      "globalRange": "1-36"
+    },
+    {
+      "id": "exercise-02",
+      "scored": true,
+      "questions": 18,
+      "globalRange": "37-54"
+    },
+    {
+      "id": "exercise-03",
+      "scored": true,
+      "questions": 12,
+      "globalRange": "55-66"
+    }
+  ],
+  "totalQuestions": 66,
+  "maxPoints": 330,
+  "pointsBands": [
+    {
+      "seconds": "0-5",
+      "points": 5
+    },
+    {
+      "seconds": ">5-10",
+      "points": 4
+    },
+    {
+      "seconds": ">10-15",
+      "points": 3
+    },
+    {
+      "seconds": ">15-20",
+      "points": 2
+    },
+    {
+      "seconds": ">20",
+      "points": 1
+    }
+  ],
+  "wrongRule": "Any genuine wrong attempt in a unique question makes that question Wrong and worth 0 points.",
+  "assets": {
+    "7c14d2b00abe53a091ac5107.png": {
+      "sha256": "7c14d2b00abe53a091ac5107efc7a465679beb7e0411b84afb9b931c2d948a6a",
+      "mime": "image/png",
+      "bytes": 2867419,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "5fe2cad90a47dcda36088688.png": {
+      "sha256": "5fe2cad90a47dcda36088688399527b07026071e858226b83292f77116963562",
+      "mime": "image/png",
+      "bytes": 2421428,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "156fa351e93167d3bd07a167.png": {
+      "sha256": "156fa351e93167d3bd07a167c25c3bc105cdb0d666fc77523280722c5016bcfc",
+      "mime": "image/png",
+      "bytes": 2477007,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "358e64c63724778ed85da7ec.mp3": {
+      "sha256": "358e64c63724778ed85da7ec77827d367abd07e49bdda03e6788387a782eba4d",
+      "mime": "audio/mpeg",
+      "bytes": 42561,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "ece140a410ce09b59ec39e58.mp3": {
+      "sha256": "ece140a410ce09b59ec39e584f79618ed65cdb0b612ab8ba3e84b86944924451",
+      "mime": "audio/mpeg",
+      "bytes": 52174,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "7e85e5310075f776cb8325fb.mp3": {
+      "sha256": "7e85e5310075f776cb8325fb22a15f0c147b900ace293df212443ca21147e339",
+      "mime": "audio/mpeg",
+      "bytes": 51338,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "9cca750ab57f5694f25904b4.png": {
+      "sha256": "9cca750ab57f5694f25904b4c3eba9a1069757844f58fcd5a75777ccd1fcb1b5",
+      "mime": "image/png",
+      "bytes": 2346149,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "ef139cc4576e4789fa019c30.mp3": {
+      "sha256": "ef139cc4576e4789fa019c30866e2fbefa8e744fcab6bb4851136f086d12728a",
+      "mime": "audio/mpeg",
+      "bytes": 49248,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "333fd874944b995033f595e4.png": {
+      "sha256": "333fd874944b995033f595e45139ad85d135a129cd89c68e707f13b04d50c8bb",
+      "mime": "image/png",
+      "bytes": 2495845,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "4c2da7e379c46100a26404e9.mp3": {
+      "sha256": "4c2da7e379c46100a26404e9b818766ac5452b6708328fdfb7bf5cf34485e00d",
+      "mime": "audio/mpeg",
+      "bytes": 47577,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "5a5cc4c1dc5fd4f456813b69.png": {
+      "sha256": "5a5cc4c1dc5fd4f456813b69f44e0c9f1e15d5e7e783e9d11d8a0d06a5af7d65",
+      "mime": "image/png",
+      "bytes": 2628103,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-03"
+      ]
+    },
+    "7a1bf98f0d314ca7d91bf49a.mp3": {
+      "sha256": "7a1bf98f0d314ca7d91bf49a6abfc446d72c83e2343edb26c6aafefa98bcf1d9",
+      "mime": "audio/mpeg",
+      "bytes": 40471,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "225f3a4e7d7c6af595956718.mp3": {
+      "sha256": "225f3a4e7d7c6af59595671821bd2986e3d9022f07f90a02209b614d3b235bc8",
+      "mime": "audio/mpeg",
+      "bytes": 51338,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "1b5af8dbf28c4555f654a265.mp3": {
+      "sha256": "1b5af8dbf28c4555f654a2655c30f24656075c78ef59276a2512c4035d392a65",
+      "mime": "audio/mpeg",
+      "bytes": 56772,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "a6e1d338d6d0daf27384a71c.mp3": {
+      "sha256": "a6e1d338d6d0daf27384a71c413292ae0536ed9ea2e71ec1676d98d949f9d592",
+      "mime": "audio/mpeg",
+      "bytes": 54264,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "c4c78bd8946c0956269fc528.mp3": {
+      "sha256": "c4c78bd8946c0956269fc52815f18c6d7c23bc2b1adec85fe40aa99c1b8e1bdd",
+      "mime": "audio/mpeg",
+      "bytes": 52174,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "b860c7ec24c2963dde5f11c7.mp3": {
+      "sha256": "b860c7ec24c2963dde5f11c7cf97b669c970aa5f9ca40fe5d5bfaadacbed417a",
+      "mime": "audio/mpeg",
+      "bytes": 46323,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "93b55ec1eda6e911f512bca0.mp3": {
+      "sha256": "93b55ec1eda6e911f512bca054e19e06f38bd60e51dc49fe8a0cda6341ea5aca",
+      "mime": "audio/mpeg",
+      "bytes": 54264,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "6c2069cc1306a3b64d9e927d.mp3": {
+      "sha256": "6c2069cc1306a3b64d9e927d3b43652c3bdb8a4309f5451ce5c81a4f4fb5d35d",
+      "mime": "audio/mpeg",
+      "bytes": 71400,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "cfaa0b2c2d8d58e6159139a6.mp3": {
+      "sha256": "cfaa0b2c2d8d58e6159139a6a9c04146eb20916d95f35ace9df9db11d304c4ee",
+      "mime": "audio/mpeg",
+      "bytes": 75998,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "dbd5ff80cde6e472da35ee99.mp3": {
+      "sha256": "dbd5ff80cde6e472da35ee99e2a25372d574999d6770bbbd1d6b7b4df88b64c2",
+      "mime": "audio/mpeg",
+      "bytes": 75162,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "80f6e3421c12ca4dd9a3f9cb.mp3": {
+      "sha256": "80f6e3421c12ca4dd9a3f9cba9998fca91cb0bf6ec3e4225c241d84c18d281e1",
+      "mime": "audio/mpeg",
+      "bytes": 73072,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "75c4bae41999ab83f452cd77.mp3": {
+      "sha256": "75c4bae41999ab83f452cd777b6dbf9aeacd2f0a5953f67f787002f5487494f5",
+      "mime": "audio/mpeg",
+      "bytes": 73072,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "f2cfdd7c9798c2ecd064181e.mp3": {
+      "sha256": "f2cfdd7c9798c2ecd064181edb875656786261b7a57894c921f13cea95ed8ab8",
+      "mime": "audio/mpeg",
+      "bytes": 68474,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "ce76d1f5961fb239fbe092e1.png": {
+      "sha256": "ce76d1f5961fb239fbe092e17a0e6d16b7e777ba95bb56345f9c50474e7562de",
+      "mime": "image/png",
+      "bytes": 2457110,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "e957650fc0606da46e2ec488.png": {
+      "sha256": "e957650fc0606da46e2ec4880a7a45b69566a46e36bacffb69e4b393d06ebe77",
+      "mime": "image/png",
+      "bytes": 1979793,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "8a3e49186b1d301add9b2c8d.png": {
+      "sha256": "8a3e49186b1d301add9b2c8d0d0cd29f3c8dc8dd76a5e6ed3b02f681885b6e5f",
+      "mime": "image/png",
+      "bytes": 2256516,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "99095e14522102d09438a258.png": {
+      "sha256": "99095e14522102d09438a2583e45eb77ff776cb899096aa9a95fd69f4800c700",
+      "mime": "image/png",
+      "bytes": 2724128,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "146ebeb7511e33061395172b.png": {
+      "sha256": "146ebeb7511e33061395172b2c8a83906fb00206a4f4d7b9a5ccdf8a8a322e55",
+      "mime": "image/png",
+      "bytes": 2642388,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "995664d2c97aba74509c3c6a.png": {
+      "sha256": "995664d2c97aba74509c3c6a9b00c28b67b673cd956120db9d44da1672b248df",
+      "mime": "image/png",
+      "bytes": 3155493,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "3f0e734acd3e65d265e8363c.mp3": {
+      "sha256": "3f0e734acd3e65d265e8363c63df43cd4226e344d7ed7c16d0dc873fc997f432",
+      "mime": "audio/mpeg",
+      "bytes": 65549,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "3406feb67ebc82b79e5fbdf9.mp3": {
+      "sha256": "3406feb67ebc82b79e5fbdf99935846b913e0d1439212fff3e35f3c1e928b50f",
+      "mime": "audio/mpeg",
+      "bytes": 63877,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "0eff2fe90a2c359c485fe676.mp3": {
+      "sha256": "0eff2fe90a2c359c485fe6762bcb4d188299fe40e56d3f84cd2fdfa402635d9a",
+      "mime": "audio/mpeg",
+      "bytes": 51338,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "c9b548fcc42c39bf08776e95.mp3": {
+      "sha256": "c9b548fcc42c39bf08776e9521ee6aa1e76a34fe428da117e961eb97538b1cc8",
+      "mime": "audio/mpeg",
+      "bytes": 43397,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "9dffd82933f64871dd1df673.mp3": {
+      "sha256": "9dffd82933f64871dd1df673b547c72a0b514839cb71cd4bbc61ed87d89d1572",
+      "mime": "audio/mpeg",
+      "bytes": 51338,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "08da17a629b5f1d57de1e8af.mp3": {
+      "sha256": "08da17a629b5f1d57de1e8afe468de9f9710922b2321deed0745efcb54ec7ea5",
+      "mime": "audio/mpeg",
+      "bytes": 48412,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "c8fef4edf4aff2acb24a184f.mp3": {
+      "sha256": "c8fef4edf4aff2acb24a184ff9a8f9338353c12b8ad1bd8b6698f5d2188085ef",
+      "mime": "audio/mpeg",
+      "bytes": 50084,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "83411e441e69d02d5003d88f.mp3": {
+      "sha256": "83411e441e69d02d5003d88f758a8a9de386a063a4de83aebbe59abc25cdbcb5",
+      "mime": "audio/mpeg",
+      "bytes": 47159,
+      "usedBy": [
+        "exercise-03"
+      ]
+    }
+  },
+  "uniqueAssetCount": 38,
+  "uniqueAssetBytes": 31908215
+}

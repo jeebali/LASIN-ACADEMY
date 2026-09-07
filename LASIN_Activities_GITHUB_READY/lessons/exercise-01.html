@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>LASIN | Everybody Up 5 | Unit 01 Lesson 01 | Activities Vocabulary Practice</title>
+<style>
+:root{
+  --royal:#103D9B;--navy:#0B2F7E;--orange:#F45A0A;--white:#FFFFFF;
+  --ink:#17325f;--soft:#F4F7FC;--line:#DDE6F5;--good:#16855B;--bad:#C43A31;
+  --choiceRed:#E21E2B;--choiceBlue:#216CDE;--shadow:0 12px 30px rgba(11,47,126,.10)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;font-family:"Nunito","Poppins","Arial Rounded MT Bold",Arial,sans-serif;color:var(--ink)}
+body{min-height:100vh;min-height:100dvh;display:flex;justify-content:center;align-items:stretch;overflow-x:hidden;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+button,input{font:inherit}button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}img{-webkit-user-drag:none;user-select:none}.hidden{display:none!important}
+.app{width:min(1180px,100%);min-height:100vh;min-height:100dvh;padding:max(18px,env(safe-area-inset-top)) clamp(14px,3vw,34px) max(28px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:2px solid var(--line);padding:4px 2px 13px}.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:42px;height:42px;border-radius:13px;background:var(--royal);color:white;font-weight:1000;display:grid;place-items:center;letter-spacing:.5px;box-shadow:0 7px 18px rgba(16,61,155,.20)}.brandText{min-width:0}.brandText strong{display:block;color:var(--navy);font-size:clamp(16px,2vw,20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brandText span{font-size:13px;color:#63799c}.progressWrap{display:flex;align-items:center;gap:10px;min-width:210px;justify-content:flex-end}.progressTrack{height:10px;width:min(230px,25vw);background:#e9eff8;border-radius:999px;overflow:hidden}.progressBar{height:100%;width:0;background:var(--orange);transition:width .35s ease}.counter{font-weight:900;color:var(--navy);min-width:56px;text-align:right}
+.stageRow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.stagePill{border:1.5px solid var(--line);color:#6a7e9e;background:#fff;border-radius:999px;padding:9px 9px;text-align:center;font-size:clamp(10px,1.35vw,13px);font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stagePill.active{border-color:var(--royal);background:#eef3ff;color:var(--royal)}.stagePill.done{border-color:#b8dfd0;background:#effaf6;color:var(--good)}
+.card{flex:1;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:clamp(18px,3vw,34px);position:relative;overflow:hidden;min-height:570px}.card:before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:var(--royal)}
+.questionHead{text-align:center;margin-top:2px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:1000;color:var(--orange);margin-bottom:4px}.questionHead h1{margin:0;color:var(--royal);font-size:clamp(28px,4vw,44px);line-height:1.08}.instruction{margin:9px auto 0;color:#657a99;font-weight:800;font-size:clamp(15px,2vw,19px)}
+.audioArea{display:flex;justify-content:center;margin:18px 0 8px}.audioBtn{border:0;background:var(--royal);color:white;border-radius:999px;padding:13px 22px;font-weight:1000;display:flex;align-items:center;gap:10px;box-shadow:0 8px 20px rgba(16,61,155,.18);cursor:pointer}.audioBtn:active{transform:translateY(1px)}.audioBtn:disabled{opacity:.45;cursor:default}.speaker{font-size:21px;display:inline-block}.audioBtn.playing .speaker{animation:pulse .75s infinite alternate}@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.22)}}
+.main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:0}.choiceGrid{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,22px);align-items:stretch;margin-top:12px}.picChoice{position:relative;border:2px solid var(--line);background:#fff;border-radius:22px;padding:31px 12px 14px;min-height:235px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.16s ease;overflow:visible}@media(hover:hover) and (pointer:fine){.picChoice:hover{border-color:#9ab1dc;transform:translateY(-2px)}}.picChoice img{width:100%;height:180px;object-fit:contain;display:block}.numBadge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:42px;height:42px;border-radius:50%;background:var(--navy);color:white;border:4px solid white;display:grid;place-items:center;font-weight:1000;font-size:18px;box-shadow:0 5px 14px rgba(11,47,126,.18)}.picChoice.correct{border-color:var(--good);box-shadow:0 0 0 4px rgba(22,133,91,.10)}.picChoice.wrong{border-color:var(--bad);animation:shake .28s linear}.picChoice.locked{pointer-events:none}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.spellLayout{width:min(900px,100%);display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:clamp(22px,4vw,46px);align-items:center}.vocabPic{border:2px solid var(--line);border-radius:24px;min-height:270px;padding:15px;display:flex;align-items:center;justify-content:center;background:#fff}.vocabPic img{width:100%;height:230px;object-fit:contain}.wordPane{text-align:center;min-width:0}.phraseDisplay{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:11px;margin:8px auto 26px;min-height:76px;width:100%;font-size:clamp(25px,3.4vw,38px);font-weight:1000;color:var(--navy);line-height:1.2}.fixedText{display:inline-block;max-width:100%}.dropSlot{min-width:clamp(120px,19vw,210px);min-height:58px;border:2px dashed #b8c7df;border-radius:15px;background:#f8faff;color:#8ea0bd;display:inline-flex;align-items:center;justify-content:center;padding:9px 15px;font-weight:1000;letter-spacing:.08em}.dropSlot.filled{border:0;background:transparent;padding:0}.choiceBank{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%;max-width:720px;margin:0 auto}.choiceChip,.placedChip{border:0;border-radius:16px;padding:13px 20px;font-weight:1000;font-size:clamp(17px,2.1vw,22px);line-height:1.1;cursor:pointer;min-height:52px;box-shadow:0 7px 17px rgba(0,0,0,.10);transition:transform .15s ease,opacity .15s ease}.choiceChip{background:var(--choiceRed);color:#fff}.choiceChip:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.choiceChip:hover{transform:translateY(-2px);box-shadow:0 9px 20px rgba(226,30,43,.18)}}.choiceChip.wrong{outline:4px solid rgba(196,58,49,.16);animation:shake .28s linear}.choiceChip:disabled{opacity:.50;cursor:default;transform:none}.placedChip{background:var(--choiceBlue);color:#fff;cursor:default;animation:liftIn .24s ease-out}@keyframes liftIn{from{transform:translateY(12px) scale(.94);opacity:.2}to{transform:translateY(0) scale(1);opacity:1}}
+.buildAnswer{min-height:82px;border:2px dashed #c5d2e6;border-radius:20px;background:#f9fbff;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;padding:12px;margin:4px auto 23px;width:min(680px,100%)}.answerHint{color:#91a1bb;font-weight:900}.buildAnswer.hasWords .answerHint{display:none}
+.verbWrap{width:min(820px,100%);display:flex;flex-direction:column;align-items:center;gap:22px}.verbCard{width:min(760px,100%);border:2px solid var(--line);border-radius:28px;background:linear-gradient(180deg,#fff,#f8faff);box-shadow:0 10px 25px rgba(11,47,126,.08);padding:clamp(24px,5vw,48px)}.verbDirection{font-size:13px;text-transform:uppercase;letter-spacing:.13em;color:var(--orange);font-weight:1000;margin-bottom:18px}.verbEquation{display:grid;grid-template-columns:minmax(130px,1fr) auto minmax(130px,1fr);gap:18px;align-items:center}.verbForm,.verbMissing{min-height:92px;border-radius:20px;display:grid;place-items:center;padding:14px;font-size:clamp(28px,4.6vw,46px);font-weight:1000}.verbForm{background:#fff;border:2px solid #cfdaeb;color:#111}.verbMissing{background:#f8faff;border:2px dashed #b8c7df;color:#8ea0bd}.verbMissing.filled{border:0;background:transparent;padding:0}.verbMissing .placedChip{width:100%;min-height:92px;font-size:clamp(27px,4vw,42px);display:grid;place-items:center}.verbArrow{font-size:clamp(30px,4vw,48px);font-weight:1000;color:var(--royal)}
+.feedback{min-height:42px;text-align:center;font-size:18px;font-weight:1000;padding-top:12px}.feedback.good{color:var(--good)}.feedback.bad{color:var(--bad)}.feedback.listening{color:#6a7e9e}.feedback.ready{color:var(--royal)}
+/* Compulsory-listening lock: choices remain visible but cannot be used until both complete audio plays finish. */
+.main.interactionLocked .picChoice,.main.interactionLocked .choiceChip{pointer-events:none!important;cursor:not-allowed!important;opacity:.58;filter:saturate(.72);transform:none!important}.main.interactionLocked .picChoice:hover,.main.interactionLocked .choiceChip:hover{transform:none!important;box-shadow:none}.main.interactionLocked{user-select:none}
+.startScreen,.finishScreen{flex:1;display:grid;place-items:center;text-align:center;padding:20px}.startInner,.finishInner{max-width:780px;width:100%}.heroWord{font-size:clamp(30px,8vw,82px);line-height:.95;color:var(--royal);font-weight:1000;margin:0 0 22px;white-space:nowrap}.heroSub{font-size:clamp(18px,2.4vw,23px);color:#647999;font-weight:800;margin:0 auto 24px;max-width:610px}.startBtn{border:0;background:var(--orange);color:#fff;border-radius:20px;padding:17px 30px;font-size:22px;font-weight:1000;cursor:pointer;box-shadow:0 10px 23px rgba(244,90,10,.22)}.startBtn:active{transform:translateY(1px)}.startBtn:disabled{opacity:.45;cursor:default;box-shadow:none}.finishIcon{width:92px;height:92px;border-radius:50%;background:#effaf6;color:var(--good);display:grid;place-items:center;font-size:48px;margin:0 auto 16px;border:3px solid #b7dfcf}.finishScreen h2{font-size:clamp(36px,6vw,58px);color:var(--royal);margin:0 0 8px}.finishScreen p{color:#647999;font-size:19px;font-weight:800}.restartBtn{margin-top:16px;border:2px solid var(--royal);color:var(--royal);background:#fff;border-radius:16px;padding:12px 24px;font-weight:1000;cursor:pointer}
+.stageOverlay{position:absolute;inset:0;z-index:20;background:rgba(255,255,255,.97);display:none;place-items:center;text-align:center;padding:30px}.stageOverlay.show{display:grid}.stageOverlay .circle{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:#eef3ff;color:var(--royal);font-size:29px;font-weight:1000;margin:0 auto 13px}.stageOverlay h2{margin:0;color:var(--royal);font-size:clamp(30px,5vw,46px)}.stageOverlay p{margin:8px 0 0;color:#687c9b;font-size:18px;font-weight:800}
+.bravoOverlay{position:fixed;inset:0;z-index:1000;background:#EAF8EE;display:none;place-items:center;text-align:center;padding:24px;opacity:0;transition:opacity .12s ease}.bravoOverlay.show{display:grid;opacity:1}.bravoCelebration{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;max-width:min(92vw,560px)}.bravoArt{width:min(300px,70vw);height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(35,86,51,.12));animation:bravoPop .34s ease-out}.bravoWord{margin:0;color:#D4AF37;font-size:clamp(58px,12vw,108px);line-height:.95;font-weight:1000;letter-spacing:.01em;text-shadow:0 3px 0 rgba(139,105,20,.10),0 10px 25px rgba(139,105,20,.12);animation:bravoPop .34s ease-out}@keyframes bravoPop{0%{transform:scale(.82);opacity:.2}70%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:1}}
+.audioSetup{width:min(720px,96%);margin:18px auto 0;padding:16px 18px;border:1px solid #DDE6F5;border-radius:18px;background:#F8FAFE;box-shadow:0 8px 20px rgba(11,47,126,.07)}.audioSetupTitle{font-weight:1000;color:#17325F;font-size:16px;margin-bottom:6px}.audioSetupText{color:#5E7193;font-size:13px;font-weight:800;line-height:1.45}.audioSetupActions{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:12px;flex-wrap:wrap}.audioSetupBtn{border:0;border-radius:14px;padding:12px 18px;background:#103D9B;color:#fff;font-weight:1000;cursor:pointer;box-shadow:0 8px 16px rgba(16,61,155,.18)}@media(hover:hover) and (pointer:fine){.audioSetupBtn:hover{background:#0B2F7E;transform:translateY(-1px)}}.audioSetupBtn:disabled{opacity:.48;cursor:default;transform:none}.audioSetupStatus{margin-top:10px;min-height:20px;font-size:13px;font-weight:900;color:#5E7193;line-height:1.45;white-space:pre-line}.audioSetupStatus.ok{color:#16855B}.audioSetupStatus.bad{color:#C43A31}.audioSetupProgress{margin-top:10px;height:8px;background:#E5ECF8;border-radius:999px;overflow:hidden}.audioSetupProgressBar{height:100%;width:0;background:#F45A0A;border-radius:999px;transition:width .15s ease}
+@media(max-width:920px){.stageRow{grid-template-columns:repeat(3,minmax(0,1fr))}.stagePill{font-size:11px}.spellLayout{grid-template-columns:minmax(210px,310px) 1fr;gap:22px}.vocabPic img{height:200px}}
+@media(max-width:760px){.app{padding:max(10px,env(safe-area-inset-top)) 10px max(18px,env(safe-area-inset-bottom))}.topbar{align-items:flex-start}.brandText span{display:none}.progressWrap{min-width:145px}.progressTrack{width:95px}.stageRow{gap:5px}.stagePill{padding:8px 6px;font-size:10px}.card{border-radius:22px;min-height:650px;padding:18px 12px}.choiceGrid{grid-template-columns:1fr;gap:26px;width:min(460px,100%)}.picChoice{min-height:170px;padding:24px 8px 8px}.picChoice img{height:145px}.spellLayout{grid-template-columns:1fr;gap:16px}.vocabPic{min-height:180px;width:min(360px,100%);margin:auto}.vocabPic img{height:160px}.audioArea{margin-top:14px}.phraseDisplay{font-size:clamp(23px,6.4vw,32px);margin-bottom:20px}.choiceChip,.placedChip{font-size:18px;padding:12px 17px}.verbEquation{grid-template-columns:1fr;gap:10px}.verbArrow{transform:rotate(90deg);line-height:1}.verbCard{padding:24px 18px}.verbForm,.verbMissing{min-height:72px}.verbMissing .placedChip{min-height:72px}.audioSetup{padding:13px 12px;margin-top:12px}.audioSetupBtn{width:100%}}
+@media(max-width:520px){.stageRow{grid-template-columns:repeat(2,minmax(0,1fr))}.stagePill:last-child{grid-column:1/-1}.choiceBank{gap:9px}.choiceChip,.placedChip{width:auto;max-width:100%;font-size:16px}.dropSlot{min-width:110px}.buildAnswer{padding:10px;gap:8px}}
+@media(max-width:410px){.logo{width:38px;height:38px;border-radius:11px}.brandText strong{font-size:14px}.progressWrap{min-width:118px;gap:6px}.progressTrack{width:72px}.counter{font-size:13px;min-width:46px}.stagePill{font-size:9px;padding:7px 4px}.heroWord{font-size:clamp(28px,9.2vw,38px)}.card{padding-left:9px;padding-right:9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<div id="bravoOverlay" class="bravoOverlay" aria-hidden="true"><div class="bravoCelebration"><svg class="bravoArt" viewBox="0 0 320 240" role="img" aria-label="Celebration"><g fill="none" stroke-linecap="round" stroke-width="8"><path d="M49 50l16 22" stroke="#F45A0A"></path><path d="M269 46l-16 24" stroke="#103D9B"></path><path d="M31 113l29 2" stroke="#D4AF37"></path><path d="M289 111l-28 3" stroke="#16855B"></path><path d="M72 188l19-22" stroke="#103D9B"></path><path d="M248 188l-18-22" stroke="#F45A0A"></path></g><g><circle cx="55" cy="88" r="8" fill="#16855B"></circle><circle cx="270" cy="83" r="8" fill="#F45A0A"></circle><circle cx="89" cy="38" r="7" fill="#D4AF37"></circle><circle cx="232" cy="34" r="7" fill="#103D9B"></circle></g><path d="M107 78h106v52c0 44-24 73-53 73s-53-29-53-73V78z" fill="#F7C948" stroke="#D4AF37" stroke-width="7"></path><path d="M107 94H78c-5 0-9 4-9 9 0 30 17 47 44 47" fill="none" stroke="#D4AF37" stroke-width="10"></path><path d="M213 94h29c5 0 9 4 9 9 0 30-17 47-44 47" fill="none" stroke="#D4AF37" stroke-width="10"></path><rect x="146" y="199" width="28" height="19" rx="5" fill="#D4AF37"></rect><rect x="126" y="216" width="68" height="13" rx="6.5" fill="#103D9B"></rect><path d="M160 103l8 17 19 3-14 13 4 19-17-9-17 9 4-19-14-13 19-3z" fill="#fff"></path></svg><div class="bravoWord">Bravo!</div></div></div>
+<div class="app">
+<header class="topbar"><div class="brand"><div class="logo">L</div><div class="brandText"><strong>LASIN • Vocabulary Practice</strong><span id="lessonMeta">Unit 01 • Lesson 01 • Activities</span></div></div><div class="progressWrap"><div class="progressTrack"><div id="progressBar" class="progressBar" style="width: 0%;"></div></div><div id="counter" class="counter">0/36</div></div></header>
+<div id="stageRow" class="stageRow"><div class="stagePill" data-stage="0">Listen &amp; Choose</div><div class="stagePill" data-stage="1">Choose the Verb</div><div class="stagePill" data-stage="2">Complete the Phrase</div><div class="stagePill" data-stage="3">Build the Phrase</div><div class="stagePill" data-stage="4">Verbs</div></div>
+<section id="card" class="card">
+<div id="stageOverlay" class="stageOverlay" aria-live="polite"><div><div id="overlayCircle" class="circle"></div><h2 id="overlayTitle"></h2><p id="overlayText"></p></div></div>
+<div id="startScreen" class="startScreen"><div class="startInner"><h1 id="heroWord" class="heroWord">Activities</h1><button id="startBtn" class="startBtn" type="button">Start Vocabulary</button><div id="audioSetup" class="audioSetup hidden"><div class="audioSetupTitle">Original audio setup</div><div class="audioSetupText">One-time teacher setup. Select the 6 original Activity phrase MP3s and the 6 original present/past verb-pair MP3s. The browser will embed your original files directly and create a standalone 36-question student HTML.</div><div class="audioSetupActions"><button class="audioSetupBtn" id="embedAudioBtn" type="button">Embed the 12 Original MP3s</button><input id="audioFilePicker" type="file" accept=".mp3,audio/mpeg" multiple="" hidden=""></div><div class="audioSetupProgress"><div class="audioSetupProgressBar" id="audioSetupProgressBar" style="width: 100%;"></div></div><div class="audioSetupStatus ok" id="audioSetupStatus">All 12 original MP3s are embedded. Creating the standalone 36-question student HTML…</div></div></div></div>
+<div id="questionScreen" class="hidden"><div class="questionHead"><div id="eyebrow" class="eyebrow"></div><h1 id="questionTitle"></h1><p id="instruction" class="instruction"></p></div><div id="audioArea" class="audioArea"><button id="audioBtn" class="audioBtn" type="button"><span class="speaker">🔊</span><span id="audioBtnText">Listen again</span></button></div><main id="main" class="main" aria-busy="false" aria-disabled="false"></main><div id="feedback" class="feedback" aria-live="polite"></div></div>
+<div id="finishScreen" class="finishScreen hidden"><div class="finishInner"><div class="finishIcon">✓</div><h2>Great job!</h2><p id="finishText">You finished all 36 vocabulary questions.</p><button id="restartBtn" class="restartBtn" type="button">Practice again</button></div></div>
+</section></div>
+<script id="lasinLessonData" type="application/json">{"unitNumber":"01","lessonNumber":"01","lessonName":"Activities","category":"Activities","audioRepetitions":2,"audioRepeatGapMs":500,"autoAudioDelayMs":1700,"phrases":[{"phrase":"act in a play","verb":"act","remainder":"in a play","tokens":["act","in","a","play"],"image":"../assets/7c14d2b00abe53a091ac5107.png","audio":"../assets/358e64c63724778ed85da7ec.mp3","expectedFile":"act in a play.mp3"},{"phrase":"learn how to dive","verb":"learn","remainder":"how to dive","tokens":["learn","how","to","dive"],"image":"../assets/5fe2cad90a47dcda36088688.png","audio":"../assets/ece140a410ce09b59ec39e58.mp3","expectedFile":"learn how to dive.mp3"},{"phrase":"ride a roller coaster","verb":"ride","remainder":"a roller coaster","tokens":["ride","a","roller","coaster"],"image":"../assets/156fa351e93167d3bd07a167.png","audio":"../assets/7e85e5310075f776cb8325fb.mp3","expectedFile":"ride a roller coaster.mp3"},{"phrase":"read a lot of books","verb":"read","remainder":"a lot of books","tokens":["read","a","lot","of","books"],"image":"../assets/9cca750ab57f5694f25904b4.png","audio":"../assets/ef139cc4576e4789fa019c30.mp3","expectedFile":"read a lot of books.mp3"},{"phrase":"win a competition","verb":"win","remainder":"a competition","tokens":["win","a","competition"],"image":"../assets/333fd874944b995033f595e4.png","audio":"../assets/4c2da7e379c46100a26404e9.mp3","expectedFile":"win a competition.mp3"},{"phrase":"sleep late","verb":"sleep","remainder":"late","tokens":["sleep","late"],"image":"../assets/5a5cc4c1dc5fd4f456813b69.png","audio":"../assets/7a1bf98f0d314ca7d91bf49a.mp3","expectedFile":"sleep late.mp3"}],"verbs":[{"base":"act","past":"acted","audio":"../assets/225f3a4e7d7c6af595956718.mp3","expectedFile":"act - acted.mp3"},{"base":"learn","past":"learned","audio":"../assets/1b5af8dbf28c4555f654a265.mp3","expectedFile":"learn - learned.mp3"},{"base":"ride","past":"rode","audio":"../assets/a6e1d338d6d0daf27384a71c.mp3","expectedFile":"ride - rode.mp3"},{"base":"read","past":"read","audio":"../assets/c4c78bd8946c0956269fc528.mp3","expectedFile":"read - read.mp3"},{"base":"win","past":"won","audio":"../assets/b860c7ec24c2963dde5f11c7.mp3","expectedFile":"win - won.mp3"},{"base":"sleep","past":"slept","audio":"../assets/93b55ec1eda6e911f512bca0.mp3","expectedFile":"sleep - slept.mp3"}]}</script>
+<script>
+(()=>{
+'use strict';
+const LASIN_MOTIVATION_EXERCISE_ID='exercise-01';
+function lasinMotivationBridge(action,payload={}){
+  try{window.parent.postMessage({channel:'LASIN_MOTIVATION_V2',action,payload:Object.assign({exerciseId:LASIN_MOTIVATION_EXERCISE_ID},payload||{})},'*');}catch(e){}
+}
+function lasinMotivationSignal(action,extra={}){
+  const localIndex=qIndex+1;
+  lasinMotivationBridge(action,Object.assign({questionId:String(localIndex),localIndex},extra||{}));
+}
+function lasinHostSuspend(){
+  /* A parent tab switch does not set document.hidden inside an iframe. Recover required audio explicitly. */
+  recoverRequiredAudioAfterInterruption();
+}
+window.addEventListener('message',e=>{
+  const d=e.data;if(!d||d.channel!=='LASIN_HOST_V1'||d.action!=='active-state')return;
+  if(d.payload&&d.payload.active===false)lasinHostSuspend();
+});
+const lesson=JSON.parse(document.getElementById('lasinLessonData').textContent);
+const phrases=lesson.phrases, verbs=lesson.verbs;
+const GAP_MS=Number(lesson.audioRepeatGapMs)||500;
+const AUTO_AUDIO_DELAY=Number(lesson.autoAudioDelayMs)||1700;
+const CORRECT_PAUSE=500, BRAVO_MS=2000, STAGE_OVERLAY_MS=1250;
+const stages=[
+  {name:'Listen & Choose',size:phrases.length,title:'Listen and choose',instruction:'Which picture matches the phrase you hear?'},
+  {name:'Choose the Verb',size:phrases.length,title:'Choose the Verb',instruction:'Listen and choose the missing verb.'},
+  {name:'Complete the Phrase',size:phrases.length,title:'Complete the Phrase',instruction:'Listen and choose the missing part of the phrase.'},
+  {name:'Build the Phrase',size:phrases.length,title:'Build the Phrase',instruction:'Listen and build the phrase in the correct order.'},
+  {name:'Verbs',size:verbs.length*2,title:'Verbs',instruction:'Choose the correct verb form.'}
+];
+const questions=[];
+phrases.forEach((_,i)=>questions.push({stage:0,index:i}));
+phrases.forEach((_,i)=>questions.push({stage:1,index:i}));
+phrases.forEach((_,i)=>questions.push({stage:2,index:i}));
+phrases.forEach((_,i)=>questions.push({stage:3,index:i}));
+verbs.forEach((_,i)=>questions.push({stage:4,index:i,direction:'baseToPast'}));
+verbs.forEach((_,i)=>questions.push({stage:4,index:i,direction:'pastToBase'}));
+const TOTAL=questions.length;
+lasinMotivationBridge('register-exercise',{order:1,label:'Exercise 01',scorable:true,totalQuestions:TOTAL,mode:'scored'});
+
+const $=id=>document.getElementById(id);
+const startScreen=$('startScreen'),questionScreen=$('questionScreen'),finishScreen=$('finishScreen');
+const startBtn=$('startBtn'),restartBtn=$('restartBtn'),main=$('main'),feedback=$('feedback');
+const eyebrow=$('eyebrow'),questionTitle=$('questionTitle'),instruction=$('instruction');
+const progressBar=$('progressBar'),counter=$('counter'),stageOverlay=$('stageOverlay');
+const overlayCircle=$('overlayCircle'),overlayTitle=$('overlayTitle'),overlayText=$('overlayText');
+const audioArea=$('audioArea'),audioBtn=$('audioBtn'),audioBtnText=$('audioBtnText');
+const bravoOverlay=$('bravoOverlay');
+const stagePills=[...document.querySelectorAll('.stagePill')];
+const audioSetup=$('audioSetup'),embedAudioBtn=$('embedAudioBtn'),audioFilePicker=$('audioFilePicker');
+const audioSetupStatus=$('audioSetupStatus'),audioSetupProgressBar=$('audioSetupProgressBar');
+
+let qIndex=0, answered=false, autoTimer=null, repeatTimer=null, overlayTimer=null, bravoTimer=null;
+let interactionLocked=false, verbPairPending=false;
+let audioToken=0; const sharedAudio=new Audio();
+
+function hash32(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+function shuffleSeeded(arr,seed){const out=[...arr],r=mulberry32(hash32(seed));for(let i=out.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out}
+function chooseWithDistractors(pool,target,count,seed){const others=shuffleSeeded(pool.filter(x=>x!==target),seed+'|d').slice(0,count-1);return shuffleSeeded([target,...others],seed+'|o')}
+function normalizeName(name){return String(name||'').split(/[\\/]/).pop().trim().toLowerCase().replace(/[‐‑‒–—−]/g,'-').replace(/\s*-\s*/g,' - ').replace(/\s+/g,' ').replace(/\.mp3$/i,'.mp3')}
+function isAudioData(v){return typeof v==='string'&&v.length>0}
+function allAudioEmbedded(){return phrases.every(x=>isAudioData(x.audio))&&verbs.every(x=>isAudioData(x.audio))}
+
+function clearTimers(){if(autoTimer){clearTimeout(autoTimer);autoTimer=null}if(repeatTimer){clearTimeout(repeatTimer);repeatTimer=null}if(overlayTimer){clearTimeout(overlayTimer);overlayTimer=null}if(bravoTimer){clearTimeout(bravoTimer);bravoTimer=null}}
+function setPlaying(active){audioBtn.classList.toggle('playing',!!active)}
+function setInteractionLocked(locked){
+  interactionLocked=!!locked;
+  main.classList.toggle('interactionLocked',interactionLocked);
+  main.setAttribute('aria-busy',interactionLocked?'true':'false');
+  main.setAttribute('aria-disabled',interactionLocked?'true':'false');
+  if('inert' in main) main.inert=interactionLocked;
+}
+function stopAudio(){audioToken++;if(autoTimer){clearTimeout(autoTimer);autoTimer=null}if(repeatTimer){clearTimeout(repeatTimer);repeatTimer=null}try{sharedAudio.pause()}catch{}sharedAudio.onended=null;sharedAudio.onerror=null;try{sharedAudio.removeAttribute('src');sharedAudio.load()}catch{}setPlaying(false)}
+function playTwice(src,onComplete){if(!src){onComplete&&onComplete(false);return}stopAudio();const token=++audioToken;let plays=0;let finished=false;setPlaying(true);sharedAudio.src=src;sharedAudio.currentTime=0;
+  const finish=(ok)=>{if(finished||token!==audioToken)return;finished=true;setPlaying(false);sharedAudio.onended=null;sharedAudio.onerror=null;onComplete&&onComplete(ok)};
+  const begin=()=>{if(token!==audioToken||finished)return;let p;try{p=sharedAudio.play()}catch{finish(false);return}if(p&&p.catch)p.catch(()=>finish(false))};
+  sharedAudio.onerror=()=>finish(false);
+  sharedAudio.onended=()=>{if(token!==audioToken||finished)return;plays++;if(plays>=2){finish(true);return}repeatTimer=setTimeout(()=>{if(token!==audioToken||finished)return;try{sharedAudio.currentTime=0}catch{}begin()},GAP_MS)};
+  begin();
+}
+function completePhraseListening(src){
+  if(answered)return;
+  setInteractionLocked(true);
+  audioBtn.disabled=true;
+  audioBtnText.textContent='Listening…';
+  setFeedback('Listen first…','listening');
+  playTwice(src,ok=>{
+    if(answered)return;
+    if(ok){
+      setInteractionLocked(false);
+      audioBtn.disabled=false;
+      audioBtnText.textContent='Listen again';
+      setFeedback('Now choose.','ready');
+      lasinMotivationSignal('question-ready');
+    }else{
+      /* Never unlock the answers when playback is interrupted or blocked. */
+      setInteractionLocked(true);
+      audioBtn.disabled=false;
+      audioBtnText.textContent='Listen to unlock';
+      setFeedback('Listen to the complete audio twice to unlock the answers.','listening');
+    }
+  });
+}
+function schedulePhraseAudio(src){
+  if(autoTimer)clearTimeout(autoTimer);
+  setInteractionLocked(true);
+  audioBtn.disabled=true;
+  audioBtnText.textContent='Listen first';
+  setFeedback('Listen first…','listening');
+  autoTimer=setTimeout(()=>{if(!answered)completePhraseListening(src)},AUTO_AUDIO_DELAY);
+}
+function completeVerbPairListening(src){
+  verbPairPending=true;
+  setInteractionLocked(true);
+  audioArea.classList.remove('hidden');
+  audioBtn.disabled=true;
+  audioBtnText.textContent='Listening…';
+  setFeedback('Correct! Listen to the complete verb pair.','good');
+  playTwice(src,ok=>{
+    if(ok){
+      verbPairPending=false;
+      audioBtn.disabled=true;
+      audioBtnText.textContent='Verb pair complete';
+      setTimeout(()=>finishCorrect(true),250);
+    }else{
+      /* The question cannot advance until the full pair has been heard twice. */
+      verbPairPending=true;
+      setInteractionLocked(true);
+      audioBtn.disabled=false;
+      audioBtnText.textContent='Listen to continue';
+      audioBtn.onclick=()=>completeVerbPairListening(src);
+      setFeedback('Listen to the complete verb pair twice to continue.','listening');
+    }
+  });
+}
+function recoverRequiredAudioAfterInterruption(){
+  const q=questions[qIndex];
+  const phraseNeedsRetry=!!q&&q.stage<4&&!answered&&interactionLocked;
+  const verbNeedsRetry=!!q&&q.stage===4&&answered&&verbPairPending;
+  stopAudio();
+  if(phraseNeedsRetry){
+    setInteractionLocked(true);
+    audioArea.classList.remove('hidden');
+    audioBtn.disabled=false;
+    audioBtnText.textContent='Listen to unlock';
+    const item=phrases[q.index];
+    audioBtn.onclick=()=>completePhraseListening(item.audio);
+    setFeedback('Listen again completely to unlock the answers.','listening');
+  }else if(verbNeedsRetry){
+    setInteractionLocked(true);
+    audioArea.classList.remove('hidden');
+    audioBtn.disabled=false;
+    audioBtnText.textContent='Listen to continue';
+    const item=verbs[q.index];
+    audioBtn.onclick=()=>completeVerbPairListening(item.audio);
+    setFeedback('Listen again completely to continue.','listening');
+  }
+}
+
+function updateProgress(){const done=Math.min(qIndex,TOTAL);counter.textContent=`${done}/${TOTAL}`;progressBar.style.width=`${(done/TOTAL)*100}%`}
+function updateStagePills(stageIndex,finished=false){stagePills.forEach((p,i)=>{p.classList.remove('active','done');if(finished||i<stageIndex)p.classList.add('done');else if(i===stageIndex)p.classList.add('active')})}
+function resetFeedback(){feedback.textContent='';feedback.className='feedback'}
+function setFeedback(text,type){feedback.textContent=text;feedback.className='feedback '+(type||'')}
+function lockChoiceButtons(root=document){root.querySelectorAll('.choiceChip').forEach(b=>b.disabled=true)}
+function makeChoice(text,handler){const b=document.createElement('button');b.type='button';b.className='choiceChip';b.textContent=text;b.addEventListener('click',()=>{if(interactionLocked||answered)return;handler(b)});return b}
+function wrongChoice(btn,msg='Try again. Listen carefully.'){lasinMotivationSignal('question-mistake');btn.classList.remove('wrong');void btn.offsetWidth;btn.classList.add('wrong');setFeedback(msg,'bad');setTimeout(()=>btn.classList.remove('wrong'),380)}
+function moveToBlue(btn,slot){btn.disabled=true;btn.classList.remove('choiceChip','wrong');btn.classList.add('placedChip');slot.classList.add('filled');slot.replaceChildren(btn)}
+
+function currentQuestion(){return questions[qIndex]}
+function stageLocalNumber(q){if(q.stage<4)return q.index+1;return q.index+1}
+function renderQuestion(){
+  stopAudio();answered=false;verbPairPending=false;setInteractionLocked(false);resetFeedback();main.innerHTML='';questionScreen.classList.remove('hidden');startScreen.classList.add('hidden');finishScreen.classList.add('hidden');const q=currentQuestion();updateProgress();updateStagePills(q.stage);const st=stages[q.stage];
+  if(q.stage===4){
+    const dirLabel=q.direction==='baseToPast'?'Present → Past':'Past → Present';
+    eyebrow.textContent=`Verbs • ${dirLabel} • Question ${q.index+1} of ${verbs.length}`;
+    questionTitle.textContent='Verbs';
+    instruction.textContent=q.direction==='baseToPast'?'Choose the past form.':'Choose the present form.';
+    audioArea.classList.add('hidden');audioBtn.onclick=null;audioBtn.disabled=true;audioBtnText.textContent='Verb pair';
+    renderVerbs(q);lasinMotivationSignal('question-ready');return;
+  }
+  eyebrow.textContent=`Round ${q.stage+1} • Question ${q.index+1} of ${phrases.length}`;
+  questionTitle.textContent=st.title;instruction.textContent=st.instruction;
+  audioArea.classList.remove('hidden');audioBtn.disabled=true;audioBtnText.textContent='Listen first';
+  const item=phrases[q.index];
+  audioBtn.onclick=()=>completePhraseListening(item.audio);
+  if(q.stage===0)renderListenChoose(item,q.index);else if(q.stage===1)renderChooseVerb(item,q.index);else if(q.stage===2)renderCompletePhrase(item,q.index);else renderBuildPhrase(item,q.index);
+  /* Freeze the question immediately, including during the automatic-play delay. */
+  schedulePhraseAudio(item.audio);
+}
+function renderListenChoose(item,i){const grid=document.createElement('div');grid.className='choiceGrid';const pool=phrases.map(x=>x.phrase);const opts=chooseWithDistractors(pool,item.phrase,3,`listen-${i}`);opts.forEach((phrase,n)=>{const data=phrases.find(x=>x.phrase===phrase);const b=document.createElement('button');b.type='button';b.className='picChoice';b.setAttribute('aria-label',`Picture choice ${n+1}`);b.innerHTML=`<span class="numBadge">${n+1}</span><img alt="Activity picture">`;b.querySelector('img').src=data.image;b.addEventListener('click',()=>{if(answered||interactionLocked)return;if(phrase!==item.phrase){lasinMotivationSignal('question-mistake');b.classList.remove('wrong');void b.offsetWidth;b.classList.add('wrong');setFeedback('Try again. Listen carefully.','bad');setTimeout(()=>b.classList.remove('wrong'),380);return}answered=true;stopAudio();setInteractionLocked(true);b.classList.add('correct');grid.querySelectorAll('.picChoice').forEach(x=>x.classList.add('locked'));setFeedback('Great!','good');lasinMotivationSignal('question-completed');finishCorrect()});grid.appendChild(b)});main.appendChild(grid)}
+function makePictureLayout(item){const layout=document.createElement('div');layout.className='spellLayout';const pic=document.createElement('div');pic.className='vocabPic';const img=document.createElement('img');img.src=item.image;img.alt=`${item.phrase} activity picture`;pic.appendChild(img);const pane=document.createElement('div');pane.className='wordPane';layout.append(pic,pane);main.appendChild(layout);return pane}
+function renderChooseVerb(item,i){const pane=makePictureLayout(item);const display=document.createElement('div');display.className='phraseDisplay';const slot=document.createElement('span');slot.className='dropSlot';slot.textContent='•••';const fixed=document.createElement('span');fixed.className='fixedText';fixed.textContent=item.remainder;display.append(slot,fixed);const bank=document.createElement('div');bank.className='choiceBank';const opts=chooseWithDistractors(phrases.map(x=>x.verb),item.verb,3,`verb-choice-${i}`);opts.forEach(opt=>bank.appendChild(makeChoice(opt,btn=>{if(opt!==item.verb){wrongChoice(btn,'Try another verb.');return}answered=true;stopAudio();setInteractionLocked(true);moveToBlue(btn,slot);lockChoiceButtons(bank);setFeedback('Excellent!','good');lasinMotivationSignal('question-completed');finishCorrect()})));pane.append(display,bank)}
+function renderCompletePhrase(item,i){const pane=makePictureLayout(item);const display=document.createElement('div');display.className='phraseDisplay';const fixed=document.createElement('span');fixed.className='fixedText';fixed.textContent=item.verb;const slot=document.createElement('span');slot.className='dropSlot';slot.textContent='•••';display.append(fixed,slot);const bank=document.createElement('div');bank.className='choiceBank';const opts=chooseWithDistractors(phrases.map(x=>x.remainder),item.remainder,3,`rem-choice-${i}`);opts.forEach(opt=>bank.appendChild(makeChoice(opt,btn=>{if(opt!==item.remainder){wrongChoice(btn,'Try another phrase.');return}answered=true;stopAudio();setInteractionLocked(true);moveToBlue(btn,slot);lockChoiceButtons(bank);setFeedback('Excellent!','good');lasinMotivationSignal('question-completed');finishCorrect()})));pane.append(display,bank)}
+function renderBuildPhrase(item,i){const pane=makePictureLayout(item);const answer=document.createElement('div');answer.className='buildAnswer';const hint=document.createElement('span');hint.className='answerHint';hint.textContent='Build the phrase here';answer.appendChild(hint);const bank=document.createElement('div');bank.className='choiceBank';let order=shuffleSeeded(item.tokens,`build-${i}`);if(order.join('|')===item.tokens.join('|')&&order.length>1)order=[...order.slice(1),order[0]];let next=0;order.forEach((tok,pos)=>{const btn=makeChoice(tok,b=>{const expected=item.tokens[next];if(tok!==expected){wrongChoice(b,'Try another word.');return}b.disabled=true;b.classList.remove('choiceChip','wrong');b.classList.add('placedChip');answer.classList.add('hasWords');answer.appendChild(b);next++;setFeedback(next===item.tokens.length?'Perfect!':'Good — keep going.','good');if(next===item.tokens.length){answered=true;stopAudio();setInteractionLocked(true);lockChoiceButtons(bank);lasinMotivationSignal('question-completed');finishCorrect()}});btn.dataset.pos=pos;bank.appendChild(btn)});pane.append(answer,bank)}
+function renderVerbs(q){const item=verbs[q.index];const wrap=document.createElement('div');wrap.className='verbWrap';const card=document.createElement('div');card.className='verbCard';const dir=document.createElement('div');dir.className='verbDirection';dir.textContent=q.direction==='baseToPast'?'Present → Past':'Past → Present';const eq=document.createElement('div');eq.className='verbEquation';const shown=document.createElement('div');shown.className='verbForm';shown.textContent=q.direction==='baseToPast'?item.base:item.past;const arrow=document.createElement('div');arrow.className='verbArrow';arrow.textContent='→';const missing=document.createElement('div');missing.className='verbMissing';missing.textContent='•••';eq.append(shown,arrow,missing);card.append(dir,eq);const bank=document.createElement('div');bank.className='choiceBank';const target=q.direction==='baseToPast'?item.past:item.base;const pool=q.direction==='baseToPast'?verbs.map(x=>x.past):verbs.map(x=>x.base);const opts=chooseWithDistractors(pool,target,3,`verbs-${q.direction}-${q.index}`);opts.forEach(opt=>bank.appendChild(makeChoice(opt,btn=>{if(opt!==target){wrongChoice(btn,'Try another verb form.');return}answered=true;moveToBlue(btn,missing);lockChoiceButtons(bank);audioBtn.onclick=null;lasinMotivationSignal('question-completed');completeVerbPairListening(item.audio)})));wrap.append(card,bank);main.appendChild(wrap)}
+
+function playSuccessChime(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const ctx=new AC();const now=ctx.currentTime;[523.25,659.25,783.99].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,now+i*.09);g.gain.exponentialRampToValueAtTime(.09,now+i*.09+.02);g.gain.exponentialRampToValueAtTime(.0001,now+i*.09+.25);o.connect(g);g.connect(ctx.destination);o.start(now+i*.09);o.stop(now+i*.09+.27)});setTimeout(()=>ctx.close().catch(()=>{}),700)}catch{}}
+function showBravo(){bravoOverlay.classList.add('show');bravoOverlay.setAttribute('aria-hidden','false');playSuccessChime();bravoTimer=setTimeout(()=>{bravoOverlay.classList.remove('show');bravoOverlay.setAttribute('aria-hidden','true');lasinMotivationSignal('question-settled');advanceQuestion()},BRAVO_MS)}
+function finishCorrect(skipPause=false){if(skipPause){showBravo();return}setTimeout(showBravo,CORRECT_PAUSE)}
+function showTransition(circle,title,text,after){stageOverlay.classList.add('show');overlayCircle.textContent=circle;overlayTitle.textContent=title;overlayText.textContent=text;overlayTimer=setTimeout(()=>{stageOverlay.classList.remove('show');after()},STAGE_OVERLAY_MS)}
+function advanceQuestion(){qIndex++;if(qIndex>=TOTAL){showFinish();return}const prev=questions[qIndex-1],next=questions[qIndex];if(next.stage!==prev.stage){const st=stages[next.stage];showTransition(next.stage+1,st.name,next.stage===1?'Listen and choose the missing verb.':next.stage===2?'Listen and complete the phrase.':next.stage===3?'Listen and build the complete phrase.':'Review the present and past verb forms.',renderQuestion);return}if(next.stage===4&&prev.direction!==next.direction){showTransition('↔','Past → Present','Now choose the present form.',renderQuestion);return}renderQuestion()}
+function showFinish(){stopAudio();verbPairPending=false;setInteractionLocked(false);qIndex=TOTAL;updateProgress();updateStagePills(5,true);questionScreen.classList.add('hidden');startScreen.classList.add('hidden');finishScreen.classList.remove('hidden');$('finishText').textContent=`You finished all ${TOTAL} vocabulary questions.`}
+function resetExercise(){stopAudio();clearTimers();qIndex=0;answered=false;verbPairPending=false;setInteractionLocked(false);bravoOverlay.classList.remove('show');stageOverlay.classList.remove('show');finishScreen.classList.add('hidden');questionScreen.classList.add('hidden');startScreen.classList.remove('hidden');updateProgress();updateStagePills(0);resetFeedback()}
+function begin(){if(!allAudioEmbedded())return;qIndex=0;answered=false;verbPairPending=false;setInteractionLocked(false);startScreen.classList.add('hidden');questionScreen.classList.remove('hidden');finishScreen.classList.add('hidden');renderQuestion()}
+
+function updateAudioSetup(){const ready=allAudioEmbedded();startBtn.disabled=!ready;if(ready){audioSetup.classList.add('hidden');audioSetupStatus.textContent='';audioSetupProgressBar.style.width='100%'}else{audioSetup.classList.remove('hidden');audioSetupProgressBar.style.width='0%';audioSetupStatus.className='audioSetupStatus';audioSetupStatus.textContent='Select all 12 original MP3 files to create the standalone student version.'}}
+function readFileDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result));r.onerror=()=>reject(r.error||new Error('Could not read file'));r.readAsDataURL(file)})}
+function exportStandalone(){const jsonEl=document.getElementById('lasinLessonData');jsonEl.textContent=JSON.stringify(lesson);const clone=document.documentElement.cloneNode(true);const c=id=>clone.querySelector('#'+id);c('lasinLessonData').textContent=JSON.stringify(lesson);c('startScreen').classList.remove('hidden');c('questionScreen').classList.add('hidden');c('finishScreen').classList.add('hidden');c('stageOverlay').classList.remove('show');c('bravoOverlay').classList.remove('show');c('audioSetup').classList.add('hidden');c('main').innerHTML='';c('main').classList.remove('interactionLocked');c('main').removeAttribute('inert');c('main').setAttribute('aria-busy','false');c('main').setAttribute('aria-disabled','false');c('feedback').textContent='';c('progressBar').style.width='0%';c('counter').textContent=`0/${TOTAL}`;clone.querySelectorAll('.stagePill').forEach(p=>p.classList.remove('active','done'));c('startBtn').disabled=false;c('audioBtn').disabled=false;const text='<!DOCTYPE html>\n'+clone.outerHTML;const blob=new Blob([text],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`LASIN_Unit_01_Lesson_01_Activities_Vocab_Practice_FINAL_${TOTAL}Q_EMBEDDED.html`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2500)}
+async function handleAudioFiles(files){audioSetupStatus.className='audioSetupStatus';audioSetupStatus.textContent='Checking filenames…';audioSetupProgressBar.style.width='4%';const fileMap=new Map([...files].map(f=>[normalizeName(f.name),f]));const expected=[...phrases.map((x,i)=>({kind:'phrase',i,name:x.expectedFile})),...verbs.map((x,i)=>({kind:'verb',i,name:x.expectedFile}))];const missing=expected.filter(e=>!fileMap.has(normalizeName(e.name)));if(missing.length){audioSetupProgressBar.style.width='0%';audioSetupStatus.className='audioSetupStatus bad';audioSetupStatus.textContent='Missing MP3 file(s):\n'+missing.map(x=>'• '+x.name).join('\n')+'\n\nNothing was exported.';return}embedAudioBtn.disabled=true;try{for(let n=0;n<expected.length;n++){const e=expected[n],f=fileMap.get(normalizeName(e.name)),url=await readFileDataURL(f);if(!url.startsWith('data:audio/'))throw new Error(`Could not read ${e.name} as audio.`);if(e.kind==='phrase')phrases[e.i].audio=url;else verbs[e.i].audio=url;audioSetupProgressBar.style.width=`${Math.round(((n+1)/expected.length)*100)}%`;audioSetupStatus.textContent=`Embedding original MP3s… ${n+1}/${expected.length}`}document.getElementById('lasinLessonData').textContent=JSON.stringify(lesson);audioSetupStatus.className='audioSetupStatus ok';audioSetupStatus.textContent=`All ${expected.length} original MP3s are embedded. Creating the standalone ${TOTAL}-question student HTML…`;setTimeout(exportStandalone,250)}catch(err){audioSetupStatus.className='audioSetupStatus bad';audioSetupStatus.textContent='Audio embedding failed: '+(err&&err.message?err.message:String(err))}finally{embedAudioBtn.disabled=false}}
+
+startBtn.addEventListener('click',begin);restartBtn.addEventListener('click',()=>{qIndex=0;questionScreen.classList.remove('hidden');finishScreen.classList.add('hidden');renderQuestion()});embedAudioBtn.addEventListener('click',()=>audioFilePicker.click());audioFilePicker.addEventListener('change',()=>{if(audioFilePicker.files&&audioFilePicker.files.length)handleAudioFiles(audioFilePicker.files);audioFilePicker.value=''});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)recoverRequiredAudioAfterInterruption()});window.addEventListener('pagehide',stopAudio);window.addEventListener('beforeunload',stopAudio);
+updateProgress();updateStagePills(0);updateAudioSetup();
+})();
+</script>
+</body></html>
