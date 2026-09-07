@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F2F6FB">
+<title>Everybody Up 1 | Unit 01 | Lesson 01 | School Supplies | Vocab</title>
+<style>
+:root{
+  --red:#E21E2B;
+  --blue:#216CDE;
+  --blue-dark:#1154BC;
+  --bg:#EFF3F8;
+  --text:#172033;
+  --muted:#6E788C;
+  --border:#DDE5EF;
+  --white:#FFFFFF;
+  --shadow:0 14px 32px rgba(29,50,81,.11);
+  --soft-red:rgba(226,30,43,.16);
+  --page-width:min(1780px, 97vw);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  background:
+    radial-gradient(circle at 8% 7%, rgba(33,108,222,.045), transparent 27%),
+    radial-gradient(circle at 94% 92%, rgba(226,30,43,.045), transparent 25%),
+    var(--bg);
+}
+button{font:inherit;touch-action:manipulation}
+.screen{display:none;min-height:100vh;min-height:100dvh}
+.screen.active{display:flex}
+
+/* ---------- HOME ---------- */
+#homeScreen{
+  align-items:center;
+  justify-content:center;
+  padding:
+    max(22px, env(safe-area-inset-top))
+    max(14px, env(safe-area-inset-right))
+    max(22px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
+}
+.home-panel{
+  width:min(920px,96vw);
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(221,229,239,.8);
+  border-radius:34px;
+  box-shadow:0 22px 55px rgba(33,49,76,.13);
+  padding:clamp(24px,4vw,48px);
+  text-align:center;
+}
+.eyebrow{
+  margin:0 0 18px;
+  color:#67738A;
+  font-size:clamp(14px,1.5vw,22px);
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.lesson-banner{
+  width:100%;
+  min-height:112px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px clamp(14px,2.2vw,26px);
+  border-radius:24px;
+  color:#fff;
+  background:var(--red);
+  box-shadow:0 12px 0 rgba(226,30,43,.14), 0 18px 30px rgba(226,30,43,.13);
+  font-size:clamp(19px,3.4vw,46px);
+  font-weight:800;
+  letter-spacing:-.025em;
+  line-height:1;
+  white-space:nowrap;
+}
+.home-actions{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.vocab-btn{
+  width:min(420px,88%);
+  min-height:96px;
+  border:0;
+  border-radius:22px;
+  background:var(--blue);
+  color:#fff;
+  font-size:clamp(34px,4vw,54px);
+  font-weight:800;
+  box-shadow:0 13px 24px rgba(33,108,222,.18);
+  cursor:pointer;
+  transition:transform .17s ease,background .17s ease,box-shadow .17s ease;
+}
+.vocab-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.vocab-btn:active{transform:scale(.985)}
+.embed-wrap{
+  width:min(580px,94%);
+  display:none;
+  margin-top:4px;
+}
+.embed-wrap.show{display:block}
+.embed-btn{
+  width:100%;
+  border:1px solid #C8D5E7;
+  border-radius:15px;
+  padding:13px 17px;
+  background:#F7FAFE;
+  color:#36506F;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.embed-help{
+  margin:9px auto 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.embed-status{
+  display:none;
+  margin-top:10px;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:12px;
+  line-height:1.45;
+  text-align:left;
+  border:1px solid var(--border);
+  background:#F7F9FC;
+  color:#506078;
+}
+.embed-status.show{display:block}
+.embed-status.error{border-color:#FFD0D5;background:#FFF4F5;color:#981C29}
+.embed-status.ok{border-color:#CBE9D8;background:#F0FAF5;color:#1C6844}
+#audioPicker{display:none}
+
+/* ---------- LESSON ---------- */
+#lessonScreen{
+  flex-direction:column;
+  padding:
+    max(14px, env(safe-area-inset-top))
+    max(18px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(18px, env(safe-area-inset-left));
+}
+.lesson-header{
+  width:var(--page-width);
+  margin:0 auto 14px;
+  display:grid;
+  grid-template-columns:190px 1fr 190px;
+  align-items:center;
+  gap:12px;
+}
+.home-btn,.page-pill{
+  min-height:52px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  background:#fff;
+  box-shadow:0 8px 20px rgba(41,59,84,.07);
+}
+.home-btn{
+  justify-self:start;
+  padding:0 18px;
+  cursor:pointer;
+  color:#0E2448;
+  font-size:22px;
+  font-weight:800;
+}
+.header-center{text-align:center;min-width:0}
+.header-title{
+  margin:0;
+  color:#081C42;
+  font-size:clamp(34px,3.4vw,46px);
+  line-height:1;
+  font-weight:800;
+}
+.header-sub{
+  margin-top:9px;
+  color:#66748B;
+  font-size:clamp(14px,1.7vw,22px);
+  font-weight:750;
+}
+.page-pill{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 16px;
+  color:#68758C;
+  font-size:18px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+/* ---------- CARDS ---------- */
+.cards{
+  width:var(--page-width);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:clamp(10px,1vw,16px);
+  align-items:stretch;
+}
+.card{
+  min-width:0;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:23px;
+  box-shadow:var(--shadow);
+  padding:clamp(8px,.9vw,12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.picture-frame{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #DDE5EF;
+  border-radius:18px;
+  padding:clamp(8px,.75vw,13px);
+}
+.picture-frame img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  image-rendering:auto;
+}
+.word-box{
+  width:calc(100% - 6px);
+  min-height:48px;
+  margin-top:clamp(10px,1.1vw,15px);
+  padding:8px 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:13px;
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 7px 14px rgba(33,108,222,.16);
+  font-size:clamp(16px,1.35vw,23px);
+  line-height:1.08;
+  font-weight:700;
+  letter-spacing:.005em;
+}
+.audio-area{
+  width:100%;
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+}
+.audio-btn{
+  width:54px;
+  height:54px;
+  flex:0 0 54px;
+  border:0;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 8px 16px rgba(33,108,222,.18);
+  transition:transform .16s ease,background .16s ease,box-shadow .16s ease;
+}
+.audio-btn:hover{background:var(--blue-dark);transform:scale(1.045)}
+.audio-btn:active{transform:scale(.96)}
+.audio-btn svg{width:26px;height:26px;display:block}
+.audio-btn.playing{
+  background:var(--red);
+  box-shadow:0 0 0 7px var(--soft-red),0 9px 18px rgba(226,30,43,.18);
+  animation:pulse 1s ease-in-out infinite;
+}
+.tap-note{
+  min-height:17px;
+  margin-top:7px;
+  color:#79859A;
+  font-size:clamp(10px,.76vw,12px);
+  line-height:1.1;
+  text-align:center;
+  font-weight:650;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.09)}
+}
+
+/* ---------- NAV ---------- */
+.navbar{
+  width:var(--page-width);
+  margin:10px auto 0;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+}
+.nav-btn{
+  min-width:150px;
+  min-height:54px;
+  border:0;
+  border-radius:15px;
+  background:var(--blue);
+  color:#fff;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(33,108,222,.14);
+}
+.nav-btn.prev{justify-self:start}
+.nav-btn.next{justify-self:end}
+.nav-btn:disabled{
+  cursor:default;
+  background:#F4F6F9;
+  color:#939CAB;
+  box-shadow:none;
+}
+.dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:90px;
+}
+.dot{
+  width:12px;height:12px;padding:0;border:0;border-radius:50%;
+  background:#D2DCEB;cursor:pointer;transition:transform .15s ease,background .15s ease;
+}
+.dot.active{background:var(--blue);transform:scale(1.18)}
+
+/* partial page centering on wide layouts */
+.cards.partial-5{grid-template-columns:repeat(5,minmax(0,240px));justify-content:center}
+.cards.partial-4{grid-template-columns:repeat(4,minmax(0,260px));justify-content:center}
+.cards.partial-3{grid-template-columns:repeat(3,minmax(0,290px));justify-content:center}
+.cards.partial-2{grid-template-columns:repeat(2,minmax(0,320px));justify-content:center}
+.cards.partial-1{grid-template-columns:minmax(0,340px);justify-content:center}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1350px){
+  :root{--page-width:min(1160px,97vw)}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cards.partial-5,.cards.partial-4,.cards.partial-3,.cards.partial-2,.cards.partial-1{
+    grid-template-columns:repeat(3,minmax(0,1fr));justify-content:stretch
+  }
+  .word-box{font-size:clamp(17px,2vw,24px)}
+}
+@media(max-width:850px){
+  :root{--page-width:min(760px,98vw)}
+  #lessonScreen{
+    padding-top:max(10px,env(safe-area-inset-top));
+    padding-left:max(9px,env(safe-area-inset-left));
+    padding-right:max(9px,env(safe-area-inset-right));
+  }
+  .lesson-header{grid-template-columns:122px 1fr 122px;margin-bottom:10px}
+  .home-btn{min-height:46px;padding:0 12px;font-size:17px}
+  .page-pill{min-height:46px;padding:0 11px;font-size:14px}
+  .header-title{font-size:clamp(30px,5vw,40px)}
+  .header-sub{font-size:clamp(12px,2.5vw,18px)}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+  .card{border-radius:19px;padding:8px}
+  .picture-frame{border-radius:15px;padding:7px}
+  .word-box{min-height:43px;margin-top:9px;border-radius:11px;font-size:clamp(15px,2.5vw,21px)}
+  .audio-btn{width:48px;height:48px;flex-basis:48px}
+  .audio-btn svg{width:23px;height:23px}
+  .nav-btn{min-width:125px;min-height:49px;font-size:17px}
+}
+@media(max-width:650px){
+  .home-panel{width:min(96vw,560px);border-radius:26px;padding:22px 14px}
+  .eyebrow{font-size:12px;letter-spacing:.12em;margin-bottom:14px}
+  .lesson-banner{
+    min-height:82px;
+    border-radius:18px;
+    padding:14px 8px;
+    font-size:clamp(14px,4.15vw,20px);
+    letter-spacing:-.035em;
+  }
+  .home-actions{margin-top:22px}
+  .vocab-btn{min-height:78px;border-radius:18px;font-size:clamp(32px,11vw,46px)}
+  .lesson-header{grid-template-columns:88px 1fr 0;margin-bottom:8px;gap:6px}
+  .home-btn{min-height:42px;padding:0 9px;font-size:14px;border-radius:12px}
+  .page-pill{display:none}
+  .header-title{font-size:clamp(28px,8vw,36px)}
+  .header-sub{
+    margin-top:5px;
+    font-size:clamp(10px,3.15vw,14px);
+    white-space:nowrap;
+  }
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .cards.partial-5,.cards.partial-4,.cards.partial-3,.cards.partial-2,.cards.partial-1{
+    grid-template-columns:repeat(2,minmax(0,1fr));justify-content:stretch
+  }
+  .cards.partial-1 .card:last-child,
+  .cards.partial-3 .card:last-child,
+  .cards.partial-5 .card:last-child{
+    grid-column:1 / -1;
+    width:calc(50% - 4px);
+    justify-self:center;
+  }
+  .card{padding:7px;border-radius:18px}
+  .picture-frame{padding:6px;border-radius:14px}
+  .word-box{
+    width:100%;
+    min-height:39px;
+    margin-top:8px;
+    padding:6px 5px;
+    border-radius:10px;
+    font-size:clamp(14px,4vw,18px);
+  }
+  .audio-area{margin-top:8px}
+  .audio-btn{width:45px;height:45px;flex-basis:45px}
+  .audio-btn svg{width:21px;height:21px}
+  .tap-note{font-size:9.5px;margin-top:6px}
+  .navbar{margin-top:8px}
+  .nav-btn{min-width:96px;min-height:45px;border-radius:12px;font-size:14px}
+  .dots{gap:6px;min-width:54px}
+  .dot{width:10px;height:10px}
+}
+@media(max-width:390px){
+  .cards{gap:6px}
+  .card{padding:6px}
+  .word-box{font-size:13.5px}
+  .audio-btn{width:42px;height:42px;flex-basis:42px}
+  .lesson-banner{font-size:13.8px}
+  .header-sub{font-size:10.5px}
+  .nav-btn{min-width:86px;font-size:13px}
+}
+@media(min-width:851px) and (max-height:760px){
+  #lessonScreen{padding-top:8px;padding-bottom:8px}
+  .lesson-header{margin-bottom:8px}
+  .card{padding:7px 9px}
+  .word-box{margin-top:8px;min-height:43px}
+  .audio-area{margin-top:7px}
+  .audio-btn{width:47px;height:47px;flex-basis:47px}
+  .tap-note{margin-top:5px}
+  .navbar{margin-top:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<section id="homeScreen" class="screen active" aria-label="Vocabulary home">
+  <div class="home-panel">
+    <p class="eyebrow">Everybody Up 1 Vocabulary</p>
+    <div class="lesson-banner">Unit 01 | Lesson 01 | School Supplies</div>
+
+    <div class="home-actions">
+      <button id="openVocab" class="vocab-btn" type="button">Vocab</button>
+
+      <div id="embedWrap" class="embed-wrap show">
+        <button id="embedButton" class="embed-btn" type="button">Embed Original MP3s</button>
+        <input id="audioPicker" type="file" accept=".mp3,audio/mpeg" multiple="">
+        <div class="embed-help">
+          One-time teacher setup only. Select the six original MP3 files; the browser will create the final standalone student HTML.
+        </div>
+        <div id="embedStatus" class="embed-status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessonScreen" class="screen" aria-label="Vocabulary lesson">
+  <header class="lesson-header">
+    <button id="homeButton" class="home-btn" type="button" aria-label="Return to Home">← Home</button>
+
+    <div class="header-center">
+      <h1 class="header-title">Vocab</h1>
+      <div class="header-sub">Unit 01 • Lesson 01 • School Supplies</div>
+    </div>
+
+    <div id="pagePill" class="page-pill" aria-live="polite">Page 1 of 1</div>
+  </header>
+
+  <main id="cards" class="cards" aria-live="polite"><article class="card"><div class="picture-frame"><img src="../assets/b2c6152c123c6874adec.png" alt="pen vocabulary picture" draggable="false"></div><div class="word-box">pen</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play pen twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/d50db4407fed6b7735f7.png" alt="pencil vocabulary picture" draggable="false"></div><div class="word-box">pencil</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play pencil twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/0696fb1c1c28e8774c46.png" alt="eraser vocabulary picture" draggable="false"></div><div class="word-box">eraser</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play eraser twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/9597431c9c2658dbf9a5.png" alt="ruler vocabulary picture" draggable="false"></div><div class="word-box">ruler</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play ruler twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/1509b758488e8eaabd6e.png" alt="pencil case vocabulary picture" draggable="false"></div><div class="word-box">pencil case</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play pencil case twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article><article class="card"><div class="picture-frame"><img src="../assets/955c649c033483c22e5f.png" alt="backpack vocabulary picture" draggable="false"></div><div class="word-box">backpack</div><div class="audio-area"><button type="button" class="audio-btn" aria-label="Play backpack twice" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"></path>
+    </svg></button><div class="tap-note">Tap to hear it twice</div></div></article></main>
+
+  <nav class="navbar" aria-label="Vocabulary page navigation">
+    <button id="prevButton" class="nav-btn prev" type="button" disabled="">← Previous</button>
+    <div id="dots" class="dots"><button type="button" class="dot active" aria-label="Go to page 1" aria-current="page"></button></div>
+    <button id="nextButton" class="nav-btn next" type="button" disabled="">Next →</button>
+  </nav>
+</section>
+
+<script id="vocab-data" type="application/json">[{"word":"pen","image":"../assets/b2c6152c123c6874adec.png","audio":"../assets/827c3d0478df07997e4c.mp3","audioFallback":"","expectedFile":"pen.mp3"},{"word":"pencil","image":"../assets/d50db4407fed6b7735f7.png","audio":"../assets/9fe7fd35c25a460794b5.mp3","audioFallback":"","expectedFile":"pencil.mp3"},{"word":"eraser","image":"../assets/0696fb1c1c28e8774c46.png","audio":"../assets/898c7b35d0dac5bce216.mp3","audioFallback":"","expectedFile":"eraser.mp3"},{"word":"ruler","image":"../assets/9597431c9c2658dbf9a5.png","audio":"../assets/186571e186d0051b4666.mp3","audioFallback":"","expectedFile":"ruler.mp3"},{"word":"pencil case","image":"../assets/1509b758488e8eaabd6e.png","audio":"../assets/fe327dea70a53f9df29f.mp3","audioFallback":"","expectedFile":"pencil case.mp3"},{"word":"backpack","image":"../assets/955c649c033483c22e5f.png","audio":"../assets/4420e5a12c1af1e00cd8.mp3","audioFallback":"","expectedFile":"backpack.mp3"}]</script>
+
+<script>
+(() => {
+"use strict";
+window.addEventListener('message',e=>{const d=e.data;if(d&&d.channel==='LASIN_HOST_V1'&&d.action==='active-state'&&d.payload&&d.payload.active===false)stopAudio();});
+
+
+const PAGE_SIZE = 6;
+const GAP_MS = 500;
+
+const homeScreen = document.getElementById("homeScreen");
+const lessonScreen = document.getElementById("lessonScreen");
+const openVocab = document.getElementById("openVocab");
+const homeButton = document.getElementById("homeButton");
+const cardsEl = document.getElementById("cards");
+const dotsEl = document.getElementById("dots");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+const pagePill = document.getElementById("pagePill");
+
+const embedWrap = document.getElementById("embedWrap");
+const embedButton = document.getElementById("embedButton");
+const audioPicker = document.getElementById("audioPicker");
+const embedStatus = document.getElementById("embedStatus");
+
+let ITEMS = JSON.parse(document.getElementById("vocab-data").textContent);
+let currentPage = 0;
+let activeButton = null;
+let repeatTimer = null;
+let playToken = 0;
+
+const sharedAudio = new Audio();
+sharedAudio.preload = "auto";
+
+function totalPages(){
+  return Math.max(1, Math.ceil(ITEMS.length / PAGE_SIZE));
+}
+
+function normalizeFileName(name){
+  return String(name || "")
+    .replace(/^.*[\\/]/,"")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g," ")
+    .replace(/\.+mp3$/i,".mp3");
+}
+
+function itemAudio(item){
+  return item.audio || item.audioFallback || "";
+}
+
+function allAudioEmbedded(){
+  return ITEMS.length > 0 && ITEMS.every(item => /^data:audio\//i.test(itemAudio(item)));
+}
+
+function updateEmbedVisibility(){
+  if(allAudioEmbedded()){
+    embedWrap.classList.remove("show");
+  }else{
+    embedWrap.classList.add("show");
+  }
+}
+
+function showEmbedStatus(text, type=""){
+  embedStatus.textContent = text;
+  embedStatus.className = "embed-status show" + (type ? " " + type : "");
+}
+
+function clearPlayingVisual(){
+  if(activeButton){
+    activeButton.classList.remove("playing");
+    activeButton.setAttribute("aria-pressed","false");
+  }
+  activeButton = null;
+}
+
+function stopAudio(){
+  playToken++;
+  if(repeatTimer){
+    clearTimeout(repeatTimer);
+    repeatTimer = null;
+  }
+  sharedAudio.pause();
+  sharedAudio.removeAttribute("src");
+  sharedAudio.load();
+  sharedAudio.onended = null;
+  sharedAudio.onerror = null;
+  clearPlayingVisual();
+}
+
+function headsetSvg(){
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"/>
+    </svg>`;
+}
+
+function playTwice(index, button){
+  const item = ITEMS[index];
+  const src = itemAudio(item);
+
+  stopAudio();
+
+  if(!src){
+    showEmbedStatus(`Original audio for "${item.word}" is not embedded yet. Use “Embed Original MP3s” on the Home screen.`, "error");
+    return;
+  }
+
+  const myToken = ++playToken;
+  activeButton = button;
+  button.classList.add("playing");
+  button.setAttribute("aria-pressed","true");
+
+  let playNumber = 1;
+
+  const beginPlay = () => {
+    if(myToken !== playToken) return;
+
+    sharedAudio.onended = () => {
+      if(myToken !== playToken) return;
+
+      if(playNumber === 1){
+        playNumber = 2;
+        repeatTimer = setTimeout(() => {
+          repeatTimer = null;
+          if(myToken !== playToken) return;
+          try{ sharedAudio.currentTime = 0; }catch(e){}
+          sharedAudio.play().catch(() => {
+            if(myToken === playToken) stopAudio();
+          });
+        }, GAP_MS);
+      }else{
+        if(myToken === playToken){
+          clearPlayingVisual();
+          sharedAudio.onended = null;
+        }
+      }
+    };
+
+    sharedAudio.onerror = () => {
+      if(myToken === playToken) stopAudio();
+    };
+
+    sharedAudio.src = src;
+    try{ sharedAudio.currentTime = 0; }catch(e){}
+    sharedAudio.play().catch(() => {
+      if(myToken === playToken) stopAudio();
+    });
+  };
+
+  beginPlay();
+}
+
+function renderDots(){
+  dotsEl.innerHTML = "";
+  const pages = totalPages();
+
+  for(let i=0;i<pages;i++){
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "dot" + (i === currentPage ? " active" : "");
+    dot.setAttribute("aria-label", `Go to page ${i+1}`);
+    if(i === currentPage) dot.setAttribute("aria-current","page");
+    dot.addEventListener("click", () => goToPage(i));
+    dotsEl.appendChild(dot);
+  }
+}
+
+function partialClass(count){
+  if(count >= PAGE_SIZE) return "";
+  return " partial-" + Math.max(1,count);
+}
+
+function renderPage(){
+  stopAudio();
+
+  const pages = totalPages();
+  if(currentPage > pages - 1) currentPage = pages - 1;
+
+  const start = currentPage * PAGE_SIZE;
+  const slice = ITEMS.slice(start, start + PAGE_SIZE);
+
+  cardsEl.className = "cards" + partialClass(slice.length);
+  cardsEl.innerHTML = "";
+
+  slice.forEach((item, localIndex) => {
+    const absoluteIndex = start + localIndex;
+
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const picture = document.createElement("div");
+    picture.className = "picture-frame";
+
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = `${item.word} vocabulary picture`;
+    img.draggable = false;
+    picture.appendChild(img);
+
+    const wordBox = document.createElement("div");
+    wordBox.className = "word-box";
+    wordBox.textContent = item.word;
+
+    const audioArea = document.createElement("div");
+    audioArea.className = "audio-area";
+
+    const audioButton = document.createElement("button");
+    audioButton.type = "button";
+    audioButton.className = "audio-btn";
+    audioButton.innerHTML = headsetSvg();
+    audioButton.setAttribute("aria-label", `Play ${item.word} twice`);
+    audioButton.setAttribute("aria-pressed","false");
+    audioButton.addEventListener("click", () => playTwice(absoluteIndex, audioButton));
+
+    const note = document.createElement("div");
+    note.className = "tap-note";
+    note.textContent = "Tap to hear it twice";
+
+    audioArea.append(audioButton, note);
+    card.append(picture, wordBox, audioArea);
+    cardsEl.appendChild(card);
+  });
+
+  pagePill.textContent = `Page ${currentPage + 1} of ${pages}`;
+  prevButton.disabled = currentPage === 0;
+  nextButton.disabled = currentPage === pages - 1;
+  renderDots();
+}
+
+function goToPage(index){
+  const pages = totalPages();
+  const next = Math.max(0, Math.min(pages - 1, index));
+  if(next === currentPage){
+    stopAudio();
+    return;
+  }
+  currentPage = next;
+  renderPage();
+  window.scrollTo({top:0,behavior:"auto"});
+}
+
+function showHome(){
+  stopAudio();
+  lessonScreen.classList.remove("active");
+  homeScreen.classList.add("active");
+  updateEmbedVisibility();
+}
+
+function showLesson(){
+  stopAudio();
+  homeScreen.classList.remove("active");
+  lessonScreen.classList.add("active");
+  renderPage();
+}
+
+openVocab.addEventListener("click", showLesson);
+homeButton.addEventListener("click", showHome);
+prevButton.addEventListener("click", () => goToPage(currentPage - 1));
+nextButton.addEventListener("click", () => goToPage(currentPage + 1));
+
+/* -------- ORIGINAL MP3 EMBEDDER -------- */
+
+embedButton.addEventListener("click", () => {
+  audioPicker.value = "";
+  audioPicker.click();
+});
+
+audioPicker.addEventListener("change", async () => {
+  const files = Array.from(audioPicker.files || []);
+  if(!files.length) return;
+
+  const fileMap = new Map();
+  files.forEach(file => fileMap.set(normalizeFileName(file.name), file));
+
+  const missing = [];
+  const matched = [];
+
+  for(const item of ITEMS){
+    const expected = normalizeFileName(item.expectedFile);
+    const file = fileMap.get(expected);
+    if(file) matched.push({item,file});
+    else missing.push(item.expectedFile);
+  }
+
+  if(missing.length){
+    showEmbedStatus(
+      `Missing ${missing.length} file${missing.length===1?"":"s"}: ${missing.join(", ")}. Nothing was exported.`,
+      "error"
+    );
+    return;
+  }
+
+  showEmbedStatus("All six original MP3s were found. Embedding them now…");
+
+  try{
+    const readAsDataURL = file => new Promise((resolve,reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error || new Error("Could not read file"));
+      reader.readAsDataURL(file);
+    });
+
+    for(const {item,file} of matched){
+      item.audio = await readAsDataURL(file);
+      item.audioFallback = "";
+    }
+
+    document.getElementById("vocab-data").textContent = JSON.stringify(ITEMS);
+    showEmbedStatus("Original MP3s embedded successfully. Creating the final standalone student HTML…","ok");
+
+    exportStandaloneHTML();
+  }catch(err){
+    showEmbedStatus(`Audio embedding failed: ${err && err.message ? err.message : err}`,"error");
+  }
+});
+
+function exportStandaloneHTML(){
+  stopAudio();
+
+  const clone = document.documentElement.cloneNode(true);
+
+  clone.querySelector("#homeScreen").classList.add("active");
+  clone.querySelector("#lessonScreen").classList.remove("active");
+
+  const cloneData = clone.querySelector("#vocab-data");
+  cloneData.textContent = JSON.stringify(ITEMS);
+
+  const cloneEmbedStatus = clone.querySelector("#embedStatus");
+  if(cloneEmbedStatus){
+    cloneEmbedStatus.className = "embed-status";
+    cloneEmbedStatus.textContent = "";
+  }
+
+  const clonePicker = clone.querySelector("#audioPicker");
+  if(clonePicker) clonePicker.removeAttribute("value");
+
+  clone.querySelectorAll(".audio-btn.playing").forEach(el => el.classList.remove("playing"));
+
+  const source = "<!doctype html>\n" + clone.outerHTML;
+  const blob = new Blob([source], {type:"text/html;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Everybody_Up_3_Unit_01_Lesson_01_School_Supplies_Vocab_EMBEDDED.html";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 3000);
+}
+
+/* -------- LIFECYCLE SAFETY -------- */
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden) stopAudio();
+});
+window.addEventListener("pagehide", stopAudio);
+window.addEventListener("beforeunload", stopAudio);
+
+updateEmbedVisibility();
+renderPage();
+})();
+</script>
+
+
+</body></html>
