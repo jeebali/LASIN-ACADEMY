@@ -1,0 +1,376 @@
+{
+  "lesson": "Everybody Up 5 | Unit 01 | Lesson 02 | Feelings",
+  "motivationVersion": "3.1-feelings-adaptive-strict-audio",
+  "sections": [
+    {
+      "id": "vocab",
+      "scored": false,
+      "questions": 0,
+      "role": "preview"
+    },
+    {
+      "id": "exercise-01",
+      "scored": true,
+      "questions": 30,
+      "globalRange": "1-30"
+    },
+    {
+      "id": "exercise-02",
+      "scored": true,
+      "questions": 12,
+      "globalRange": "31-42"
+    },
+    {
+      "id": "exercise-03",
+      "scored": true,
+      "questions": 12,
+      "globalRange": "43-54"
+    }
+  ],
+  "totalQuestions": 54,
+  "maxPoints": 270,
+  "pointsBands": [
+    {
+      "seconds": "0-5",
+      "points": 5
+    },
+    {
+      "seconds": ">5-10",
+      "points": 4
+    },
+    {
+      "seconds": ">10-15",
+      "points": 3
+    },
+    {
+      "seconds": ">15-20",
+      "points": 2
+    },
+    {
+      "seconds": ">20",
+      "points": 1
+    }
+  ],
+  "wrongRule": "Any genuine wrong attempt in a unique question makes that question Wrong and worth 0 points.",
+  "assets": {
+    "8971610ae5b2ce2a987184fb.png": {
+      "sha256": "8971610ae5b2ce2a987184fbf5bea8fb943a72d61f77adbd9dd7b310406b7676",
+      "mime": "image/png",
+      "bytes": 2389022,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "8b928228241f45c4572a43af.png": {
+      "sha256": "8b928228241f45c4572a43afb0c46a037cfbf979f2dca0eec35353dd4df62de2",
+      "mime": "image/png",
+      "bytes": 2449350,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "65e35dae62c9ea511ba255a7.png": {
+      "sha256": "65e35dae62c9ea511ba255a762886032de71669e8495f62bdc472b4647969146",
+      "mime": "image/png",
+      "bytes": 2382483,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "6a8cc6b2bcdf01480e9f43e0.mp3": {
+      "sha256": "6a8cc6b2bcdf01480e9f43e0817fdef3bd14ce516c5c59d43bf6a92a63fd190c",
+      "mime": "audio/mpeg",
+      "bytes": 39635,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "182359d03ed9f1dbd205d6fc.mp3": {
+      "sha256": "182359d03ed9f1dbd205d6fcc67a33e35b198bbf31a2802a26aab5389e6e4cfa",
+      "mime": "audio/mpeg",
+      "bytes": 35874,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "cbe6012c4ee8ddc75a2fbe9f.mp3": {
+      "sha256": "cbe6012c4ee8ddc75a2fbe9fb1ef30d10f46879a1419045378ae118697a0fd56",
+      "mime": "audio/mpeg",
+      "bytes": 39635,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "d82dd2717a91b895dff5d2ca.png": {
+      "sha256": "d82dd2717a91b895dff5d2ca76c5128f9d86a3637a394fe9cf976682a6908e7d",
+      "mime": "image/png",
+      "bytes": 2300484,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "293046d7c1460cd4fa22f6b4.mp3": {
+      "sha256": "293046d7c1460cd4fa22f6b4889970e490f3e16cca93e34d61b0477efbf199f4",
+      "mime": "audio/mpeg",
+      "bytes": 34202,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "37e6c7e54f6c93711ec51458.png": {
+      "sha256": "37e6c7e54f6c93711ec5145888851a6fcb0dc9d24d949459277f63e9df746c47",
+      "mime": "image/png",
+      "bytes": 2565466,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "85bf4e6129b5141f172c4cf2.mp3": {
+      "sha256": "85bf4e6129b5141f172c4cf2b5ca966219ac65c8c6036a634f9a79e2c13ec49c",
+      "mime": "audio/mpeg",
+      "bytes": 40889,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "10f1f21e496e7fefa1e5086e.png": {
+      "sha256": "10f1f21e496e7fefa1e5086e5f0370e9617762e213c4ff4c2157410150364839",
+      "mime": "image/png",
+      "bytes": 2480700,
+      "usedBy": [
+        "vocab",
+        "exercise-01",
+        "exercise-02"
+      ]
+    },
+    "e9b6c908fc0faa6edf86e243.mp3": {
+      "sha256": "e9b6c908fc0faa6edf86e2436a7e50d51c32796d693b48f871b32da5545558bf",
+      "mime": "audio/mpeg",
+      "bytes": 35874,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "3fc4c0530f09b32fe3959c3f.png": {
+      "sha256": "3fc4c0530f09b32fe3959c3f3130b07170f27e4049c50b91fbce3984167ac06f",
+      "mime": "image/png",
+      "bytes": 2064770,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "3b4201eaad70033ee0accc1d.mp3": {
+      "sha256": "3b4201eaad70033ee0accc1d81370a38b2a653f5eb554ffdf0fb8ebf6fcf9fe1",
+      "mime": "audio/mpeg",
+      "bytes": 37963,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "83e8f14a857b6f7fdb008751.png": {
+      "sha256": "83e8f14a857b6f7fdb008751b0db5687654a7bfaf8e30a8294afd6319b2a119b",
+      "mime": "image/png",
+      "bytes": 945780,
+      "usedBy": [
+        "vocab"
+      ]
+    },
+    "0acd1b717b8616aeaf04a8f5.mp3": {
+      "sha256": "0acd1b717b8616aeaf04a8f55124a83dbc7da585914249b980b3b4dfc3f767b4",
+      "mime": "audio/mpeg",
+      "bytes": 55100,
+      "usedBy": [
+        "vocab",
+        "exercise-01"
+      ]
+    },
+    "52a721fdeca24b4a30c6974f.mp3": {
+      "sha256": "52a721fdeca24b4a30c6974f73a4d130741933b1f006078d38450040cd591b46",
+      "mime": "audio/mpeg",
+      "bytes": 73072,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "83ad0ae896b206388f281c8f.mp3": {
+      "sha256": "83ad0ae896b206388f281c8f53334906b27de9f9f6155482ae40699b61276818",
+      "mime": "audio/mpeg",
+      "bytes": 74326,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "0c1a7999418bfa74debb2cb9.mp3": {
+      "sha256": "0c1a7999418bfa74debb2cb9b522122bc020f6dcb28b089b6c94ef8a9f57abd3",
+      "mime": "audio/mpeg",
+      "bytes": 76834,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "9a0639e60b1a96b765abc411.mp3": {
+      "sha256": "9a0639e60b1a96b765abc41188a692fb160bb13442ba3fb7523f5f522bf526c9",
+      "mime": "audio/mpeg",
+      "bytes": 70146,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "cc8e763a33a43391f137170c.mp3": {
+      "sha256": "cc8e763a33a43391f137170cbd384151aa6d1a95ef67e67480e8f97bb85fbe02",
+      "mime": "audio/mpeg",
+      "bytes": 67639,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "0e96ca6179adfcd865b5a084.mp3": {
+      "sha256": "0e96ca6179adfcd865b5a084e57355d3ca84dedbadd22bba06fd2d56f1955f22",
+      "mime": "audio/mpeg",
+      "bytes": 69310,
+      "usedBy": [
+        "exercise-02"
+      ]
+    },
+    "a5c5bff3101ae1221396ef59.mp3": {
+      "sha256": "a5c5bff3101ae1221396ef59a66ae680e40701ffe62889f2714a57da1f5dd5ca",
+      "mime": "audio/mpeg",
+      "bytes": 87701,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "a3d8bcfd6ff8893ab56ce18d.mp3": {
+      "sha256": "a3d8bcfd6ff8893ab56ce18deb804cda46379ddb66546d4f38a103bd5654ac38",
+      "mime": "audio/mpeg",
+      "bytes": 87283,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "dba1b636180133742609bcce.mp3": {
+      "sha256": "dba1b636180133742609bcce39cbac030ea5c4c8c0a4399375e3c2c7b6357000",
+      "mime": "audio/mpeg",
+      "bytes": 75998,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "87b99a38806dfa91e36d543a.mp3": {
+      "sha256": "87b99a38806dfa91e36d543a5d9d7343a1789e88512b04761e28c47d46face4b",
+      "mime": "audio/mpeg",
+      "bytes": 69310,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "a7b28a82de19387abcd365eb.mp3": {
+      "sha256": "a7b28a82de19387abcd365eb38ddfba54a8574c2ccc3902f4b3e4ebbf6102716",
+      "mime": "audio/mpeg",
+      "bytes": 72236,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "399bc8d1f0f96c335735d275.mp3": {
+      "sha256": "399bc8d1f0f96c335735d275b4ed55894a948ef462b40a8a4c4734699e64a3ca",
+      "mime": "audio/mpeg",
+      "bytes": 71400,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "f91e9567167c62ce8e8663f5.mp3": {
+      "sha256": "f91e9567167c62ce8e8663f582f207a5ed4869e0cbc319e8f8b7876f7ebf53f7",
+      "mime": "audio/mpeg",
+      "bytes": 68474,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "aad6e1508867f642fe807e92.mp3": {
+      "sha256": "aad6e1508867f642fe807e921327c3c7fd7ae5b0bd9f9bea98d87c1e16476ef8",
+      "mime": "audio/mpeg",
+      "bytes": 73908,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "52877b1f62619cf08f91c029.mp3": {
+      "sha256": "52877b1f62619cf08f91c02942b93f33ca8f4f121e17c905825dfa77e5e647ae",
+      "mime": "audio/mpeg",
+      "bytes": 72236,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "3fdd0f6bb9595dab523fcb97.png": {
+      "sha256": "3fdd0f6bb9595dab523fcb97ca81589839fca8c7d8ef54535bcbb09babf39104",
+      "mime": "image/png",
+      "bytes": 315237,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "79532ee5b903771d998daf4b.png": {
+      "sha256": "79532ee5b903771d998daf4b16c0f556730c4be6422c68d9cf91ed22cde98191",
+      "mime": "image/png",
+      "bytes": 313735,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "319bff486e4e84baeeaea22d.png": {
+      "sha256": "319bff486e4e84baeeaea22d51e8d3067def257a4e3e92f4ec176279e9874439",
+      "mime": "image/png",
+      "bytes": 288317,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "93aeba5a71287c1334f0829f.png": {
+      "sha256": "93aeba5a71287c1334f0829f8e6b72abb17a08163d0e3f44f0ec71330c504cdb",
+      "mime": "image/png",
+      "bytes": 288082,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "5f7d569879be342e1cdff6d1.png": {
+      "sha256": "5f7d569879be342e1cdff6d1e341ce543cf13d22d1f5cd37819ca882fcc12ece",
+      "mime": "image/png",
+      "bytes": 294896,
+      "usedBy": [
+        "exercise-03"
+      ]
+    },
+    "b68b9722de82afa83bd0bdfd.png": {
+      "sha256": "b68b9722de82afa83bd0bdfdb9757b4bd40b64a848e16aa66af75eaa220ecbf8",
+      "mime": "image/png",
+      "bytes": 295576,
+      "usedBy": [
+        "exercise-03"
+      ]
+    }
+  },
+  "uniqueAssetCount": 37,
+  "uniqueAssetBytes": 20802943
+}

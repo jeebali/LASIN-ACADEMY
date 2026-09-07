@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en" data-builder="false"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>LASIN | Everybody Up 5 | Feelings Grammar | Exercise 02</title>
+<style>
+:root{
+  --blue:#103d9b;--blue2:#0b2f7e;--soft:#eef4ff;--line:#dbe7ff;
+  --good:#1d9d58;--bad:#d93b3b;--red:#e52d35;--red2:#bd2028;
+  --text:#102247;--muted:#61749c;--paper:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;min-height:100dvh;overflow-x:hidden;overscroll-behavior:none}
+button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+img{-webkit-user-drag:none;user-select:none}
+#app{
+  min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;
+  padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right))
+          max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));
+}
+.screen{width:min(96vw,1540px);min-height:min(95dvh,980px);margin:auto;text-align:center;display:flex;align-items:center;justify-content:center}
+.intro{
+  width:min(980px,94vw);padding:46px 28px;border:2px solid var(--line);border-radius:30px;background:#fff;
+  box-shadow:0 14px 38px rgba(28,68,140,.10)
+}
+.intro h1{font-size:clamp(34px,4.35vw,56px);font-weight:900;color:var(--blue);margin:0;line-height:1.18;white-space:pre-line}
+.start,.restart{
+  margin:30px auto 0;border:none;border-radius:999px;background:var(--blue);color:#fff;
+  font-size:clamp(24px,4vw,35px);font-weight:900;padding:16px 50px;cursor:pointer;
+  animation:glow 1.45s ease-in-out infinite alternate
+}
+.start:disabled{opacity:.38;cursor:not-allowed;animation:none;box-shadow:none}
+@keyframes glow{from{box-shadow:0 0 8px rgba(16,61,155,.26)}to{box-shadow:0 0 28px rgba(16,61,155,.72)}}
+
+.stage{width:100%;min-height:0;margin:auto;display:flex;flex-direction:column;justify-content:center}
+.progress-wrap{width:min(1240px,96%);margin:0 auto 12px}
+.progress-meta{display:flex;justify-content:flex-end;margin-bottom:5px;color:var(--muted);font-size:14px;font-weight:900}
+.progress-track{height:12px;border-radius:999px;background:#eaf0ff;border:1px solid #d7e2fb;overflow:hidden}
+.progress-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#3f8cff,#103d9b);transition:width .4s ease}
+.halves{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,1.6vw,24px);align-items:stretch;width:100%;flex:1;min-height:0}
+.half{
+  border:2px solid #e1eaff;border-radius:28px;background:#fff;padding:clamp(15px,1.65vw,24px);
+  box-shadow:0 12px 30px rgba(28,68,140,.08);min-width:0;display:flex;flex-direction:column;justify-content:flex-start
+}
+.half-title{font-size:clamp(22px,2.15vw,30px);font-weight:900;color:var(--blue2);margin:0 0 9px}
+.audio-btn{
+  width:clamp(60px,5vw,74px);height:clamp(60px,5vw,74px);border:none;border-radius:50%;background:var(--soft);cursor:pointer;
+  display:grid;place-items:center;margin:0 auto 12px;box-shadow:0 8px 22px rgba(20,64,140,.13);
+  transition:transform .15s ease,opacity .2s ease,box-shadow .15s ease
+}
+.audio-btn:hover:not(:disabled){box-shadow:0 11px 28px rgba(20,64,140,.19)}
+.audio-btn:active:not(:disabled){transform:scale(.94)}
+.audio-btn:disabled{opacity:.32;cursor:not-allowed;box-shadow:none}
+.audio-btn.ready{animation:pulse 1.05s ease-in-out infinite alternate}
+.audio-btn.playing{animation:pulse .7s ease-in-out infinite alternate}
+@keyframes pulse{from{box-shadow:0 0 5px rgba(16,61,155,.16)}to{box-shadow:0 0 25px rgba(16,61,155,.58)}}
+.audio-btn svg{width:54%;height:54%;fill:var(--blue)}
+
+.picture-card{
+  flex:1;min-height:300px;border:2px solid #edf2ff;border-radius:22px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:clamp(12px,2vw,24px);
+  box-shadow:0 6px 17px rgba(20,64,140,.055);overflow:hidden
+}
+.picture-card img{max-width:100%;width:100%;max-height:min(52vh,540px);height:auto;object-fit:contain;display:block}
+.picture-pair{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1vw,14px);align-items:center;justify-items:center}
+.picture-item{width:100%;min-width:0;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:15px;background:#fff}
+.slot-punct-group{display:inline-flex;align-items:center;gap:0;white-space:nowrap}
+.punctuation{display:inline-flex;align-items:center;margin-left:2px}
+.left-caption{margin:12px 0 0;color:var(--muted);font-size:15px;font-weight:800;min-height:20px}
+
+.task-wrap{display:flex;flex-direction:column;flex:1;justify-content:center;min-height:0}
+.listen-note{min-height:24px;font-size:15px;font-weight:900;color:var(--muted);margin:0 0 8px}
+.sentence-area{
+  width:min(920px,100%);margin:4px auto 20px;padding:14px 10px 11px;
+  min-height:86px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+  border-bottom:5px solid var(--blue);color:var(--blue);font-size:clamp(23px,2.4vw,36px);font-weight:900;line-height:1.22
+}
+.fixed-chunk{display:inline-flex;align-items:center;white-space:nowrap}
+.answer-slot{
+  min-width:112px;min-height:48px;border:2px dashed #b8c9ec;border-radius:13px;background:#f8faff;
+  display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;color:#9aabd1;font-size:.72em;line-height:1
+}
+.answer-slot.phrase-slot{min-width:clamp(150px,23vw,280px)}
+.answer-slot.build-placeholder{min-width:155px}
+.period{margin-left:-3px;align-self:center}
+.word-bank{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(9px,1.2vw,15px);min-height:66px;margin:0 auto 8px;width:min(940px,100%)}
+.word-tile{
+  border:3px solid transparent;border-radius:14px;background:var(--red);color:#fff;padding:12px 20px;
+  font-size:clamp(19px,1.8vw,27px);font-weight:900;cursor:pointer;box-shadow:0 7px 16px rgba(180,35,42,.18);
+  transition:transform .14s ease,opacity .18s ease,box-shadow .14s ease,border-color .14s ease;max-width:100%
+}
+.word-tile:hover:not(:disabled){transform:translateY(-2px)}
+.word-tile:active:not(:disabled){transform:scale(.97)}
+.word-tile:disabled{opacity:.38;cursor:not-allowed}
+.word-tile.is-wrong{background:var(--red2);border-color:#8f1118;box-shadow:0 0 0 5px rgba(217,59,59,.12)}
+.word-tile.moved{opacity:0;pointer-events:none;transform:translateY(-18px) scale(.9)}
+.built-word{
+  background:var(--blue);color:#fff;border-radius:12px;padding:9px 13px;
+  font-size:clamp(19px,1.8vw,27px);font-weight:900;box-shadow:0 6px 14px rgba(16,61,155,.17);
+  animation:wordPop .27s ease-out;display:inline-flex;align-items:center;justify-content:center;line-height:1.1
+}
+@keyframes wordPop{from{transform:translateY(14px) scale(.92);opacity:.2}to{transform:none;opacity:1}}
+.feedback{min-height:30px;margin:8px 0 0;font-size:18px;font-weight:900;color:var(--good)}
+.feedback.bad{color:var(--bad)}
+.shake{animation:shake .34s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-4px)}}
+.fly-tile{
+  position:fixed;z-index:10000;margin:0;pointer-events:none;transition:transform .33s cubic-bezier(.2,.8,.25,1),opacity .33s ease;
+  will-change:transform,opacity
+}
+
+.celebration{
+  position:fixed;inset:0;z-index:9999;background:rgba(220,252,231,.97);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;animation:celebrateIn .25s ease-out
+}
+@keyframes celebrateIn{from{opacity:0}to{opacity:1}}
+.celebration-core{position:relative;z-index:2;text-align:center;animation:bravoPop .48s cubic-bezier(.2,.9,.25,1.35)}
+.celebration-title{
+  font-size:clamp(76px,15vw,176px);font-weight:1000;letter-spacing:2px;color:#138a4f;
+  text-shadow:0 6px 0 rgba(255,255,255,.9),0 12px 30px rgba(20,140,80,.18);line-height:.9
+}
+.celebration-sub{margin-top:16px;font-size:clamp(20px,3vw,35px);font-weight:900;color:var(--blue2)}
+@keyframes bravoPop{0%{transform:scale(.45) rotate(-4deg);opacity:.1}70%{transform:scale(1.08) rotate(1deg);opacity:1}100%{transform:scale(1)}}
+.star{
+  position:absolute;z-index:1;font-size:clamp(26px,4vw,54px);color:#f4b400;
+  text-shadow:0 3px 0 rgba(255,255,255,.75);animation:starFly 1.7s ease-out forwards;pointer-events:none
+}
+@keyframes starFly{0%{transform:translate(0,0) rotate(0) scale(.2);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1.25);opacity:0}}
+.complete{
+  width:min(700px,94vw);padding:38px 24px;border:2px solid var(--line);border-radius:30px;background:#fff;
+  box-shadow:0 14px 38px rgba(28,68,140,.10)
+}
+.complete h2{font-size:clamp(38px,6vw,62px);color:var(--blue);margin:0 0 10px;font-weight:900}
+.complete p{font-size:21px;font-weight:700;color:#5a6b8f;margin:0}
+
+.audio-setup{
+  width:min(760px,96%);margin:20px auto 0;padding:15px 17px;border:2px solid #dbe7ff;border-radius:18px;
+  background:#f8faff;box-shadow:0 8px 20px rgba(16,61,155,.07)
+}
+.audio-setup-title{font-size:16px;font-weight:1000;color:var(--blue2);margin-bottom:5px}
+.audio-setup-text{font-size:13px;line-height:1.5;font-weight:800;color:var(--muted)}
+.audio-setup-btn{
+  margin-top:11px;border:0;border-radius:14px;background:var(--blue);color:#fff;padding:12px 17px;font-weight:1000;
+  cursor:pointer;box-shadow:0 8px 16px rgba(16,61,155,.16)
+}
+.audio-setup-status{min-height:20px;margin-top:9px;font-size:13px;font-weight:900;color:var(--muted);line-height:1.45}
+.audio-setup-status.ok{color:var(--good)}.audio-setup-status.bad{color:var(--bad)}
+.audio-setup-track{height:8px;background:#e5edfc;border-radius:999px;overflow:hidden;margin-top:9px}
+.audio-setup-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .15s ease}
+.audio-file-list{margin-top:8px;font-size:12px;color:#6a7da5;font-weight:700;line-height:1.5}
+
+@media(max-width:900px){
+  #app{align-items:flex-start}
+  .screen{width:96vw;min-height:auto}
+  .stage{justify-content:flex-start}
+  .halves{grid-template-columns:1fr;gap:12px}
+  .half{padding:13px 10px 14px;border-radius:22px}
+  .picture-card{min-height:210px;padding:14px}
+  .picture-card img{max-height:min(34vh,310px)}
+  .sentence-area{min-height:72px;margin-bottom:15px}
+}
+@media(max-width:520px){
+  #app{padding:max(8px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(9px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left))}
+  .intro{padding:34px 16px;border-radius:22px}.intro h1{font-size:clamp(31px,9vw,43px)}
+  .start,.restart{padding:14px 38px}
+  .progress-wrap{width:98%;margin-bottom:8px}.progress-track{height:10px}
+  .halves{gap:9px}.half{border-radius:18px;padding:10px 8px 12px}
+  .half-title{margin-bottom:6px;font-size:22px}
+  .audio-btn{width:56px;height:56px;margin-bottom:8px}
+  .picture-card{min-height:175px;border-radius:15px;padding:10px}.picture-card img{max-height:230px}
+  .sentence-area{font-size:22px;gap:6px;padding:10px 4px 8px;border-bottom-width:4px;min-height:66px}
+  .answer-slot{min-width:88px;min-height:42px}.answer-slot.phrase-slot{min-width:138px}
+  .word-bank{gap:7px;min-height:58px}.word-tile{padding:10px 13px;font-size:18px;border-radius:11px}
+  .built-word{padding:8px 9px;font-size:18px;border-radius:10px}
+  .feedback{font-size:16px;min-height:25px}
+  .audio-setup{width:98%;padding:12px}.audio-setup-btn{width:100%}
+}
+@media(max-height:760px) and (min-width:901px){
+  #app{align-items:flex-start;padding-top:7px}.screen{min-height:auto}.progress-wrap{margin-bottom:7px}
+  .half{padding-top:10px;padding-bottom:10px}.half-title{margin-bottom:4px}
+  .audio-btn{width:54px;height:54px;margin-bottom:6px}
+  .picture-card{min-height:180px;padding:9px}.picture-card img{max-height:245px}
+  .sentence-area{min-height:60px;margin-bottom:12px;padding-top:8px;font-size:clamp(21px,2.1vw,31px)}
+  .word-tile{padding:9px 15px;font-size:clamp(18px,1.55vw,24px)}
+  .built-word{font-size:clamp(18px,1.55vw,24px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div id="app"><main class="screen" id="screen"></main></div>
+<script id="lesson-data" type="application/json">{"title":"I felt ..., but he felt ...\nI felt ..., but she felt ...","audio":{"relaxed_nervous":"../assets/52a721fdeca24b4a30c6974f.mp3","shy_confident":"../assets/83ad0ae896b206388f281c8f.mp3","wide_awake_sleepy":"../assets/0c1a7999418bfa74debb2cb9.mp3","nervous_relaxed":"../assets/9a0639e60b1a96b765abc411.mp3","confident_shy":"../assets/cc8e763a33a43391f137170c.mp3","sleepy_wide_awake":"../assets/0e96ca6179adfcd865b5a084.mp3"},"images":{"relaxed":"../assets/8971610ae5b2ce2a987184fb.png","nervous":"../assets/8b928228241f45c4572a43af.png","confident":"../assets/65e35dae62c9ea511ba255a7.png","shy":"../assets/d82dd2717a91b895dff5d2ca.png","wide-awake":"../assets/37e6c7e54f6c93711ec51458.png","sleepy":"../assets/10f1f21e496e7fefa1e5086e.png"},"items":[{"id":"relaxed_nervous","sentence":"I felt relaxed, but he felt nervous.","firstFeeling":"relaxed","secondFeeling":"nervous","secondPronoun":"he","round1Choices":["relaxed","nervous","confident","sleepy"],"chunks":["I felt","relaxed,","but he felt","nervous"],"firstImage":"relaxed","secondImage":"nervous","audioFile":"I felt relaxed, but he felt nervous..mp3"},{"id":"shy_confident","sentence":"I felt shy, but he felt confident.","firstFeeling":"shy","secondFeeling":"confident","secondPronoun":"he","round1Choices":["shy","confident","nervous","relaxed"],"chunks":["I felt","shy,","but he felt","confident"],"firstImage":"shy","secondImage":"confident","audioFile":"I felt shy, but he felt confident..mp3"},{"id":"wide_awake_sleepy","sentence":"I felt wide-awake, but he felt sleepy.","firstFeeling":"wide-awake","secondFeeling":"sleepy","secondPronoun":"he","round1Choices":["wide-awake","sleepy","relaxed","nervous"],"chunks":["I felt","wide-awake,","but he felt","sleepy"],"firstImage":"wide-awake","secondImage":"sleepy","audioFile":"I felt wide-awake, but he felt sleepy..mp3"},{"id":"nervous_relaxed","sentence":"I felt nervous, but she felt relaxed.","firstFeeling":"nervous","secondFeeling":"relaxed","secondPronoun":"she","round1Choices":["nervous","relaxed","shy","confident"],"chunks":["I felt","nervous,","but she felt","relaxed"],"firstImage":"nervous","secondImage":"relaxed","audioFile":"I felt nervous, but she felt relaxed..mp3"},{"id":"confident_shy","sentence":"I felt confident, but she felt shy.","firstFeeling":"confident","secondFeeling":"shy","secondPronoun":"she","round1Choices":["confident","shy","relaxed","sleepy"],"chunks":["I felt","confident,","but she felt","shy"],"firstImage":"confident","secondImage":"shy","audioFile":"I felt confident, but she felt shy..mp3"},{"id":"sleepy_wide_awake","sentence":"I felt sleepy, but she felt wide-awake.","firstFeeling":"sleepy","secondFeeling":"wide-awake","secondPronoun":"she","round1Choices":["sleepy","wide-awake","nervous","confident"],"chunks":["I felt","sleepy,","but she felt","wide-awake"],"firstImage":"sleepy","secondImage":"wide-awake","audioFile":"I felt sleepy, but she felt wide-awake..mp3"}]}</script>
+<script id="app-script">
+(()=>{
+'use strict';
+const LASIN_MOTIVATION_EXERCISE_ID='exercise-02';
+function lasinMotivationBridge(action,payload={}){
+  try{window.parent.postMessage({channel:'LASIN_MOTIVATION_V2',action,payload:Object.assign({exerciseId:LASIN_MOTIVATION_EXERCISE_ID},payload||{})},'*');}catch(e){}
+}
+function lasinMotivationSignal(action,extra={}){
+  const localIndex=currentIndex+1;
+  lasinMotivationBridge(action,Object.assign({questionId:String(localIndex),localIndex},extra||{}));
+}
+function lasinHostSuspend(){
+  const hasQuestion=!!document.querySelector('.word-tile');
+  if(!hasQuestion){stopAudio();return;}
+  if(!mandatoryDone){
+    stopAudio();mandatoryDone=false;mandatoryNeedsTap=true;
+    setAudioButtons(true,true);lockChoices();setListenNote('Tap the headset to listen twice.');
+    return;
+  }
+  const replayActive=!!currentAudio||!!waitTimer||!!document.querySelector('.audio-btn.playing');
+  if(replayActive){
+    stopAudio();setAudioButtons(true,true);
+    if(pendingFinish){document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);maybeFinishQuestion();}
+    else unlockChoices();
+  }
+}
+window.addEventListener('message',e=>{
+  const d=e.data;if(!d||d.channel!=='LASIN_HOST_V1'||d.action!=='active-state')return;
+  if(d.payload&&d.payload.active===false)lasinHostSuspend();
+});
+const DATA=JSON.parse(document.getElementById('lesson-data').textContent);
+const IS_BUILDER=document.documentElement.dataset.builder==='true';
+const screenEl=document.getElementById('screen');
+const AUTO_DELAY=800, AUDIO_GAP=500, WRONG_CLEAR=900, BRAVO_MS=2100;
+const reducedMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Two pedagogical rounds:
+   1) complete the two ordered feelings
+   2) build the complete contrast sentence from meaningful chunks */
+const MODES=['feelings','fullSentence'];
+const QUESTIONS=MODES.flatMap(mode=>DATA.items.map(item=>({mode,item})));
+lasinMotivationBridge('register-exercise',{order:2,label:'Exercise 02',scorable:true,totalQuestions:QUESTIONS.length,mode:'scored'});
+
+const HEADSET=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v5a2 2 0 0 0 2 2h2v-8H6a2 2 0 0 0-2 2Zm16 0v5a2 2 0 0 1-2 2h-2v-8h2a2 2 0 0 1 2 2Z"/><path d="M4 13v-1a8 8 0 0 1 16 0v1h-2v-1a6 6 0 0 0-12 0v1Z"/></svg>`;
+
+let currentIndex=0,builtCount=0,mandatoryDone=false,mandatoryNeedsTap=false,pendingFinish=false;
+let audioToken=0,currentAudio=null,waitTimer=null,finishTimer=null;
+const timers=new Set();
+
+function escapeHTML(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function shuffledNotSame(arr){
+  if(arr.length<2)return [...arr];
+  for(let n=0;n<12;n++){const a=shuffle(arr);if(a.some((v,i)=>v!==arr[i]))return a;}
+  return [...arr.slice(1),arr[0]];
+}
+function allAudioEmbedded(){return DATA.items.every(i=>String(DATA.audio[i.id]||'').length>0);}
+function clearTimers(){
+  for(const id of timers)clearTimeout(id);timers.clear();
+  if(waitTimer){clearTimeout(waitTimer);waitTimer=null;}
+  if(finishTimer){clearTimeout(finishTimer);finishTimer=null;}
+}
+function stopAudio(){
+  audioToken++;clearTimers();
+  if(currentAudio){try{currentAudio.pause();currentAudio.currentTime=0;}catch(e){} currentAudio=null;}
+  document.querySelectorAll('.audio-btn').forEach(b=>b.classList.remove('playing'));
+}
+function delay(ms,token){return new Promise(resolve=>{waitTimer=setTimeout(()=>{waitTimer=null;resolve(token===audioToken);},ms);});}
+function setAudioButtons(enabled,ready=false){
+  document.querySelectorAll('.audio-btn').forEach(b=>{b.disabled=!enabled;b.classList.toggle('ready',enabled&&ready);});
+}
+function setPlaying(btn,yes){if(btn)btn.classList.toggle('playing',yes);if(yes&&btn)btn.classList.remove('ready');}
+function setFeedback(text,bad=false){
+  const f=document.getElementById('feedback');if(!f)return;
+  f.textContent=text;f.className='feedback'+(bad?' bad':'');
+}
+function setListenNote(text){const el=document.getElementById('listenNote');if(el)el.textContent=text;}
+function lockChoices(){document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);}
+function unlockChoices(){document.querySelectorAll('.word-tile:not(.moved)').forEach(b=>b.disabled=false);}
+
+function playOne(src,btn,token){
+  return new Promise(resolve=>{
+    if(token!==audioToken||!src)return resolve(false);
+    const a=new Audio();currentAudio=a;a.preload='auto';a.setAttribute('playsinline','');a.setAttribute('webkit-playsinline','');a.src=src;
+    let settled=false;
+    const done=(ok)=>{
+      if(settled)return;settled=true;a.onended=null;a.onerror=null;setPlaying(btn,false);
+      if(currentAudio===a)currentAudio=null;resolve(ok&&token===audioToken);
+    };
+    a.onended=()=>done(true);a.onerror=()=>done(false);setPlaying(btn,true);
+    const p=a.play();if(p&&p.catch)p.catch(()=>done(false));
+  });
+}
+async function playTwice(src,btn,token){
+  const first=await playOne(src,btn,token);if(!first||token!==audioToken)return false;
+  const ok=await delay(AUDIO_GAP,token);if(!ok)return false;
+  return await playOne(src,btn,token);
+}
+async function runMandatory(preferredBtnId='rightAudioBtn'){
+  stopAudio();
+  const q=QUESTIONS[currentIndex],src=DATA.audio[q.item.id];
+  const token=++audioToken,btn=document.getElementById(preferredBtnId)||document.getElementById('rightAudioBtn');
+  lockChoices();setAudioButtons(false);mandatoryNeedsTap=false;setListenNote('Listen carefully. The sentence will play twice.');
+  const ok=await playTwice(src,btn,token);
+  if(token!==audioToken)return;
+  if(ok){
+    mandatoryDone=true;mandatoryNeedsTap=false;setAudioButtons(true,true);unlockChoices();setListenNote(instructionFor(q.mode));lasinMotivationSignal('question-ready');
+  }else{
+    mandatoryDone=false;mandatoryNeedsTap=true;setAudioButtons(true,true);lockChoices();setListenNote('Tap the headset to listen twice.');
+  }
+}
+async function manualReplay(btnId){
+  if(!mandatoryDone){if(mandatoryNeedsTap)await runMandatory(btnId);return;}
+  stopAudio();
+  const q=QUESTIONS[currentIndex],token=++audioToken,btn=document.getElementById(btnId);
+  await playTwice(DATA.audio[q.item.id],btn,token);
+  if(token===audioToken){setAudioButtons(true,true);maybeFinishQuestion();}
+}
+function audioClick(btnId){if(mandatoryDone)manualReplay(btnId);else if(mandatoryNeedsTap)runMandatory(btnId);}
+
+function builderPanel(){
+  if(!IS_BUILDER)return '';
+  const expected=DATA.items.map(i=>escapeHTML(i.audioFile)).join('<br>');
+  return `<section class="audio-setup" id="audioSetup">
+    <div class="audio-setup-title">Original Audio Embedder</div>
+    <div class="audio-setup-text">Select the six original MP3 recordings from your computer. They will be embedded byte-for-byte into a clean standalone student HTML. The matcher safely tolerates a sentence-ending extra dot before <b>.mp3</b>.</div>
+    <button class="audio-setup-btn" id="embedAudioBtn" type="button">Embed the Original MP3s</button>
+    <input id="audioFiles" type="file" accept="audio/mpeg,.mp3" multiple hidden>
+    <div class="audio-setup-status" id="audioSetupStatus" aria-live="polite">${allAudioEmbedded()?'All six recordings are embedded.':'Waiting for the six original recordings.'}</div>
+    <div class="audio-setup-track"><div class="audio-setup-fill" id="audioSetupFill" style="width:${allAudioEmbedded()?100:0}%"></div></div>
+    <div class="audio-file-list">Expected recordings:<br>${expected}</div>
+  </section>`;
+}
+
+function renderIntro(){
+  stopAudio();currentIndex=0;builtCount=0;mandatoryDone=false;mandatoryNeedsTap=false;pendingFinish=false;
+  screenEl.innerHTML=`<section class="intro"><h1>${escapeHTML(DATA.title)}</h1><button class="start" id="startBtn" type="button" ${allAudioEmbedded()?'':'disabled'}>Start</button>${builderPanel()}</section>`;
+  document.getElementById('startBtn').addEventListener('click',()=>{unlockMobileAudio();currentIndex=0;renderQuestion();});
+  if(IS_BUILDER&&window.LASIN_BUILDER&&window.LASIN_BUILDER.bind)window.LASIN_BUILDER.bind();
+}
+function progressHTML(){
+  const n=currentIndex+1,total=QUESTIONS.length,pct=(n/total)*100;
+  return `<div class="progress-wrap"><div class="progress-meta"><span>${n} / ${total}</span></div><div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;
+}
+function instructionFor(mode){
+  if(mode==='feelings')return 'Now choose the missing feelings.';
+  return 'Now make the sentence in the correct order.';
+}
+function sentenceHTML(q){
+  const i=q.item;
+  if(q.mode==='feelings'){
+    return `<span class="fixed-chunk">I felt</span>
+      <span class="slot-punct-group"><span class="answer-slot" id="slot0">...</span><span class="punctuation">,</span></span>
+      <span class="fixed-chunk">but ${escapeHTML(i.secondPronoun)} felt</span>
+      <span class="slot-punct-group"><span class="answer-slot" id="slot1">...</span><span class="punctuation">.</span></span>`;
+  }
+  return `<span class="answer-slot build-placeholder" id="buildTarget">...</span>`;
+}
+function choicesFor(q){
+  if(q.mode==='feelings')return shuffle(q.item.round1Choices);
+  return shuffledNotSame(q.item.chunks);
+}
+function picturePairHTML(i){
+  const first=DATA.images[i.firstImage],second=DATA.images[i.secondImage];
+  return `<div class="picture-pair">
+    <div class="picture-item"><img src="${first}" alt="First feeling picture for: ${escapeHTML(i.sentence)}"></div>
+    <div class="picture-item"><img src="${second}" alt="Second feeling picture for: ${escapeHTML(i.sentence)}"></div>
+  </div>`;
+}
+
+function renderQuestion(){
+  stopAudio();builtCount=0;mandatoryDone=false;mandatoryNeedsTap=false;pendingFinish=false;
+  const q=QUESTIONS[currentIndex],i=q.item,choices=choicesFor(q);
+  screenEl.innerHTML=`<section class="stage">${progressHTML()}<div class="halves">
+    <section class="half" aria-label="Pictures and listening prompt"><h2 class="half-title">Look and listen.</h2>
+      <button class="audio-btn" id="leftAudioBtn" aria-label="Listen to the sentence again" type="button" disabled>${HEADSET}</button>
+      <div class="picture-card">${picturePairHTML(i)}</div>
+      <p class="left-caption">You can listen again anytime.</p>
+    </section>
+    <section class="half" aria-label="Grammar exercise"><h2 class="half-title">Then listen and choose.</h2>
+      <button class="audio-btn" id="rightAudioBtn" aria-label="Listen to the sentence again" type="button" disabled>${HEADSET}</button>
+      <div class="task-wrap"><p class="listen-note" id="listenNote">Listen carefully. The sentence will play twice.</p>
+        <div class="sentence-area" id="sentenceArea" aria-label="Sentence building area">${sentenceHTML(q)}</div>
+        <div class="word-bank" id="wordBank">${choices.map(w=>`<button class="word-tile" type="button" data-word="${escapeHTML(w)}" aria-label="Choose ${escapeHTML(w)}" disabled>${escapeHTML(w)}</button>`).join('')}</div>
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </div>
+    </section>
+  </div></section>`;
+  document.getElementById('leftAudioBtn').addEventListener('click',()=>audioClick('leftAudioBtn'));
+  document.getElementById('rightAudioBtn').addEventListener('click',()=>audioClick('rightAudioBtn'));
+  document.querySelectorAll('.word-tile').forEach(btn=>btn.addEventListener('click',()=>chooseTile(btn,q)));
+  const token=audioToken;
+  const id=setTimeout(()=>{timers.delete(id);if(token===audioToken)runMandatory('rightAudioBtn');},AUTO_DELAY);timers.add(id);
+}
+
+function wrongTile(btn){
+  lasinMotivationSignal('question-mistake');
+  btn.classList.remove('shake');void btn.offsetWidth;btn.classList.add('is-wrong','shake');setFeedback('Try again!',true);
+  const id=setTimeout(()=>{timers.delete(id);btn.classList.remove('is-wrong','shake');setFeedback('');},WRONG_CLEAR);timers.add(id);
+}
+function flyInto(btn,target,text){
+  return new Promise(resolve=>{
+    if(reducedMotion){resolve();return;}
+    const a=btn.getBoundingClientRect(),b=target.getBoundingClientRect();
+    const clone=btn.cloneNode(true);clone.className='word-tile fly-tile';clone.disabled=true;clone.textContent=text;
+    clone.style.left=a.left+'px';clone.style.top=a.top+'px';clone.style.width=a.width+'px';clone.style.height=a.height+'px';document.body.appendChild(clone);
+    const dx=(b.left+b.width/2)-(a.left+a.width/2),dy=(b.top+b.height/2)-(a.top+a.height/2);
+    requestAnimationFrame(()=>{clone.style.transform=`translate(${dx}px,${dy}px) scale(.82)`;clone.style.opacity='.12';});
+    setTimeout(()=>{clone.remove();resolve();},340);
+  });
+}
+async function chooseTile(btn,q){
+  if(!mandatoryDone||btn.disabled)return;
+  if(q.mode==='feelings')return chooseFeelings(btn,q);
+  return chooseFull(btn,q);
+}
+async function chooseFeelings(btn,q){
+  const expected=[q.item.firstFeeling,q.item.secondFeeling][builtCount],word=btn.dataset.word;
+  if(word!==expected){wrongTile(btn);return;}
+  const isFinalFeeling=builtCount===1;if(isFinalFeeling)lasinMotivationSignal('question-completed');
+  const slot=document.getElementById('slot'+builtCount);
+  await flyInto(btn,slot,word);
+  slot.className='built-word';slot.textContent=word;btn.classList.add('moved');btn.disabled=true;builtCount++;
+  setFeedback('');
+  if(builtCount===2){
+    document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);
+    setFeedback('Great job!');finishQuestionWhenSafe();
+  }
+}
+async function chooseFull(btn,q){
+  const word=btn.dataset.word,expected=q.item.chunks[builtCount];
+  if(word!==expected){wrongTile(btn);return;}
+  const isFinalChunk=builtCount===q.item.chunks.length-1;if(isFinalChunk)lasinMotivationSignal('question-completed');
+  const target=document.getElementById('sentenceArea');
+  await flyInto(btn,target,word);
+  btn.classList.add('moved');btn.disabled=true;
+  const placeholder=document.getElementById('buildTarget');if(placeholder)placeholder.remove();
+  const node=document.createElement('span');node.className='built-word';node.textContent=word;target.appendChild(node);builtCount++;
+  if(builtCount===q.item.chunks.length){
+    const period=document.createElement('span');period.className='period';period.textContent='.';target.appendChild(period);
+    document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);
+    setFeedback('Great job!');finishQuestionWhenSafe();
+  }
+}
+function finishQuestionWhenSafe(){pendingFinish=true;maybeFinishQuestion();}
+function maybeFinishQuestion(){
+  if(!pendingFinish)return;
+  if(currentAudio&&!currentAudio.paused&&!currentAudio.ended)return;
+  pendingFinish=false;setAudioButtons(false);
+  finishTimer=setTimeout(()=>{finishTimer=null;showBravo();},320);
+}
+function playSuccessChime(){
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    const ctx=new AC(),now=ctx.currentTime;
+    [523.25,659.25,783.99].forEach((f,k)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=f;
+      g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.12,now+.02+k*.04);g.gain.exponentialRampToValueAtTime(.0001,now+.34+k*.05);
+      o.connect(g);g.connect(ctx.destination);o.start(now+k*.05);o.stop(now+.42+k*.06);
+    });
+    setTimeout(()=>ctx.close&&ctx.close(),900);
+  }catch(e){}
+}
+function showBravo(){
+  playSuccessChime();
+  const overlay=document.createElement('div');overlay.className='celebration';
+  overlay.innerHTML='<div class="celebration-core"><div class="celebration-title">BRAVO!</div><div class="celebration-sub">Excellent work!</div></div>';
+  document.body.appendChild(overlay);
+  for(let i=0;i<30;i++){
+    const s=document.createElement('span');s.className='star';s.textContent='★';
+    s.style.left=(44+Math.random()*12)+'%';s.style.top=(43+Math.random()*14)+'%';
+    const angle=Math.random()*Math.PI*2,dist=130+Math.random()*340;
+    s.style.setProperty('--dx',Math.cos(angle)*dist+'px');s.style.setProperty('--dy',Math.sin(angle)*dist+'px');
+    s.style.setProperty('--rot',(Math.random()*720-360)+'deg');s.style.animationDelay=(Math.random()*.16)+'s';overlay.appendChild(s);
+  }
+  setTimeout(()=>{
+    overlay.remove();
+    lasinMotivationSignal('question-settled');
+    if(currentIndex<QUESTIONS.length-1){currentIndex++;renderQuestion();}else renderComplete();
+  },BRAVO_MS);
+}
+function renderComplete(){
+  stopAudio();
+  screenEl.innerHTML=`<section class="complete"><h2>Great job!</h2><p>You finished all ${QUESTIONS.length} questions.</p><button class="restart" id="restartBtn" type="button">Play again</button></section>`;
+  document.getElementById('restartBtn').addEventListener('click',renderIntro);
+}
+function unlockMobileAudio(){
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    const ctx=new AC(),o=ctx.createOscillator(),g=ctx.createGain();g.gain.value=0;o.connect(g);g.connect(ctx.destination);
+    o.start();o.stop(ctx.currentTime+.01);if(ctx.state==='suspended')ctx.resume();setTimeout(()=>ctx.close&&ctx.close(),100);
+  }catch(e){}
+}
+document.addEventListener('pointerdown',unlockMobileAudio,{once:true,passive:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();});
+window.addEventListener('pagehide',stopAudio);
+window.addEventListener('beforeunload',stopAudio);
+
+window.LASIN={DATA,renderIntro,allAudioEmbedded,stopAudio};
+renderIntro();
+})();
+</script>
+
+</body></html>
