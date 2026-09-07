@@ -1,0 +1,12 @@
+LASIN School Supplies GitHub audio-gate fix QA
+
+PASS - vocab asset-aware predicate
+PASS - ex01 asset-aware predicate
+PASS - ex01 asset-aware setup count
+PASS - vocab no data-only predicate
+PASS - ex01 no data-only predicate
+PASS - all referenced assets exist
+PASS - vocab has packaged mp3 refs
+PASS - ex01 has packaged mp3 refs
+
+Missing assets: 0

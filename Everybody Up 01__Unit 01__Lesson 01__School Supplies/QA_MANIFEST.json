@@ -1,0 +1,311 @@
+{
+  "lesson": "Everybody Up 1 | Unit 01 | Lesson 01 | School Supplies",
+  "motivationVersion": "4.1-school-supplies-adaptive-strict-audio-github-asset-aware",
+  "sections": [
+    {
+      "id": "vocab",
+      "mode": "preview",
+      "questions": 0
+    },
+    {
+      "id": "exercise-01",
+      "mode": "scored",
+      "questions": 24,
+      "globalRange": [
+        1,
+        24
+      ]
+    },
+    {
+      "id": "exercise-02",
+      "mode": "scored",
+      "questions": 12,
+      "globalRange": [
+        25,
+        36
+      ]
+    },
+    {
+      "id": "exercise-03",
+      "mode": "scored",
+      "questions": 24,
+      "globalRange": [
+        37,
+        60
+      ]
+    }
+  ],
+  "totalScoredQuestions": 60,
+  "maxPoints": 300,
+  "assets": {
+    "uniqueCount": 21,
+    "decodedBytes": 606201,
+    "items": [
+      {
+        "sha256": "0696fb1c1c28e8774c4636d69712cd89efadb8a2e0b3aa53cbf7b1c7a9e53d4a",
+        "mime": "image/png",
+        "bytes": 10094,
+        "file": "assets/0696fb1c1c28e8774c46.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "1509b758488e8eaabd6e1ed48581ce9759e4da640cba73cc03de3dd1cd1b5aeb",
+        "mime": "image/png",
+        "bytes": 24946,
+        "file": "assets/1509b758488e8eaabd6e.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "186571e186d0051b4666f7f38b91fb1972f47d523c45a359b1a477f1485a70db",
+        "mime": "audio/mpeg",
+        "bytes": 35874,
+        "file": "assets/186571e186d0051b4666.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "1c2ae0685114b69411df8fdff0f4844393771282a1729856f423d78e35aabaf5",
+        "mime": "audio/mpeg",
+        "bytes": 39635,
+        "file": "assets/1c2ae0685114b69411df.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "1f7ef1c7fce99a1c606f0fbcbae86bbc70361845a0358ba2f989317f2e75f6f5",
+        "mime": "audio/mpeg",
+        "bytes": 43815,
+        "file": "assets/1f7ef1c7fce99a1c606f.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "4420e5a12c1af1e00cd84227863a7e0484ab5e2b1afae5787511fb3b832a6156",
+        "mime": "audio/mpeg",
+        "bytes": 40471,
+        "file": "assets/4420e5a12c1af1e00cd8.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "827c3d0478df07997e4c153992d2a8e9a152fe190da7132610e32aa6ae921848",
+        "mime": "audio/mpeg",
+        "bytes": 35038,
+        "file": "assets/827c3d0478df07997e4c.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "835c533b6a8ec785491b1349fcc82b113c4616be4a2fa71e4b868ce0934e17b0",
+        "mime": "audio/mpeg",
+        "bytes": 40471,
+        "file": "assets/835c533b6a8ec785491b.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "898c7b35d0dac5bce2164044a6a492bb568c4848029b1ec7d1e34a9d89c98260",
+        "mime": "audio/mpeg",
+        "bytes": 38799,
+        "file": "assets/898c7b35d0dac5bce216.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "91bd547c64086ba98d2b192c44d44d476a5c6b034867d54b7e18ed126ba6a5bc",
+        "mime": "audio/mpeg",
+        "bytes": 35038,
+        "file": "assets/91bd547c64086ba98d2b.mp3",
+        "uses": [
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "93bef78ec2fb0694560ab8a8cb26c1d914799f6a11db73335d3e0f74ab3fc2ae",
+        "mime": "audio/wav",
+        "bytes": 48,
+        "file": "assets/93bef78ec2fb0694560a.wav",
+        "uses": [
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "955c649c033483c22e5fa83b9115fe9edf5436c577865168d3aa893824350ae7",
+        "mime": "image/png",
+        "bytes": 18605,
+        "file": "assets/955c649c033483c22e5f.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "9597431c9c2658dbf9a54fa7e3332694eb2df9d431b25237da4d2c67aa2c88fe",
+        "mime": "image/png",
+        "bytes": 16829,
+        "file": "assets/9597431c9c2658dbf9a5.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "9c183836f3ae25106b462f6140daef4be659b37e437e0cbae65afb9d7f40f2ac",
+        "mime": "audio/mpeg",
+        "bytes": 43397,
+        "file": "assets/9c183836f3ae25106b46.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "9fe7fd35c25a460794b531943340c966dca258521ff794d250dfab1c1a0c9535",
+        "mime": "audio/mpeg",
+        "bytes": 36710,
+        "file": "assets/9fe7fd35c25a460794b5.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "b2c6152c123c6874adec61c44a5da83ee89081e4b8b395cbf75e328f488c688b",
+        "mime": "image/png",
+        "bytes": 8014,
+        "file": "assets/b2c6152c123c6874adec.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "c0230a47897258f34fc381fa604573cb9004fef7fe6945c67d28af35ee326b07",
+        "mime": "audio/wav",
+        "bytes": 48,
+        "file": "assets/c0230a47897258f34fc3.wav",
+        "uses": [
+          "exercise-02"
+        ]
+      },
+      {
+        "sha256": "d11cd4704157db9928a0a22c0979a3d194869a87ffab8c35ee933f37d87d22d6",
+        "mime": "audio/mpeg",
+        "bytes": 40471,
+        "file": "assets/d11cd4704157db9928a0.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "d50db4407fed6b7735f7d3d4232fac86d4cd394c7bafbf909211b980d0bc9e7a",
+        "mime": "image/png",
+        "bytes": 9850,
+        "file": "assets/d50db4407fed6b7735f7.png",
+        "uses": [
+          "vocab",
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-02",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "d7907cd3a1e91f4697a8ece16894521bee8d7b953c166ef88efbdea7ef7059bf",
+        "mime": "audio/mpeg",
+        "bytes": 46323,
+        "file": "assets/d7907cd3a1e91f4697a8.mp3",
+        "uses": [
+          "exercise-02",
+          "exercise-03"
+        ]
+      },
+      {
+        "sha256": "fe327dea70a53f9df29f47ccab793a8f93eaef931d0f36b94de27cbbd2b2fea8",
+        "mime": "audio/mpeg",
+        "bytes": 41725,
+        "file": "assets/fe327dea70a53f9df29f.mp3",
+        "uses": [
+          "vocab",
+          "exercise-01",
+          "exercise-02",
+          "exercise-03"
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "mediaBytesPreserved": true,
+    "intentionalRecompression": false
+  }
+}
