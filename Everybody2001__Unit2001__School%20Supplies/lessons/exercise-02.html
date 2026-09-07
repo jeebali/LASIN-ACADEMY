@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>LASIN | Everybody Up 1 | Unit 01 Lesson 01 Grammar</title>
+<style>
+:root{
+  --blue:#103d9b;--blue2:#0b2f7e;--soft:#eef4ff;--line:#dbe7ff;
+  --good:#1d9d58;--bad:#d93b3b;--red:#e52d35;--red2:#bd2028;
+  --text:#102247;--muted:#61749c;--paper:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;min-height:100dvh;overflow-x:hidden}
+button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+img{-webkit-user-drag:none;user-select:none}
+#app{
+  min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;
+  padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right))
+          max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));
+}
+.screen{width:min(95vw,1500px);min-height:min(95dvh,980px);margin:auto;text-align:center;display:flex;align-items:center;justify-content:center}
+.intro{
+  width:min(760px,94vw);padding:46px 28px;border:2px solid var(--line);border-radius:30px;background:#fff;
+  box-shadow:0 14px 38px rgba(28,68,140,.10)
+}
+.intro h1{font-size:clamp(42px,6vw,68px);font-weight:900;color:var(--blue);margin:0;line-height:1.08}
+.start,.restart{
+  margin:30px auto 0;border:none;border-radius:999px;background:var(--blue);color:#fff;
+  font-size:clamp(24px,4vw,35px);font-weight:900;padding:16px 50px;cursor:pointer;
+  animation:glow 1.45s ease-in-out infinite alternate
+}
+.start:disabled{opacity:.38;cursor:not-allowed;animation:none;box-shadow:none}
+@keyframes glow{from{box-shadow:0 0 8px rgba(16,61,155,.26)}to{box-shadow:0 0 28px rgba(16,61,155,.72)}}
+
+.stage{width:100%;min-height:0;margin:auto;display:flex;flex-direction:column;justify-content:center}
+.progress-wrap{width:min(1180px,96%);margin:0 auto 12px}
+.progress-meta{display:flex;justify-content:flex-end;margin-bottom:5px;color:var(--muted);font-size:14px;font-weight:900}
+.progress-track{height:12px;border-radius:999px;background:#eaf0ff;border:1px solid #d7e2fb;overflow:hidden}
+.progress-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#3f8cff,#103d9b);transition:width .4s ease}
+.halves{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,24px);align-items:stretch;width:100%;flex:1;min-height:0}
+.half{
+  border:2px solid #e1eaff;border-radius:28px;background:#fff;padding:clamp(15px,1.65vw,24px);
+  box-shadow:0 12px 30px rgba(28,68,140,.08);min-width:0;display:flex;flex-direction:column;justify-content:flex-start
+}
+.half-title{font-size:clamp(22px,2.2vw,30px);font-weight:900;color:var(--blue2);margin:0 0 9px}
+.half.locked{opacity:.47;transition:opacity .25s ease}
+.half.open{opacity:1}
+.audio-btn{
+  width:clamp(60px,5vw,74px);height:clamp(60px,5vw,74px);border:none;border-radius:50%;background:var(--soft);cursor:pointer;
+  display:grid;place-items:center;margin:0 auto 12px;box-shadow:0 8px 22px rgba(20,64,140,.13);
+  transition:transform .15s ease,opacity .2s ease,box-shadow .15s ease
+}
+.audio-btn:hover:not(:disabled){box-shadow:0 11px 28px rgba(20,64,140,.19)}
+.audio-btn:active:not(:disabled){transform:scale(.94)}
+.audio-btn:disabled{opacity:.32;cursor:not-allowed;box-shadow:none}
+.audio-btn.ready{animation:pulse 1.05s ease-in-out infinite alternate}
+.audio-btn.playing{animation:pulse .7s ease-in-out infinite alternate}
+@keyframes pulse{from{box-shadow:0 0 5px rgba(16,61,155,.16)}to{box-shadow:0 0 25px rgba(16,61,155,.58)}}
+.audio-btn svg{width:54%;height:54%;fill:var(--blue)}
+
+.picture-card{
+  flex:1;min-height:280px;border:2px solid #edf2ff;border-radius:22px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:clamp(18px,3vw,36px);
+  box-shadow:0 6px 17px rgba(20,64,140,.055);overflow:hidden
+}
+.picture-card img{width:min(92%,520px);height:min(45vh,430px);object-fit:contain;display:block}
+.left-caption{margin:12px 0 0;color:var(--muted);font-size:15px;font-weight:800;min-height:20px}
+
+.task-wrap{display:flex;flex-direction:column;flex:1;justify-content:center;min-height:0}
+.listen-note{min-height:24px;font-size:15px;font-weight:900;color:var(--muted);margin:0 0 8px}
+.sentence-area{
+  width:min(680px,100%);margin:4px auto 20px;padding:14px 12px 11px;
+  min-height:78px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+  border-bottom:5px solid var(--blue);color:var(--blue);font-size:clamp(25px,3vw,38px);font-weight:900
+}
+.answer-slot{
+  min-width:120px;min-height:48px;border:2px dashed #b8c9ec;border-radius:13px;background:#f8faff;
+  display:inline-flex;align-items:center;justify-content:center;padding:3px 8px;color:#9aabd1;font-size:.75em
+}
+.period{margin-left:-2px}
+.word-bank{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(9px,1.2vw,15px);min-height:64px;margin:0 auto 8px}
+.word-tile{
+  border:3px solid transparent;border-radius:14px;background:var(--red);color:#fff;padding:12px 20px;
+  font-size:clamp(20px,2vw,28px);font-weight:900;cursor:pointer;box-shadow:0 7px 16px rgba(180,35,42,.18);
+  transition:transform .14s ease,opacity .18s ease,box-shadow .14s ease,border-color .14s ease
+}
+.word-tile:hover:not(:disabled){transform:translateY(-2px)}
+.word-tile:active:not(:disabled){transform:scale(.97)}
+.word-tile:disabled{opacity:.38;cursor:not-allowed}
+.word-tile.is-wrong{background:var(--red2);border-color:#8f1118;box-shadow:0 0 0 5px rgba(217,59,59,.12)}
+.word-tile.moved{opacity:0;pointer-events:none;transform:translateY(-18px) scale(.9)}
+.built-word{
+  background:var(--blue);color:#fff;border-radius:12px;padding:9px 13px;
+  font-size:clamp(20px,2vw,28px);font-weight:900;box-shadow:0 6px 14px rgba(16,61,155,.17);
+  animation:wordPop .27s ease-out
+}
+@keyframes wordPop{from{transform:translateY(14px) scale(.92);opacity:.2}to{transform:none;opacity:1}}
+.feedback{min-height:30px;margin:8px 0 0;font-size:18px;font-weight:900;color:var(--good)}
+.feedback.bad{color:var(--bad)}
+.shake{animation:shake .34s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-4px)}}
+.fly-tile{
+  position:fixed;z-index:10000;margin:0;pointer-events:none;transition:transform .33s cubic-bezier(.2,.8,.25,1),opacity .33s ease;
+  will-change:transform,opacity
+}
+
+.celebration{
+  position:fixed;inset:0;z-index:9999;background:rgba(220,252,231,.97);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;animation:celebrateIn .25s ease-out
+}
+@keyframes celebrateIn{from{opacity:0}to{opacity:1}}
+.celebration-core{position:relative;z-index:2;text-align:center;animation:bravoPop .48s cubic-bezier(.2,.9,.25,1.35)}
+.celebration-title{
+  font-size:clamp(76px,15vw,176px);font-weight:1000;letter-spacing:2px;color:#138a4f;
+  text-shadow:0 6px 0 rgba(255,255,255,.9),0 12px 30px rgba(20,140,80,.18);line-height:.9
+}
+.celebration-sub{margin-top:16px;font-size:clamp(20px,3vw,35px);font-weight:900;color:var(--blue2)}
+@keyframes bravoPop{0%{transform:scale(.45) rotate(-4deg);opacity:.1}70%{transform:scale(1.08) rotate(1deg);opacity:1}100%{transform:scale(1)}}
+.star{
+  position:absolute;z-index:1;font-size:clamp(26px,4vw,54px);color:#f4b400;
+  text-shadow:0 3px 0 rgba(255,255,255,.75);animation:starFly 1.7s ease-out forwards;pointer-events:none
+}
+@keyframes starFly{0%{transform:translate(0,0) rotate(0) scale(.2);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1.25);opacity:0}}
+.complete{
+  width:min(700px,94vw);padding:38px 24px;border:2px solid var(--line);border-radius:30px;background:#fff;
+  box-shadow:0 14px 38px rgba(28,68,140,.10)
+}
+.complete h2{font-size:clamp(38px,6vw,62px);color:var(--blue);margin:0 0 10px;font-weight:900}
+.complete p{font-size:21px;font-weight:700;color:#5a6b8f;margin:0}
+
+.audio-setup{
+  width:min(680px,96%);margin:18px auto 0;padding:15px 17px;border:2px solid #dbe7ff;border-radius:18px;
+  background:#f8faff;box-shadow:0 8px 20px rgba(16,61,155,.07)
+}
+.audio-setup-title{font-size:16px;font-weight:1000;color:var(--blue2);margin-bottom:5px}
+.audio-setup-text{font-size:13px;line-height:1.45;font-weight:800;color:var(--muted)}
+.audio-setup-btn{
+  margin-top:11px;border:0;border-radius:14px;background:var(--blue);color:#fff;padding:12px 17px;font-weight:1000;
+  cursor:pointer;box-shadow:0 8px 16px rgba(16,61,155,.16)
+}
+.audio-setup-status{min-height:20px;margin-top:9px;font-size:13px;font-weight:900;color:var(--muted)}
+.audio-setup-status.ok{color:var(--good)}.audio-setup-status.bad{color:var(--bad)}
+.audio-setup-track{height:8px;background:#e5edfc;border-radius:999px;overflow:hidden;margin-top:9px}
+.audio-setup-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .15s ease}
+
+@media(max-width:900px){
+  #app{align-items:flex-start}
+  .screen{width:96vw;min-height:auto}
+  .stage{justify-content:flex-start}
+  .halves{grid-template-columns:1fr;gap:12px}
+  .half{padding:13px 10px 14px;border-radius:22px}
+  .picture-card{min-height:210px;padding:18px}
+  .picture-card img{height:min(32vh,300px)}
+  .sentence-area{min-height:68px;margin-bottom:15px}
+}
+@media(max-width:520px){
+  #app{padding:max(8px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(9px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left))}
+  .intro{padding:36px 18px;border-radius:22px}.intro h1{font-size:clamp(36px,11vw,48px)}
+  .progress-wrap{width:98%;margin-bottom:8px}.progress-track{height:10px}
+  .halves{gap:9px}.half{border-radius:18px;padding:10px 8px 12px}
+  .half-title{margin-bottom:6px;font-size:22px}
+  .audio-btn{width:56px;height:56px;margin-bottom:8px}
+  .picture-card{min-height:175px;border-radius:15px;padding:12px}.picture-card img{height:190px}
+  .sentence-area{font-size:24px;gap:6px;padding:10px 5px 8px;border-bottom-width:4px;min-height:62px}
+  .answer-slot{min-width:92px;min-height:43px}
+  .word-bank{gap:7px;min-height:58px}.word-tile{padding:10px 14px;font-size:20px;border-radius:11px}
+  .built-word{padding:8px 10px;font-size:20px;border-radius:10px}
+  .feedback{font-size:16px;min-height:25px}
+  .audio-setup{width:98%;padding:12px}.audio-setup-btn{width:100%}
+}
+@media(max-height:760px) and (min-width:901px){
+  #app{align-items:flex-start;padding-top:7px}.screen{min-height:auto}.progress-wrap{margin-bottom:7px}
+  .half{padding-top:10px;padding-bottom:10px}.half-title{margin-bottom:4px}
+  .audio-btn{width:54px;height:54px;margin-bottom:6px}
+  .picture-card{min-height:180px;padding:12px}.picture-card img{height:230px}
+  .sentence-area{min-height:58px;margin-bottom:12px;padding-top:8px}.word-tile{padding:9px 15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div id="app"><main class="screen" id="screen"><section class="intro"><h1>It is a ...</h1><button class="start" id="startBtn">Start</button></section></main></div>
+<script id="lesson-data" type="application/json">{"title":"It is a ...","audio":{"word_pen":"../assets/827c3d0478df07997e4c.mp3","sentence_pen":"../assets/1c2ae0685114b69411df.mp3","word_pencil":"../assets/9fe7fd35c25a460794b5.mp3","sentence_pencil":"../assets/835c533b6a8ec785491b.mp3","word_eraser":"../assets/898c7b35d0dac5bce216.mp3","sentence_eraser":"../assets/9c183836f3ae25106b46.mp3","word_ruler":"../assets/186571e186d0051b4666.mp3","sentence_ruler":"../assets/d11cd4704157db9928a0.mp3","word_pencil_case":"../assets/fe327dea70a53f9df29f.mp3","sentence_pencil_case":"../assets/d7907cd3a1e91f4697a8.mp3","word_backpack":"../assets/4420e5a12c1af1e00cd8.mp3","sentence_backpack":"../assets/1f7ef1c7fce99a1c606f.mp3"},"audioFiles":{"word_pen":"Pen.mp3","sentence_pen":"It's a pen.mp3","word_pencil":"Pencil.mp3","sentence_pencil":"It's a pencil.mp3","word_eraser":"Eraser.mp3","sentence_eraser":"It's an eraser.mp3","word_ruler":"Ruler.mp3","sentence_ruler":"It's a ruler.mp3","word_pencil_case":"Pencil case.mp3","sentence_pencil_case":"It's a pencil case.mp3","word_backpack":"Backpack.mp3","sentence_backpack":"It's a backpack.mp3"},"rounds":[{"id":"pen_complete","mode":"complete","item":"pen","picture":"../assets/b2c6152c123c6874adec.png","leftAudio":"word_pen","rightAudio":"sentence_pen","stem":"It's a","choices":["ruler","pen","pencil"],"correct":"pen","fullSentence":"It's a pen."},{"id":"pencil_complete","mode":"complete","item":"pencil","picture":"../assets/d50db4407fed6b7735f7.png","leftAudio":"word_pencil","rightAudio":"sentence_pencil","stem":"It's a","choices":["backpack","ruler","pencil"],"correct":"pencil","fullSentence":"It's a pencil."},{"id":"eraser_complete","mode":"complete","item":"eraser","picture":"../assets/0696fb1c1c28e8774c46.png","leftAudio":"word_eraser","rightAudio":"sentence_eraser","stem":"It's an","choices":["eraser","pencil case","ruler"],"correct":"eraser","fullSentence":"It's an eraser."},{"id":"ruler_complete","mode":"complete","item":"ruler","picture":"../assets/9597431c9c2658dbf9a5.png","leftAudio":"word_ruler","rightAudio":"sentence_ruler","stem":"It's a","choices":["pencil","ruler","backpack"],"correct":"ruler","fullSentence":"It's a ruler."},{"id":"pencil_case_complete","mode":"complete","item":"pencil case","picture":"../assets/1509b758488e8eaabd6e.png","leftAudio":"word_pencil_case","rightAudio":"sentence_pencil_case","stem":"It's a","choices":["backpack","pencil case","eraser"],"correct":"pencil case","fullSentence":"It's a pencil case."},{"id":"backpack_complete","mode":"complete","item":"backpack","picture":"../assets/955c649c033483c22e5f.png","leftAudio":"word_backpack","rightAudio":"sentence_backpack","stem":"It's a","choices":["backpack","pen","pencil case"],"correct":"backpack","fullSentence":"It's a backpack."},{"id":"pen_build","mode":"build","item":"pen","picture":"../assets/b2c6152c123c6874adec.png","leftAudio":"word_pen","rightAudio":"sentence_pen","chunks":["a","pen","It is"],"answerChunks":["It is","a","pen"],"fullSentence":"It is a pen."},{"id":"pencil_build","mode":"build","item":"pencil","picture":"../assets/d50db4407fed6b7735f7.png","leftAudio":"word_pencil","rightAudio":"sentence_pencil","chunks":["pencil","It is","a"],"answerChunks":["It is","a","pencil"],"fullSentence":"It is a pencil."},{"id":"eraser_build","mode":"build","item":"eraser","picture":"../assets/0696fb1c1c28e8774c46.png","leftAudio":"word_eraser","rightAudio":"sentence_eraser","chunks":["an","eraser","It is"],"answerChunks":["It is","an","eraser"],"fullSentence":"It is an eraser."},{"id":"ruler_build","mode":"build","item":"ruler","picture":"../assets/9597431c9c2658dbf9a5.png","leftAudio":"word_ruler","rightAudio":"sentence_ruler","chunks":["It is","ruler","a"],"answerChunks":["It is","a","ruler"],"fullSentence":"It is a ruler."},{"id":"pencil_case_build","mode":"build","item":"pencil case","picture":"../assets/1509b758488e8eaabd6e.png","leftAudio":"word_pencil_case","rightAudio":"sentence_pencil_case","chunks":["pencil case","a","It is"],"answerChunks":["It is","a","pencil case"],"fullSentence":"It is a pencil case."},{"id":"backpack_build","mode":"build","item":"backpack","picture":"../assets/955c649c033483c22e5f.png","leftAudio":"word_backpack","rightAudio":"sentence_backpack","chunks":["a","It is","backpack"],"answerChunks":["It is","a","backpack"],"fullSentence":"It is a backpack."}]}</script>
+<script>
+(() => {
+'use strict';
+const LASIN_MOTIVATION_EXERCISE_ID='exercise-02';
+function lasinMotivationBridge(action,payload={}){try{window.parent.postMessage({channel:'LASIN_MOTIVATION_V2',action,payload:Object.assign({exerciseId:LASIN_MOTIVATION_EXERCISE_ID},payload||{})},'*');}catch(e){}}
+function lasinMotivationSignal(action,extra={}){const localIndex=roundIndex+1;lasinMotivationBridge(action,Object.assign({questionId:String(localIndex),localIndex},extra||{}));}
+
+const DATA = JSON.parse(document.getElementById('lesson-data').textContent);
+lasinMotivationBridge('register-exercise',{id:LASIN_MOTIVATION_EXERCISE_ID,order:2,label:'Exercise 02',scorable:true,totalQuestions:DATA.rounds.length,mode:'scored'});
+const screen = document.getElementById('screen');
+const ENTRY_DELAY = 800;
+const REPEAT_GAP = 500;
+const SIDE_HANDOFF = 500;
+const WRONG_CLEAR = 900;
+const BRAVO_TIME = 2100;
+let roundIndex = 0;
+let audioToken = 0;
+let currentAudio = new Audio();
+currentAudio.preload = 'auto';
+currentAudio.setAttribute('playsinline','');
+currentAudio.setAttribute('webkit-playsinline','');
+let timers = new Set();
+let stage = 'intro';
+let mandatoryRightDone = false;
+let mandatoryPhase = 'left';
+let mandatoryNeedsTap = false;
+let hostActive = true;
+let currentAudioAbort = null;
+let sleepResolvers = new Map();
+let rightSequenceRunning = false;
+let pendingRoundFinish = false;
+let reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let audioCtx = null;
+
+const sleep = ms => new Promise(resolve => {
+  let done=false;const finish=()=>{if(done)return;done=true;timers.delete(id);sleepResolvers.delete(id);resolve();};
+  const id=setTimeout(finish,ms);timers.add(id);sleepResolvers.set(id,finish);
+});
+function clearTimers(){ for(const id of [...timers]){ clearTimeout(id); const r=sleepResolvers.get(id); if(r)r(); } timers.clear(); sleepResolvers.clear(); }
+function headphones(){ return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 0 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z"/></svg>'; }
+function audioReady(){ return Object.values(DATA.audio).every(v => typeof v === 'string' && v.startsWith('data:audio')); }
+function persistData(){ document.getElementById('lesson-data').textContent = JSON.stringify(DATA).replace(/<\//g,'<\\/'); }
+function stopAudio(){
+  audioToken++;
+  if(currentAudioAbort){const abort=currentAudioAbort;currentAudioAbort=null;try{abort();}catch(e){}}
+  clearTimers();
+  try{ currentAudio.pause(); currentAudio.currentTime = 0; }catch(e){}
+  document.querySelectorAll('.audio-btn').forEach(b => b.classList.remove('playing'));
+  rightSequenceRunning = false;
+}
+async function unlockAudio(){
+  try{
+    if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    if(audioCtx.state === 'suspended') await audioCtx.resume();
+    const silent = new Audio('../assets/c0230a47897258f34fc3.wav');
+    silent.volume = 0.001; await silent.play(); silent.pause();
+  }catch(e){}
+}
+async function playClip(src, btn, token){
+  if(!src || token !== audioToken) return false;
+  currentAudio.pause(); currentAudio.currentTime = 0; currentAudio.src = src;
+  if(btn) btn.classList.add('playing');
+  return await new Promise(resolve => {
+    let done = false;
+    const finish = ok => {
+      if(done) return; done = true;
+      if(currentAudioAbort===abort) currentAudioAbort=null;
+      currentAudio.onended = null; currentAudio.onerror = null;
+      if(btn) btn.classList.remove('playing');
+      resolve(ok);
+    };
+    const abort=()=>finish(false);currentAudioAbort=abort;
+    currentAudio.onended = () => finish(token === audioToken);
+    currentAudio.onerror = () => finish(false);
+    currentAudio.play().catch(() => finish(false));
+  });
+}
+async function playTwice(src, btn, token){
+  if(!await playClip(src,btn,token)) return false;
+  if(token !== audioToken) return false;
+  await sleep(REPEAT_GAP);
+  if(token !== audioToken) return false;
+  return await playClip(src,btn,token);
+}
+function progressMarkup(){
+  const current = roundIndex + 1, total = DATA.rounds.length, pct = (current/total)*100;
+  return `<div class="progress-wrap"><div class="progress-meta">${current} / ${total}</div><div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="${total}" aria-valuenow="${current}"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;
+}
+function renderIntro(){
+  stopAudio(); stage='intro'; roundIndex=0;
+  const ready = audioReady();
+  screen.innerHTML = `<section class="intro"><h1>It is a ...</h1><button class="start" id="startBtn" ${ready?'':'disabled'}>Start</button>${ready?'':setupMarkup()}</section>`;
+  const start = document.getElementById('startBtn');
+  start.addEventListener('click', async () => { await unlockAudio(); renderRound(0); });
+  bindSetup();
+}
+function setupMarkup(){
+  return `<div class="audio-setup" id="audioSetup"><div class="audio-setup-title">Original Audio Setup</div><div class="audio-setup-text">Select the 12 original MP3 files for the six school-supply words and the six complete sentences. Extra MP3s are safely ignored. The original files are embedded without re-encoding.</div><button class="audio-setup-btn" id="embedAudio">Embed the Original MP3s</button><input id="audioFiles" type="file" accept="audio/mpeg,.mp3" multiple hidden><div class="audio-setup-track"><div class="audio-setup-fill" id="audioFill"></div></div><div class="audio-setup-status" id="audioStatus">Waiting for the 12 original MP3 files.</div></div>`;
+}
+function normalizeName(name){
+  return String(name||'').normalize('NFKC').replace(/[’‘]/g,"'").split(/[\\/]/).pop().trim().toLowerCase().replace(/\s+/g,' ').replace(/\.+mp3$/i,'.mp3');
+}
+function bindSetup(){
+  const btn=document.getElementById('embedAudio'), input=document.getElementById('audioFiles');
+  if(!btn||!input) return;
+  btn.addEventListener('click',()=>input.click());
+  input.addEventListener('change',()=>embedFiles([...input.files]));
+}
+async function embedFiles(files){
+  const status=document.getElementById('audioStatus'), fill=document.getElementById('audioFill');
+  const byName=new Map(files.map(f=>[normalizeName(f.name),f]));
+  const expected=Object.entries(DATA.audioFiles);
+  const missing=expected.filter(([,name])=>!byName.has(normalizeName(name)));
+  if(missing.length){
+    status.className='audio-setup-status bad'; status.textContent='Missing: '+missing.map(x=>x[1]).join(', '); fill.style.width='0%'; return;
+  }
+  let done=0;
+  for(const [key,name] of expected){
+    const f=byName.get(normalizeName(name));
+    DATA.audio[key]=await readDataURL(f); done++; fill.style.width=((done/expected.length)*100)+'%';
+  }
+  if(!audioReady()){
+    status.className='audio-setup-status bad'; status.textContent='Audio validation failed. Please select the files again.'; return;
+  }
+  persistData();
+  status.className='audio-setup-status ok'; status.textContent='Original MP3s embedded successfully. The full activity is ready.';
+  const start=document.getElementById('startBtn'); start.disabled=false;
+  await sleep(180);
+  exportCleanLesson();
+}
+function readDataURL(file){ return new Promise((resolve,reject)=>{ const r=new FileReader(); r.onload=()=>resolve(r.result); r.onerror=reject; r.readAsDataURL(file); }); }
+function exportCleanLesson(){
+  const clone=document.documentElement.cloneNode(true);
+  const setup=clone.querySelector('#audioSetup'); if(setup) setup.remove();
+  const start=clone.querySelector('#startBtn'); if(start) start.removeAttribute('disabled');
+  const clean='<!doctype html>\n'+clone.outerHTML;
+  const blob=new Blob([clean],{type:'text/html;charset=utf-8'}), url=URL.createObjectURL(blob), a=document.createElement('a');
+  a.href=url; a.download='LASIN_EU1_U01_L01_Grammar_FULL_EMBEDDED.html'; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+function renderRound(index){
+  stopAudio(); roundIndex=index; stage='left'; mandatoryRightDone=false; mandatoryPhase='left'; mandatoryNeedsTap=false; pendingRoundFinish=false;
+  const r=DATA.rounds[roundIndex];
+  const rightTitle=r.mode==='complete'?'Then listen and choose.':'Then listen and make the sentence.';
+  screen.innerHTML=`<section class="stage">${progressMarkup()}<div class="halves">
+    <section class="half" id="leftHalf" aria-label="Picture and word listening">
+      <h2 class="half-title">Look and listen.</h2>
+      <button class="audio-btn" id="leftAudio" aria-label="Listen again to ${escapeHTML(r.item)}">${headphones()}</button>
+      <div class="picture-card"><img src="${r.picture}" alt="${escapeHTML(r.item)}"></div>
+      <div class="left-caption" id="leftCaption">Listen carefully.</div>
+    </section>
+    <section class="half locked" id="rightHalf" aria-label="Grammar listening task">
+      <h2 class="half-title">${rightTitle}</h2>
+      <button class="audio-btn" id="rightAudio" aria-label="Listen again to the sentence" disabled>${headphones()}</button>
+      <div class="task-wrap" id="taskWrap">${taskMarkup(r)}</div>
+    </section>
+  </div></section>`;
+  bindRound(r);
+  window.scrollTo({top:0,behavior:'auto'});
+  beginMandatoryFlow(r);
+}
+function taskMarkup(r){
+  if(r.mode==='complete'){
+    return `<div class="listen-note" id="listenNote">Listen to the whole sentence twice first.</div>
+      <div class="sentence-area" id="sentenceArea" aria-label="Incomplete sentence"><span>${escapeHTML(r.stem)}</span><span class="answer-slot" id="answerSlot">...</span><span class="period">.</span></div>
+      <div class="word-bank" id="wordBank">${r.choices.map(w=>`<button class="word-tile" data-word="${escapeAttr(w)}" disabled>${escapeHTML(w)}</button>`).join('')}</div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>`;
+  }
+  return `<div class="listen-note" id="listenNote">Listen to the whole sentence twice first.</div>
+    <div class="sentence-area" id="sentenceArea" aria-label="Build the sentence"><span class="answer-slot" id="buildTarget">...</span></div>
+    <div class="word-bank" id="wordBank">${r.chunks.map(w=>`<button class="word-tile" data-word="${escapeAttr(w)}" disabled>${escapeHTML(w)}</button>`).join('')}</div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>`;
+}
+function bindRound(r){
+  document.getElementById('leftAudio').addEventListener('click',()=>handleMandatoryAudioClick(r,'left'));
+  document.getElementById('rightAudio').addEventListener('click',()=>handleMandatoryAudioClick(r,'right'));
+  if(r.mode==='complete') document.querySelectorAll('.word-tile').forEach(b=>b.addEventListener('click',()=>chooseComplete(b,r)));
+  else document.querySelectorAll('.word-tile').forEach(b=>b.addEventListener('click',()=>chooseChunk(b,r)));
+}
+function lockChoices(){ document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true); }
+function enterMandatoryFailure(phase,r){
+  mandatoryRightDone=false;mandatoryPhase=phase;mandatoryNeedsTap=true;rightSequenceRunning=false;lockChoices();
+  const leftBtn=document.getElementById('leftAudio'),rightBtn=document.getElementById('rightAudio');
+  if(leftBtn){leftBtn.disabled=phase!=='left';leftBtn.classList.toggle('ready',phase==='left');}
+  if(rightBtn){rightBtn.disabled=phase!=='right';rightBtn.classList.toggle('ready',phase==='right');}
+  const note=document.getElementById('listenNote');if(note)note.textContent=phase==='left'?'Tap the left headset and listen to the word twice to continue.':'Tap the right headset and listen to the whole sentence twice to unlock the answers.';
+}
+async function runMandatoryFlow(r,startPhase='left',includeEntry=true){
+  stopAudio();const token=++audioToken;mandatoryNeedsTap=false;mandatoryRightDone=false;lockChoices();
+  const leftBtn=document.getElementById('leftAudio'),rightBtn=document.getElementById('rightAudio');if(!leftBtn||!rightBtn)return;
+  leftBtn.classList.remove('ready');rightBtn.classList.remove('ready');leftBtn.disabled=true;rightBtn.disabled=true;
+  if(startPhase==='left'){
+    mandatoryPhase='left';
+    if(includeEntry){await sleep(ENTRY_DELAY);if(token!==audioToken)return;}
+    const leftOK=await playTwice(DATA.audio[r.leftAudio],leftBtn,token);if(token!==audioToken)return;
+    if(!leftOK){enterMandatoryFailure('left',r);return;}
+    const caption=document.getElementById('leftCaption');if(caption)caption.textContent='You can listen again anytime.';
+    mandatoryPhase='right';
+    await sleep(SIDE_HANDOFF);if(token!==audioToken)return;
+  }else mandatoryPhase='right';
+  const rightHalf=document.getElementById('rightHalf');if(rightHalf){rightHalf.classList.remove('locked');rightHalf.classList.add('open');if(innerWidth<=900)rightHalf.scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'start'});}
+  rightSequenceRunning=true;
+  const rightOK=await playTwice(DATA.audio[r.rightAudio],rightBtn,token);if(token!==audioToken)return;
+  rightSequenceRunning=false;
+  if(!rightOK){enterMandatoryFailure('right',r);return;}
+  mandatoryRightDone=true;mandatoryPhase='done';mandatoryNeedsTap=false;stage='answer';
+  leftBtn.disabled=false;leftBtn.classList.add('ready');rightBtn.disabled=false;rightBtn.classList.add('ready');
+  unlockChoices();
+  const note=document.getElementById('listenNote');if(note)note.textContent=r.mode==='complete'?'Now choose the correct word.':'Now make the sentence in the correct order.';
+  lasinMotivationSignal('question-ready');
+}
+async function beginMandatoryFlow(r){ return runMandatoryFlow(r,'left',true); }
+function unlockChoices(){ document.querySelectorAll('.word-tile').forEach(b=>b.disabled=false); }
+async function handleMandatoryAudioClick(r,side){
+  if(!mandatoryRightDone){
+    if(!mandatoryNeedsTap||mandatoryPhase!==side)return;
+    await runMandatoryFlow(r,side,false);return;
+  }
+  await manualReplay(side==='left'?r.leftAudio:r.rightAudio,side==='left'?'leftAudio':'rightAudio');
+}
+async function manualReplay(audioKey,btnId){
+  if(!mandatoryRightDone)return;
+  stopAudio();const token=++audioToken,btn=document.getElementById(btnId);if(!btn)return;
+  await playTwice(DATA.audio[audioKey],btn,token);
+  if(token===audioToken&&pendingRoundFinish)maybeFinishRound();
+}
+function suspendForHost(){
+  const incomplete=!mandatoryRightDone&&stage!=='intro'&&stage!=='complete';
+  const phase=mandatoryPhase==='done'?'right':mandatoryPhase;
+  stopAudio();
+  if(incomplete)enterMandatoryFailure(phase==='left'?'left':'right',DATA.rounds[roundIndex]);
+}
+window.addEventListener('message',e=>{const d=e.data;if(!d||d.channel!=='LASIN_HOST_V1'||d.action!=='active-state')return;hostActive=!!(d.payload&&d.payload.active);if(!hostActive)suspendForHost();});
+
+function setFeedback(text,bad=false){ const f=document.getElementById('feedback'); if(!f) return; f.textContent=text; f.className='feedback'+(bad?' bad':''); }
+function wrongTile(btn){
+  lasinMotivationSignal('question-mistake');
+  btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('is-wrong','shake'); setFeedback('Try again!',true);
+  const id=setTimeout(()=>{ timers.delete(id); btn.classList.remove('is-wrong','shake'); setFeedback(''); },WRONG_CLEAR); timers.add(id);
+}
+async function chooseComplete(btn,r){
+  if(!mandatoryRightDone || btn.disabled) return;
+  const word=btn.dataset.word;
+  if(word!==r.correct){ wrongTile(btn); return; }
+  document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);
+  lasinMotivationSignal('question-completed');
+  const slot=document.getElementById('answerSlot');
+  await flyInto(btn,slot,word);
+  slot.className='built-word'; slot.textContent=word;
+  btn.classList.add('moved'); setFeedback('Great job!');
+  finishRoundWhenSafe();
+}
+let builtCount=0;
+async function chooseChunk(btn,r){
+  if(!mandatoryRightDone || btn.disabled) return;
+  const word=btn.dataset.word, expected=r.answerChunks[builtCount];
+  if(word!==expected){ wrongTile(btn); return; }
+  const isFinal=builtCount===r.answerChunks.length-1;if(isFinal)lasinMotivationSignal('question-completed');
+  const target=document.getElementById('sentenceArea');
+  await flyInto(btn,target,word);
+  btn.classList.add('moved'); btn.disabled=true;
+  const placeholder=document.getElementById('buildTarget'); if(placeholder) placeholder.remove();
+  const node=document.createElement('span'); node.className='built-word'; node.textContent=word; target.appendChild(node);
+  builtCount++;
+  if(builtCount===r.answerChunks.length){
+    const period=document.createElement('span'); period.className='period'; period.textContent='.'; target.appendChild(period);
+    document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);
+    setFeedback('Great job!'); finishRoundWhenSafe();
+  }
+}
+function flyInto(btn,target,text){
+  return new Promise(resolve=>{
+    if(reducedMotion){ resolve(); return; }
+    const a=btn.getBoundingClientRect(), b=target.getBoundingClientRect();
+    const clone=btn.cloneNode(true); clone.className='word-tile fly-tile'; clone.disabled=true; clone.textContent=text;
+    clone.style.left=a.left+'px'; clone.style.top=a.top+'px'; clone.style.width=a.width+'px'; clone.style.height=a.height+'px';
+    document.body.appendChild(clone);
+    const dx=(b.left+b.width/2)-(a.left+a.width/2), dy=(b.top+b.height/2)-(a.top+a.height/2);
+    requestAnimationFrame(()=>{ clone.style.transform=`translate(${dx}px,${dy}px) scale(.82)`; clone.style.opacity='.12'; });
+    setTimeout(()=>{ clone.remove(); resolve(); },340);
+  });
+}
+function finishRoundWhenSafe(){ pendingRoundFinish=true; maybeFinishRound(); }
+function maybeFinishRound(){
+  if(!pendingRoundFinish) return;
+  if(currentAudio && !currentAudio.paused) return;
+  pendingRoundFinish=false;
+  const id=setTimeout(()=>{ timers.delete(id); showBravo(); },350); timers.add(id);
+}
+function successChime(){
+  try{
+    if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    const now=audioCtx.currentTime, freqs=[523.25,659.25,783.99,1046.50];
+    freqs.forEach((f,i)=>{ const o=audioCtx.createOscillator(), g=audioCtx.createGain(); o.type='sine'; o.frequency.value=f; g.gain.setValueAtTime(.0001,now+i*.11); g.gain.exponentialRampToValueAtTime(.13,now+i*.11+.02); g.gain.exponentialRampToValueAtTime(.0001,now+i*.11+.24); o.connect(g).connect(audioCtx.destination); o.start(now+i*.11); o.stop(now+i*.11+.26); });
+  }catch(e){}
+}
+function showBravo(){
+  stage='bravo'; successChime();
+  const layer=document.createElement('div'); layer.className='celebration'; layer.innerHTML='<div class="celebration-core"><div class="celebration-title">BRAVO!</div><div class="celebration-sub">Excellent work!</div></div>';
+  for(let i=0;i<30;i++){
+    const s=document.createElement('div'); s.className='star'; s.textContent='★'; s.style.left=(46+Math.random()*8)+'%'; s.style.top=(42+Math.random()*12)+'%';
+    s.style.setProperty('--dx',((Math.random()-.5)*1100)+'px'); s.style.setProperty('--dy',((Math.random()-.5)*760)+'px'); s.style.setProperty('--rot',((Math.random()-.5)*680)+'deg'); s.style.animationDelay=(Math.random()*.16)+'s'; layer.appendChild(s);
+  }
+  document.body.appendChild(layer);
+  const id=setTimeout(()=>{ timers.delete(id); layer.remove(); lasinMotivationSignal('question-settled'); if(roundIndex+1<DATA.rounds.length){ builtCount=0; renderRound(roundIndex+1); }else renderComplete(); },BRAVO_TIME); timers.add(id);
+}
+function renderComplete(){
+  stopAudio(); stage='complete';
+  screen.innerHTML=`<section class="complete"><h2>Great job!</h2><p>You finished all ${DATA.rounds.length} questions.</p><button class="restart" id="restart">Play again</button></section>`;
+  document.getElementById('restart').addEventListener('click',()=>{ builtCount=0; renderIntro(); });
+  window.scrollTo({top:0,behavior:'auto'});
+}
+function escapeHTML(v){ return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(v){ return escapeHTML(v); }
+document.addEventListener('pointerdown',unlockAudio,{once:false,passive:true});
+document.addEventListener('visibilitychange',()=>{ if(document.hidden){hostActive=false;suspendForHost();} });
+window.addEventListener('pagehide',stopAudio);
+renderIntro();
+})();
+</script>
+
+</body></html>
