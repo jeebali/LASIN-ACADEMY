@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F2F6FB">
+<title>Everybody Up 3 | Unit 02 | Lesson 04 | Art Class | Vocab</title>
+<!-- LASIN Individual Vocab build: lossless-light images + full-viewport 2×2 teaching layout + optional secondary content + original-audio sequencing + compact content-sized blue text boxes + unified child-friendly typography -->
+<style>
+:root{
+  --red:#E21E2B;
+  --blue:#216CDE;
+  --blue-dark:#1154BC;
+  --bg:#EFF3F8;
+  --text:#172033;
+  --muted:#6E788C;
+  --border:#DDE5EF;
+  --white:#FFFFFF;
+  --shadow:0 14px 32px rgba(29,50,81,.11);
+  --soft-red:rgba(226,30,43,.16);
+  --page-width:min(1820px, 98vw);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  background:
+    radial-gradient(circle at 8% 7%, rgba(33,108,222,.045), transparent 27%),
+    radial-gradient(circle at 94% 92%, rgba(226,30,43,.045), transparent 25%),
+    var(--bg);
+}
+button{font:inherit;touch-action:manipulation}
+.screen{display:none;min-height:100vh;min-height:100dvh}
+.screen.active{display:flex}
+
+/* ---------- HOME ---------- */
+#homeScreen{
+  align-items:center;
+  justify-content:center;
+  padding:
+    max(22px, env(safe-area-inset-top))
+    max(14px, env(safe-area-inset-right))
+    max(22px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
+}
+.home-panel{
+  width:min(920px,96vw);
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(221,229,239,.8);
+  border-radius:34px;
+  box-shadow:0 22px 55px rgba(33,49,76,.13);
+  padding:clamp(24px,4vw,48px);
+  text-align:center;
+}
+.eyebrow{
+  margin:0 0 18px;
+  color:#67738A;
+  font-size:clamp(14px,1.5vw,22px);
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.lesson-banner{
+  width:100%;
+  min-height:112px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px clamp(14px,2.2vw,26px);
+  border-radius:24px;
+  color:#fff;
+  background:var(--red);
+  box-shadow:0 12px 0 rgba(226,30,43,.14), 0 18px 30px rgba(226,30,43,.13);
+  font-size:clamp(19px,3.4vw,46px);
+  font-weight:800;
+  letter-spacing:-.025em;
+  line-height:1;
+  white-space:nowrap;
+}
+.home-actions{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.vocab-btn{
+  width:min(420px,88%);
+  min-height:96px;
+  border:0;
+  border-radius:22px;
+  background:var(--blue);
+  color:#fff;
+  font-size:clamp(34px,4vw,54px);
+  font-weight:800;
+  box-shadow:0 13px 24px rgba(33,108,222,.18);
+  cursor:pointer;
+  transition:transform .17s ease,background .17s ease,box-shadow .17s ease;
+}
+.vocab-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.vocab-btn:active{transform:scale(.985)}
+.embed-wrap{
+  width:min(580px,94%);
+  display:none;
+  margin-top:4px;
+}
+.embed-wrap.show{display:block}
+.embed-btn{
+  width:100%;
+  border:1px solid #C8D5E7;
+  border-radius:15px;
+  padding:13px 17px;
+  background:#F7FAFE;
+  color:#36506F;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.embed-help{
+  margin:9px auto 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.embed-status{
+  display:none;
+  margin-top:10px;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:12px;
+  line-height:1.45;
+  text-align:left;
+  border:1px solid var(--border);
+  background:#F7F9FC;
+  color:#506078;
+}
+.embed-status.show{display:block}
+.embed-status.error{border-color:#FFD0D5;background:#FFF4F5;color:#981C29}
+.embed-status.ok{border-color:#CBE9D8;background:#F0FAF5;color:#1C6844}
+#audioPicker{display:none}
+
+/* ---------- LESSON ---------- */
+#lessonScreen{
+  flex-direction:column;
+  padding:
+    max(14px, env(safe-area-inset-top))
+    max(18px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(18px, env(safe-area-inset-left));
+}
+.lesson-header{
+  width:var(--page-width);
+  margin:0 auto 14px;
+  display:grid;
+  grid-template-columns:190px 1fr 190px;
+  align-items:center;
+  gap:12px;
+}
+.home-btn,.page-pill{
+  min-height:52px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  background:#fff;
+  box-shadow:0 8px 20px rgba(41,59,84,.07);
+}
+.home-btn{
+  justify-self:start;
+  padding:0 18px;
+  cursor:pointer;
+  color:#0E2448;
+  font-size:22px;
+  font-weight:800;
+}
+.header-center{text-align:center;min-width:0}
+.header-title{
+  margin:0;
+  color:#081C42;
+  font-size:clamp(34px,3.4vw,46px);
+  line-height:1;
+  font-weight:800;
+}
+.header-sub{
+  margin-top:9px;
+  color:#66748B;
+  font-size:clamp(14px,1.7vw,22px);
+  font-weight:750;
+}
+.page-pill{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 16px;
+  color:#68758C;
+  font-size:18px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+/* ---------- CARDS ---------- */
+.cards{
+  width:var(--page-width);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:clamp(12px,1.15vw,20px);
+  align-items:stretch;
+}
+.card{
+  min-width:0;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:clamp(9px,.85vw,13px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.picture-frame{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #DDE5EF;
+  border-radius:19px;
+  padding:clamp(4px,.42vw,8px);
+}
+.picture-frame img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  image-rendering:auto;
+}
+.word-box{
+  width:calc(100% - 6px);
+  min-height:54px;
+  margin-top:clamp(11px,1vw,15px);
+  padding:8px 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:13px;
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 7px 14px rgba(33,108,222,.16);
+  font-size:clamp(18px,1.45vw,25px);
+  line-height:1.08;
+  font-weight:700;
+  letter-spacing:.005em;
+}
+.audio-area{
+  width:100%;
+  margin-top:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+}
+.audio-btn{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  border:0;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 8px 16px rgba(33,108,222,.18);
+  transition:transform .16s ease,background .16s ease,box-shadow .16s ease;
+}
+.audio-btn:hover{background:var(--blue-dark);transform:scale(1.045)}
+.audio-btn:active{transform:scale(.96)}
+.audio-btn svg{width:28px;height:28px;display:block}
+.audio-btn.playing{
+  background:var(--red);
+  box-shadow:0 0 0 7px var(--soft-red),0 9px 18px rgba(226,30,43,.18);
+  animation:pulse 1s ease-in-out infinite;
+}
+.tap-note{
+  min-height:17px;
+  margin-top:7px;
+  color:#79859A;
+  font-size:clamp(10px,.8vw,12.5px);
+  line-height:1.1;
+  text-align:center;
+  font-weight:650;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.09)}
+}
+
+/* ---------- NAV ---------- */
+.navbar{
+  width:var(--page-width);
+  margin:12px auto 0;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+}
+.nav-btn{
+  min-width:150px;
+  min-height:54px;
+  border:0;
+  border-radius:15px;
+  background:var(--blue);
+  color:#fff;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(33,108,222,.14);
+}
+.nav-btn.prev{justify-self:start}
+.nav-btn.next{justify-self:end}
+.nav-btn:disabled{
+  cursor:default;
+  background:#F4F6F9;
+  color:#939CAB;
+  box-shadow:none;
+}
+.dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:90px;
+}
+.dot{
+  width:12px;height:12px;padding:0;border:0;border-radius:50%;
+  background:#D2DCEB;cursor:pointer;transition:transform .15s ease,background .15s ease;
+}
+.dot.active{background:var(--blue);transform:scale(1.18)}
+
+/* partial page centering on wide layouts */
+.cards.partial-5{grid-template-columns:repeat(5,minmax(0,240px));justify-content:center}
+.cards.partial-4{grid-template-columns:repeat(4,minmax(0,260px));justify-content:center}
+.cards.partial-3{grid-template-columns:repeat(3,minmax(0,290px));justify-content:center}
+.cards.partial-2{grid-template-columns:repeat(2,minmax(0,320px));justify-content:center}
+.cards.partial-1{grid-template-columns:minmax(0,340px);justify-content:center}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1350px){
+  :root{--page-width:min(1210px,97vw)}
+  .cards{grid-template-columns:repeat(6,minmax(0,1fr));gap:11px}
+  .cards > .card{grid-column:span 2}
+  .cards.page-items-5 .card:nth-child(4){grid-column:2 / span 2}
+  .cards.page-items-5 .card:nth-child(5){grid-column:4 / span 2}
+  .cards.partial-4,.cards.partial-3,.cards.partial-2,.cards.partial-1{
+    grid-template-columns:repeat(3,minmax(0,1fr));justify-content:stretch
+  }
+  .cards.partial-4 > .card,.cards.partial-3 > .card,.cards.partial-2 > .card,.cards.partial-1 > .card{grid-column:auto}
+  .word-box{font-size:clamp(17px,2vw,24px)}
+}
+@media(max-width:850px){
+  :root{--page-width:min(760px,98vw)}
+  #lessonScreen{
+    padding-top:max(10px,env(safe-area-inset-top));
+    padding-left:max(9px,env(safe-area-inset-left));
+    padding-right:max(9px,env(safe-area-inset-right));
+  }
+  .lesson-header{grid-template-columns:122px 1fr 122px;margin-bottom:10px}
+  .home-btn{min-height:46px;padding:0 12px;font-size:17px}
+  .page-pill{min-height:46px;padding:0 11px;font-size:14px}
+  .header-title{font-size:clamp(30px,5vw,40px)}
+  .header-sub{font-size:clamp(12px,2.5vw,18px)}
+  .cards{grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+  .cards > .card{grid-column:span 2}
+  .cards.page-items-5 .card:nth-child(4){grid-column:2 / span 2}
+  .cards.page-items-5 .card:nth-child(5){grid-column:4 / span 2}
+  .card{border-radius:19px;padding:8px}
+  .picture-frame{border-radius:15px;padding:7px}
+  .word-box{min-height:43px;margin-top:9px;border-radius:11px;font-size:clamp(15px,2.5vw,21px)}
+  .audio-btn{width:48px;height:48px;flex-basis:48px}
+  .audio-btn svg{width:23px;height:23px}
+  .nav-btn{min-width:125px;min-height:49px;font-size:17px}
+}
+@media(max-width:650px){
+  .home-panel{width:min(96vw,560px);border-radius:26px;padding:22px 14px}
+  .eyebrow{font-size:12px;letter-spacing:.12em;margin-bottom:14px}
+  .lesson-banner{
+    min-height:82px;
+    border-radius:18px;
+    padding:14px 8px;
+    font-size:clamp(14px,4.15vw,20px);
+    letter-spacing:-.035em;
+  }
+  .home-actions{margin-top:22px}
+  .vocab-btn{min-height:78px;border-radius:18px;font-size:clamp(32px,11vw,46px)}
+  .lesson-header{grid-template-columns:88px 1fr 0;margin-bottom:8px;gap:6px}
+  .home-btn{min-height:42px;padding:0 9px;font-size:14px;border-radius:12px}
+  .page-pill{display:none}
+  .header-title{font-size:clamp(28px,8vw,36px)}
+  .header-sub{
+    margin-top:5px;
+    font-size:clamp(10px,3.15vw,14px);
+    white-space:nowrap;
+  }
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .cards > .card{grid-column:auto}
+  .cards.partial-5,.cards.partial-4,.cards.partial-3,.cards.partial-2,.cards.partial-1{
+    grid-template-columns:repeat(2,minmax(0,1fr));justify-content:stretch
+  }
+  .cards.page-items-5 .card:last-child,
+  .cards.partial-1 .card:last-child,
+  .cards.partial-3 .card:last-child,
+  .cards.partial-5 .card:last-child{
+    grid-column:1 / -1;
+    width:calc(50% - 4px);
+    justify-self:center;
+  }
+  .card{padding:7px;border-radius:18px}
+  .picture-frame{padding:6px;border-radius:14px}
+  .word-box{
+    width:100%;
+    min-height:39px;
+    margin-top:8px;
+    padding:6px 5px;
+    border-radius:10px;
+    font-size:clamp(14px,4vw,18px);
+  }
+  .audio-area{margin-top:8px}
+  .audio-btn{width:45px;height:45px;flex-basis:45px}
+  .audio-btn svg{width:21px;height:21px}
+  .tap-note{font-size:9.5px;margin-top:6px}
+  .navbar{margin-top:8px}
+  .nav-btn{min-width:96px;min-height:45px;border-radius:12px;font-size:14px}
+  .dots{gap:6px;min-width:54px}
+  .dot{width:10px;height:10px}
+}
+@media(max-width:390px){
+  .cards{gap:6px}
+  .card{padding:6px}
+  .word-box{font-size:13.5px}
+  .audio-btn{width:42px;height:42px;flex-basis:42px}
+  .lesson-banner{font-size:13.8px}
+  .header-sub{font-size:10.5px}
+  .nav-btn{min-width:86px;font-size:13px}
+}
+@media(min-width:851px) and (max-height:760px){
+  #lessonScreen{padding-top:8px;padding-bottom:8px}
+  .lesson-header{margin-bottom:8px}
+  .card{padding:7px 9px}
+  .word-box{margin-top:8px;min-height:43px}
+  .audio-area{margin-top:7px}
+  .audio-btn{width:47px;height:47px;flex-basis:47px}
+  .tap-note{margin-top:5px}
+  .navbar{margin-top:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+/* ---------- APPROVED FOUR-CARD VOCAB CONTENT EXTENSION ---------- */
+/* Four-card page baseline retained; final Art Class layout below makes the lesson viewport-filling. */
+:root{--page-width:94vw}
+
+.cards{
+  width:var(--page-width);
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(14px,1.15vw,22px);
+}
+.cards > .card{grid-column:auto}
+.cards.page-items-4{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  justify-content:stretch;
+}
+.cards.partial-4{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  justify-content:stretch;
+}
+.card{
+  padding:clamp(10px,.9vw,15px);
+  border-radius:26px;
+}
+.picture-frame{
+  /* The supplied source artwork is 4:3; this keeps the pictures large
+     while leaving enough vertical room for both listening sections. */
+  aspect-ratio:4 / 3;
+  border-radius:20px;
+  padding:clamp(5px,.45vw,9px);
+}
+.word-box{
+  width:max-content;
+  max-width:calc(100% - 12px);
+  min-height:54px;
+  margin:clamp(10px,.8vw,14px) auto 0;
+  padding:9px clamp(22px,2vw,34px);
+  font-size:clamp(24px,1.8vw,32px);
+  white-space:nowrap;
+}
+.audio-area{
+  margin-top:9px;
+}
+.qa-box{
+  width:max-content;
+  max-width:calc(100% - 12px);
+  min-height:78px;
+  margin:12px auto 0;
+  padding:11px clamp(20px,1.8vw,30px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border-radius:15px;
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 7px 14px rgba(33,108,222,.16);
+  text-align:center;
+}
+.qa-question,
+.qa-answer{
+  font-size:clamp(24px,1.8vw,32px);
+  line-height:1.12;
+}
+.qa-question{font-weight:800}
+.qa-answer{font-weight:700}
+.qa-audio-area{
+  margin-top:9px;
+}
+.qa-note{
+  min-height:17px;
+  margin-top:6px;
+  color:#79859A;
+  font-size:clamp(10px,.76vw,12px);
+  line-height:1.1;
+  text-align:center;
+  font-weight:650;
+}
+
+/* Medium windows/tablets: prioritize large 2 × 2 cards instead of
+   shrinking four cards until the images become tiny. */
+@media(max-width:1050px){
+  :root{--page-width:94vw}
+  .cards,
+  .cards.page-items-4,
+  .cards.partial-4{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(12px,2vw,18px);
+  }
+  .cards > .card{grid-column:auto}
+  .picture-frame{aspect-ratio:4 / 3}
+  .word-box,
+  .qa-question,
+  .qa-answer{font-size:clamp(22px,3.2vw,30px)}
+}
+
+/* Phones: two large columns using nearly all usable width. */
+@media(max-width:650px){
+  :root{--page-width:94vw}
+  .cards,
+  .cards.page-items-4,
+  .cards.partial-4{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .cards.page-items-4 .card,
+  .cards.partial-4 .card{
+    grid-column:auto;
+    width:auto;
+    justify-self:stretch;
+  }
+  .card{padding:7px;border-radius:18px}
+  .picture-frame{aspect-ratio:4 / 3;padding:5px;border-radius:14px}
+  .word-box{
+    width:max-content;
+    max-width:calc(100% - 8px);
+    min-height:40px;
+    margin:7px auto 0;
+    padding:7px 15px;
+    font-size:clamp(16px,4.4vw,20px);
+  }
+  .audio-area{margin-top:7px}
+  .audio-btn{width:44px;height:44px;flex-basis:44px}
+  .audio-btn svg{width:21px;height:21px}
+  .tap-note,.qa-note{font-size:9px;margin-top:5px}
+  .qa-box{
+    width:max-content;
+    max-width:calc(100% - 8px);
+    min-height:66px;
+    margin:8px auto 0;
+    padding:8px 14px;
+    border-radius:11px;
+    gap:3px;
+  }
+  .qa-question,
+  .qa-answer{font-size:clamp(16px,4.4vw,20px)}
+  .qa-audio-area{margin-top:7px}
+}
+
+/* Very narrow phones: protect longer vocabulary and secondary-content lines. */
+@media(max-width:390px){
+  .cards{gap:6px}
+  .word-box,
+  .qa-question,
+  .qa-answer{font-size:15px}
+  .word-box{padding-left:12px;padding-right:12px}
+  .qa-box{padding:7px 10px}
+}
+
+/* Short landscape/laptop screens: keep all four large cards visible
+   without sacrificing the picture itself. */
+@media(min-width:1051px) and (max-height:760px){
+  .lesson-header{margin-bottom:7px}
+  .card{padding:8px 10px}
+  .picture-frame{aspect-ratio:16 / 9}
+  .word-box{
+    min-height:42px;
+    margin:7px auto 0;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+  .audio-area,.qa-audio-area{margin-top:6px}
+  .audio-btn{width:45px;height:45px;flex-basis:45px}
+  .audio-btn svg{width:22px;height:22px}
+  .tap-note,.qa-note{margin-top:4px}
+  .qa-box{
+    min-height:60px;
+    margin:7px auto 0;
+    padding:7px 16px;
+  }
+  .word-box,
+  .qa-question,
+  .qa-answer{font-size:20px}
+  .navbar{margin-top:6px}
+}
+
+
+/* ---------- UNIFIED CHILD-FRIENDLY TYPOGRAPHY ---------- */
+/* One exact typography system for the vocabulary word, question and answer. */
+:root{
+  --learning-font-size:clamp(30px,2.2vw,38px);
+  --learning-font-weight:800;
+  --learning-line-height:1.08;
+  --learning-letter-spacing:.005em;
+}
+
+.word-box,
+.qa-question,
+.qa-answer{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:var(--learning-font-size);
+  font-weight:var(--learning-font-weight);
+  line-height:var(--learning-line-height);
+  letter-spacing:var(--learning-letter-spacing);
+  color:#fff;
+}
+
+/* Keep each individual vocabulary word on one line. */
+.word-box{
+  white-space:nowrap;
+  padding-left:clamp(26px,2.2vw,34px);
+  padding-right:clamp(26px,2.2vw,34px);
+}
+
+/* Keep each Q&A line intact whenever the card width allows it. */
+.qa-question,
+.qa-answer{
+  white-space:nowrap;
+}
+
+/* Tablet / medium window */
+@media(max-width:1050px){
+  :root{
+    --learning-font-size:clamp(27px,3.6vw,34px);
+  }
+}
+
+/* Phone */
+@media(max-width:650px){
+  :root{
+    --learning-font-size:clamp(19px,5vw,24px);
+  }
+  .word-box{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .qa-box{
+    padding-left:16px;
+    padding-right:16px;
+  }
+}
+
+/* Very narrow phone */
+@media(max-width:390px){
+  :root{
+    --learning-font-size:18px;
+  }
+  .word-box{
+    padding-left:14px;
+    padding-right:14px;
+  }
+  .qa-box{
+    padding-left:11px;
+    padding-right:11px;
+  }
+}
+
+/* Short desktop / laptop height:
+   keep the three text types identical while protecting vertical fit. */
+@media(min-width:1051px) and (max-height:760px){
+  :root{
+    --learning-font-size:30px;
+  }
+}
+
+
+
+/* ---------- ART CLASS • OPTIONAL SECOND CONTENT ---------- */
+/* Preserve the approved compact content-sized blue box, but render it only when
+   the lesson data actually contains extra teaching content. */
+.secondary-box{
+  width:max-content;
+  max-width:calc(100% - 12px);
+  min-height:60px;
+  margin:12px auto 0;
+  padding:9px clamp(20px,1.8vw,30px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 7px 14px rgba(33,108,222,.16);
+  text-align:center;
+}
+.secondary-text{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:var(--learning-font-size);
+  font-weight:var(--learning-font-weight);
+  line-height:var(--learning-line-height);
+  letter-spacing:var(--learning-letter-spacing);
+  color:#fff;
+  white-space:nowrap;
+}
+.secondary-audio-area{margin-top:9px}
+
+/* Four large cards remain the core page layout. The final two-card page is
+   centered and enlarged rather than left tiny in a mostly empty row. */
+@media(min-width:1051px){
+  .cards.partial-2{
+    grid-template-columns:repeat(2,minmax(0,430px));
+    justify-content:center;
+    gap:clamp(18px,2vw,28px);
+  }
+  .cards.partial-2 .picture-frame{aspect-ratio:4 / 3}
+}
+@media(max-width:1050px){
+  .cards.partial-2{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    justify-content:stretch;
+    gap:clamp(12px,2vw,18px);
+  }
+  .secondary-text{font-size:var(--learning-font-size)}
+}
+@media(max-width:650px){
+  .secondary-box{
+    max-width:calc(100% - 8px);
+    min-height:54px;
+    margin:8px auto 0;
+    padding:8px 14px;
+    border-radius:11px;
+  }
+  .secondary-audio-area{margin-top:7px}
+}
+@media(max-width:390px){
+  .secondary-box{padding:7px 10px}
+}
+@media(min-width:1051px) and (max-height:760px){
+  .secondary-box{
+    min-height:50px;
+    margin:7px auto 0;
+    padding:7px 16px;
+  }
+  .secondary-audio-area{margin-top:6px}
+}
+
+
+
+/* ==========================================================================\n   ART CLASS • FULL-VIEWPORT ONLINE-TEACHING LAYOUT\n   --------------------------------------------------------------------------\n   Final authoritative layout layer. The approved LASIN visual/audio system\n   remains untouched; only screen use and responsive card arrangement change.\n   Desktop/tablet: 2 × 2 viewport-filling teaching grid.\n   Phone: one large card per row in a natural vertical flow.\n   ========================================================================== */
+
+:root{
+  --page-width:100%;
+}
+
+/* The lesson itself is a viewport-filling teaching surface. */
+#lessonScreen{
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow:hidden;
+  padding:
+    max(6px, env(safe-area-inset-top))
+    max(8px, env(safe-area-inset-right))
+    max(6px, env(safe-area-inset-bottom))
+    max(8px, env(safe-area-inset-left));
+}
+
+/* Compact but fully legible header: preserve hierarchy while returning more\n   vertical space to the teaching pictures. */
+.lesson-header{
+  width:100%;
+  flex:0 0 auto;
+  margin:0 0 6px;
+  grid-template-columns:minmax(130px,165px) 1fr minmax(130px,165px);
+  gap:8px;
+}
+.home-btn,.page-pill{
+  min-height:44px;
+  border-radius:13px;
+}
+.home-btn{
+  padding:0 14px;
+  font-size:clamp(17px,1.35vw,20px);
+}
+.page-pill{
+  padding:0 13px;
+  font-size:clamp(14px,1.15vw,17px);
+}
+.header-title{
+  font-size:clamp(31px,2.7vw,40px);
+}
+.header-sub{
+  margin-top:5px;
+  font-size:clamp(13px,1.3vw,18px);
+}
+
+/* Four-card pages consume every remaining useful pixel: two cards across and\n   two cards below. Both rows receive equal space. */
+.cards,
+.cards.page-items-4,
+.cards.partial-4{
+  width:100%;
+  flex:1 1 auto;
+  min-height:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:8px 10px;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:stretch;
+}
+.cards > .card,
+.cards.page-items-4 > .card,
+.cards.partial-4 > .card{
+  grid-column:auto;
+  min-width:0;
+  min-height:0;
+  height:100%;
+  justify-self:stretch;
+}
+
+/* Two-card final page: use the full teaching area instead of preserving two\n   empty card slots. */
+.cards.partial-2,
+.cards.page-items-2{
+  width:100%;
+  flex:1 1 auto;
+  min-height:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:minmax(0,1fr);
+  gap:10px;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:stretch;
+}
+.cards.partial-2 > .card,
+.cards.page-items-2 > .card{
+  width:auto;
+  max-width:none;
+  min-height:0;
+  height:100%;
+  grid-column:auto;
+  justify-self:stretch;
+}
+
+/* Cards are height-aware. The picture flexes first and receives the majority\n   of any extra screen space; teaching controls keep their approved proportions. */
+.card{
+  min-height:0;
+  overflow:hidden;
+  border-radius:20px;
+  padding:7px 9px;
+}
+.picture-frame{
+  width:100%;
+  height:auto;
+  min-height:90px;
+  flex:1 1 0;
+  aspect-ratio:auto;
+  border-radius:16px;
+  padding:5px;
+}
+.picture-frame img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+
+/* Keep approved compact text boxes but tighten dead vertical space. */
+.word-box{
+  min-height:38px;
+  margin:5px auto 0;
+  padding:5px clamp(20px,1.8vw,30px);
+}
+.audio-area,
+.word-audio-area,
+.secondary-audio-area{
+  margin-top:4px;
+}
+.audio-btn{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+}
+.audio-btn svg{
+  width:20px;
+  height:20px;
+}
+.tap-note{
+  min-height:10px;
+  margin-top:3px;
+  font-size:clamp(8.5px,.65vw,10.5px);
+}
+.secondary-box{
+  min-height:38px;
+  margin:5px auto 0;
+  padding:5px clamp(18px,1.5vw,26px);
+  border-radius:12px;
+}
+
+/* Unified text remains the approved system; only responsive size is tuned to\n   the new 2 × 2 teaching geometry. */
+:root{
+  --learning-font-size:clamp(22px,1.8vw,31px);
+}
+.word-box,.secondary-text{
+  font-size:var(--learning-font-size);
+}
+
+/* Navigation remains fully functional but no longer reserves a large blank band. */
+.navbar{
+  width:100%;
+  flex:0 0 auto;
+  min-height:42px;
+  margin:6px 0 0;
+  gap:8px;
+}
+.nav-btn{
+  min-width:126px;
+  min-height:42px;
+  border-radius:13px;
+  font-size:clamp(15px,1.2vw,18px);
+}
+.dots{gap:7px;min-width:70px}
+.dot{width:11px;height:11px}
+
+/* Short laptop / landscape screens: preserve all four cards on screen while\n   allowing the image frame to flex down before text/control readability does. */
+@media(min-width:701px) and (max-height:760px){
+  #lessonScreen{
+    padding-top:max(4px,env(safe-area-inset-top));
+    padding-bottom:max(4px,env(safe-area-inset-bottom));
+  }
+  .lesson-header{margin-bottom:4px}
+  .home-btn,.page-pill{min-height:40px}
+  .header-title{font-size:32px}
+  .header-sub{font-size:14px;margin-top:3px}
+  .cards,.cards.page-items-4,.cards.partial-4{gap:6px 8px}
+  .card{padding:5px 7px;border-radius:17px}
+  .picture-frame{min-height:72px;border-radius:14px;padding:4px}
+  :root{--learning-font-size:clamp(19px,1.55vw,25px)}
+  .word-box{min-height:33px;margin-top:4px;padding-top:4px;padding-bottom:4px}
+  .audio-area,.word-audio-area,.secondary-audio-area{margin-top:3px}
+  .audio-btn{width:36px;height:36px;flex-basis:36px}
+  .audio-btn svg{width:18px;height:18px}
+  .tap-note{font-size:8.5px;margin-top:2px;min-height:9px}
+  .secondary-box{min-height:33px;margin-top:4px;padding-top:4px;padding-bottom:4px}
+  .navbar{min-height:38px;margin-top:4px}
+  .nav-btn{min-height:38px;min-width:112px;font-size:15px}
+}
+
+/* Tablet portrait and landscape keep the 2 × 2 teaching structure. */
+@media(min-width:701px) and (max-width:1050px){
+  .lesson-header{
+    grid-template-columns:minmax(112px,145px) 1fr minmax(112px,145px);
+  }
+  .cards,.cards.page-items-4,.cards.partial-4{gap:8px}
+  :root{--learning-font-size:clamp(20px,2.8vw,28px)}
+}
+
+/* PHONE MODE: do not miniaturize the desktop grid. Reflow to one large card\n   per row and let the page scroll naturally. */
+@media(max-width:700px){
+  #lessonScreen{
+    height:auto;
+    min-height:100vh;
+    min-height:100dvh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding:
+      max(8px, env(safe-area-inset-top))
+      max(8px, env(safe-area-inset-right))
+      max(10px, env(safe-area-inset-bottom))
+      max(8px, env(safe-area-inset-left));
+  }
+  .lesson-header{
+    width:100%;
+    grid-template-columns:auto 1fr;
+    gap:7px;
+    margin-bottom:8px;
+  }
+  .page-pill{display:none}
+  .home-btn{min-height:42px;padding:0 11px;font-size:16px}
+  .header-title{font-size:clamp(28px,8.5vw,36px)}
+  .header-sub{font-size:clamp(11px,3.5vw,15px);margin-top:4px}
+
+  .cards,
+  .cards.page-items-4,
+  .cards.partial-4,
+  .cards.partial-3,
+  .cards.partial-2,
+  .cards.page-items-2,
+  .cards.partial-1{
+    width:100%;
+    height:auto;
+    min-height:0;
+    flex:0 0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:none;
+    gap:10px;
+    align-items:stretch;
+    align-content:start;
+    justify-content:stretch;
+  }
+  .cards > .card,
+  .cards.page-items-4 > .card,
+  .cards.partial-4 > .card,
+  .cards.partial-3 > .card,
+  .cards.partial-2 > .card,
+  .cards.page-items-2 > .card,
+  .cards.partial-1 > .card{
+    grid-column:auto;
+    width:100%;
+    height:auto;
+    min-height:0;
+    justify-self:stretch;
+  }
+  .card{padding:8px;border-radius:19px;overflow:visible}
+  .picture-frame{
+    flex:none;
+    width:100%;
+    min-height:0;
+    aspect-ratio:4 / 3;
+    border-radius:15px;
+    padding:5px;
+  }
+  :root{--learning-font-size:clamp(21px,6vw,28px)}
+  .word-box{min-height:42px;margin-top:7px;padding:6px 18px}
+  .secondary-box{min-height:42px;margin-top:7px;padding:6px 16px}
+  .audio-area,.word-audio-area,.secondary-audio-area{margin-top:6px}
+  .audio-btn{width:46px;height:46px;flex-basis:46px}
+  .audio-btn svg{width:22px;height:22px}
+  .tap-note{font-size:10px;margin-top:4px}
+  .navbar{
+    width:100%;
+    min-height:46px;
+    margin-top:9px;
+  }
+  .nav-btn{min-width:96px;min-height:44px;font-size:14px}
+  .dots{gap:6px;min-width:56px}
+  .dot{width:10px;height:10px}
+}
+
+/* Very narrow phones: preserve word integrity and touch comfort. */
+@media(max-width:390px){
+  :root{--learning-font-size:20px}
+  .word-box{max-width:calc(100% - 6px);padding-left:14px;padding-right:14px}
+  .secondary-box{max-width:calc(100% - 6px);padding-left:12px;padding-right:12px}
+  .nav-btn{min-width:86px;font-size:13px}
+}
+
+</style>
+</head>
+<body>
+
+<section id="homeScreen" class="screen active" aria-label="Vocabulary home">
+  <div class="home-panel">
+    <p class="eyebrow">Everybody Up 3 Vocabulary</p>
+    <div class="lesson-banner">Unit 02 | Lesson 04 | Art Class</div>
+
+    <div class="home-actions">
+      <button id="openVocab" class="vocab-btn" type="button">Vocab</button>
+
+      <div id="embedWrap" class="embed-wrap show">
+        <button id="embedButton" class="embed-btn" type="button">Embed Original MP3s</button>
+        <input id="audioPicker" type="file" accept=".mp3,audio/mpeg" multiple="">
+        <div class="embed-help">
+          One-time teacher setup only. Select the <span id="requiredAudioCount">16</span> original MP3 files; the browser will create the final standalone student HTML.
+        </div>
+        <div id="embedStatus" class="embed-status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessonScreen" class="screen" aria-label="Vocabulary lesson">
+  <header class="lesson-header">
+    <button id="homeButton" class="home-btn" type="button" aria-label="Return to Home">← Home</button>
+
+    <div class="header-center">
+      <h1 class="header-title">Vocab</h1>
+      <div class="header-sub">Unit 02 • Lesson 04 • Art Class</div>
+    </div>
+
+    <div id="pagePill" class="page-pill" aria-live="polite">Page 1 of 4</div>
+  </header>
+
+  <main id="cards" class="cards" aria-live="polite"></main>
+
+  <nav class="navbar" aria-label="Vocabulary page navigation">
+    <button id="prevButton" class="nav-btn prev" type="button" disabled="">← Previous</button>
+    <div id="dots" class="dots"><button type="button" class="dot active" aria-label="Go to page 1" aria-current="page"></button><button type="button" class="dot" aria-label="Go to page 2"></button><button type="button" class="dot" aria-label="Go to page 3"></button><button type="button" class="dot" aria-label="Go to page 4"></button></div>
+    <button id="nextButton" class="nav-btn next" type="button">Next →</button>
+  </nav>
+</section>
+
+<script id="vocab-data" type="application/json">[{"word":"Scissor","image":"../assets/84fd5a36fe75d43299eb.webp","wordAudio":"../assets/49105b6e3ba88d6934cd.mp3","wordExpectedFile":"Scissor.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Pictures","image":"../assets/5efc903c4594e840f1d9.webp","wordAudio":"../assets/253717437aa79fdada8a.mp3","wordExpectedFile":"Pictures.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Posters","image":"../assets/d66dd4a5c82e49349e88.webp","wordAudio":"../assets/1a6d6b0be35388c7ea72.mp3","wordExpectedFile":"Posters.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Cotton balls","image":"../assets/8d05274603dfb7f926bd.webp","wordAudio":"../assets/9caa794bc013415476a4.mp3","wordExpectedFile":"Cotton balls.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Antenna","image":"../assets/9d377fc8ad5f086060d5.webp","wordAudio":"../assets/dedc93184335ba290bfa.mp3","wordExpectedFile":"Antenna.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Caterpillar","image":"../assets/2a49b401f14ee3527367.webp","wordAudio":"../assets/da1472612669f3179a8a.mp3","wordExpectedFile":"Caterpillar.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"Buildings","image":"../assets/e48063da5f0d4565d534.webp","wordAudio":"../assets/fd150e7c1d187653e4ff.mp3","wordExpectedFile":"Buildings.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"House","image":"../assets/6c8de8d9ec222879b9c6.webp","wordAudio":"../assets/72ab6607603c4c65e462.mp3","wordExpectedFile":"House.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"town","image":"../assets/b2e8aba45827b1b94092.webp","wordAudio":"","wordExpectedFile":"","extraText":"make a town","extraAudio":"","extraExpectedFile":"","combinedAudio":"../assets/4016d41c7838a0041a53.mp3","combinedExpectedFile":"town. make a town..mp3"},{"word":"art","image":"../assets/10372313a8380a0c2e92.webp","wordAudio":"","wordExpectedFile":"","extraText":"make art","extraAudio":"","extraExpectedFile":"","combinedAudio":"../assets/36aca8059bcc77f1ac64.mp3","combinedExpectedFile":"art. make art.mp3"},{"word":"fold","image":"../assets/83e406b64daa03040305.webp","wordAudio":"../assets/a934289ff3f2a1021f3e.mp3","wordExpectedFile":"fold..mp3","extraText":"fold the paper","extraAudio":"../assets/afa4c740fde272fabca9.mp3","extraExpectedFile":"fold the paper.mp3","combinedAudio":"","combinedExpectedFile":""},{"word":"glue","image":"../assets/ab50c444d4eafe450138.webp","wordAudio":"../assets/58bd5345331f5ac5d433.mp3","wordExpectedFile":"glue.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""},{"word":"cut","image":"../assets/37c29cb07b9bd8dc893d.webp","wordAudio":"../assets/a80a828f4508fc3df4fe.mp3","wordExpectedFile":"cut.mp3","extraText":"cut the paper","extraAudio":"../assets/4578071798dddc5119c4.mp3","extraExpectedFile":"cut the paper.mp3","combinedAudio":"","combinedExpectedFile":""},{"word":"color","image":"../assets/5cd9d1b53a3dc267b24d.webp","wordAudio":"../assets/fbab338f8bb03a09a665.mp3","wordExpectedFile":"color.mp3","extraText":"","extraAudio":"","extraExpectedFile":"","combinedAudio":"","combinedExpectedFile":""}]</script>
+
+<script>
+(() => {
+"use strict";
+
+const PAGE_SIZE = 4;
+const REPEAT_GAP_MS = 500;
+
+const homeScreen = document.getElementById("homeScreen");
+const lessonScreen = document.getElementById("lessonScreen");
+const openVocab = document.getElementById("openVocab");
+const homeButton = document.getElementById("homeButton");
+const cardsEl = document.getElementById("cards");
+const dotsEl = document.getElementById("dots");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+const pagePill = document.getElementById("pagePill");
+
+const embedWrap = document.getElementById("embedWrap");
+const embedButton = document.getElementById("embedButton");
+const audioPicker = document.getElementById("audioPicker");
+const embedStatus = document.getElementById("embedStatus");
+const requiredAudioCountEl = document.getElementById("requiredAudioCount");
+
+let ITEMS = JSON.parse(document.getElementById("vocab-data").textContent);
+let currentPage = 0;
+let activeButton = null;
+let sequenceTimer = null;
+let playToken = 0;
+
+const sharedAudio = new Audio();
+sharedAudio.preload = "auto";
+
+function totalPages(){
+  return Math.max(1, Math.ceil(ITEMS.length / PAGE_SIZE));
+}
+
+function normalizeFileName(name){
+  return String(name || "")
+    .replace(/^.*[\\/]/,"")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g," ")
+    .replace(/\.+mp3$/i,".mp3");
+}
+
+function isEmbeddedAudio(value){
+  return /^data:audio\//i.test(String(value || ""));
+}
+
+/* Build the exact lesson requirements from the actual card data.
+   This Art Class lesson resolves to 16 unique original MP3 files. */
+function audioRequirements(){
+  const requirements = [];
+  ITEMS.forEach((item, index) => {
+    if(item.wordExpectedFile){
+      requirements.push({
+        label:item.wordExpectedFile,
+        expected:item.wordExpectedFile,
+        get:() => item.wordAudio,
+        assign:data => { ITEMS[index].wordAudio = data; }
+      });
+    }
+    if(item.combinedExpectedFile){
+      requirements.push({
+        label:item.combinedExpectedFile,
+        expected:item.combinedExpectedFile,
+        get:() => item.combinedAudio,
+        assign:data => { ITEMS[index].combinedAudio = data; }
+      });
+    }
+    if(item.extraExpectedFile){
+      requirements.push({
+        label:item.extraExpectedFile,
+        expected:item.extraExpectedFile,
+        get:() => item.extraAudio,
+        assign:data => { ITEMS[index].extraAudio = data; }
+      });
+    }
+  });
+  return requirements;
+}
+
+function allAudioEmbedded(){
+  const requirements = audioRequirements();
+  return requirements.length > 0 && requirements.every(req => isEmbeddedAudio(req.get()));
+}
+
+function updateEmbedVisibility(){
+  const count = audioRequirements().length;
+  if(requiredAudioCountEl) requiredAudioCountEl.textContent = String(count);
+  if(allAudioEmbedded()) embedWrap.classList.remove("show");
+  else embedWrap.classList.add("show");
+}
+
+function showEmbedStatus(text, type=""){
+  embedStatus.textContent = text;
+  embedStatus.className = "embed-status show" + (type ? " " + type : "");
+}
+
+function clearPlayingVisual(){
+  if(activeButton){
+    activeButton.classList.remove("playing");
+    activeButton.setAttribute("aria-pressed","false");
+  }
+  activeButton = null;
+}
+
+function stopAudio(){
+  playToken++;
+  if(sequenceTimer){
+    clearTimeout(sequenceTimer);
+    sequenceTimer = null;
+  }
+  sharedAudio.pause();
+  sharedAudio.removeAttribute("src");
+  sharedAudio.load();
+  sharedAudio.onended = null;
+  sharedAudio.onerror = null;
+  clearPlayingVisual();
+}
+
+function headsetSvg(){
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8Zm-5 11h1v4H7a1 1 0 0 1-1-1v-3h1Zm10 4h-1v-4h2v3a1 1 0 0 1-1 1Z"/>
+    </svg>`;
+}
+
+/* Every repetition waits for the original MP3's NATURAL ended event.
+   Starting any other headset immediately invalidates old events and timers. */
+function playSequence(steps, button, missingMessage){
+  stopAudio();
+
+  if(!steps.length || steps.some(step => !step.src)){
+    showEmbedStatus(missingMessage, "error");
+    return;
+  }
+
+  const myToken = ++playToken;
+  activeButton = button;
+  button.classList.add("playing");
+  button.setAttribute("aria-pressed","true");
+
+  let stepIndex = 0;
+
+  const playStep = () => {
+    if(myToken !== playToken) return;
+    const step = steps[stepIndex];
+
+    sharedAudio.onended = () => {
+      if(myToken !== playToken) return;
+      if(stepIndex >= steps.length - 1){
+        sharedAudio.onended = null;
+        clearPlayingVisual();
+        return;
+      }
+
+      const gap = Math.max(0, Number(step.gapAfterMs) || 0);
+      stepIndex++;
+      sequenceTimer = setTimeout(() => {
+        sequenceTimer = null;
+        if(myToken !== playToken) return;
+        playStep();
+      }, gap);
+    };
+
+    sharedAudio.onerror = () => {
+      if(myToken === playToken) stopAudio();
+    };
+
+    sharedAudio.src = step.src;
+    try{ sharedAudio.currentTime = 0; }catch(e){}
+    sharedAudio.play().catch(() => {
+      if(myToken === playToken) stopAudio();
+    });
+  };
+
+  playStep();
+}
+
+function playOriginalTwice(src, button, description){
+  playSequence(
+    [
+      {src, gapAfterMs:REPEAT_GAP_MS},
+      {src, gapAfterMs:0}
+    ],
+    button,
+    `Original audio for "${description}" is not embedded yet. Use “Embed Original MP3s” on the Home screen.`
+  );
+}
+
+function makeAudioArea({label, onClick, className=""}){
+  const area = document.createElement("div");
+  area.className = "audio-area" + (className ? " " + className : "");
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "audio-btn";
+  button.innerHTML = headsetSvg();
+  button.setAttribute("aria-label", label);
+  button.setAttribute("aria-pressed","false");
+  button.addEventListener("click", () => onClick(button));
+
+  const note = document.createElement("div");
+  note.className = "tap-note";
+  note.textContent = "Tap to hear it twice";
+
+  area.append(button, note);
+  return area;
+}
+
+function renderDots(){
+  dotsEl.innerHTML = "";
+  const pages = totalPages();
+  for(let i=0;i<pages;i++){
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "dot" + (i === currentPage ? " active" : "");
+    dot.setAttribute("aria-label", `Go to page ${i+1}`);
+    if(i === currentPage) dot.setAttribute("aria-current","page");
+    dot.addEventListener("click", () => goToPage(i));
+    dotsEl.appendChild(dot);
+  }
+}
+
+function partialClass(count){
+  if(count >= PAGE_SIZE) return "";
+  return " partial-" + Math.max(1,count);
+}
+
+function renderPage(){
+  stopAudio();
+
+  const pages = totalPages();
+  if(currentPage > pages - 1) currentPage = pages - 1;
+
+  const start = currentPage * PAGE_SIZE;
+  const slice = ITEMS.slice(start, start + PAGE_SIZE);
+
+  cardsEl.className = "cards page-items-" + slice.length + partialClass(slice.length);
+  cardsEl.innerHTML = "";
+
+  slice.forEach((item, localIndex) => {
+    const absoluteIndex = start + localIndex;
+    const card = document.createElement("article");
+    card.className = "card" + (item.extraText ? " has-secondary" : "");
+
+    const picture = document.createElement("div");
+    picture.className = "picture-frame";
+
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = `${item.word} vocabulary picture`;
+    img.draggable = false;
+    picture.appendChild(img);
+
+    const wordBox = document.createElement("div");
+    wordBox.className = "word-box";
+    wordBox.textContent = item.word;
+
+    card.append(picture, wordBox);
+
+    /* Normal word-only recording: one original MP3 played twice with 500 ms gap. */
+    if(item.wordExpectedFile){
+      const wordArea = makeAudioArea({
+        label:`Play ${item.word} twice`,
+        onClick:button => playOriginalTwice(ITEMS[absoluteIndex].wordAudio, button, item.word),
+        className:"word-audio-area"
+      });
+      card.appendChild(wordArea);
+    }
+
+    /* Optional lesson content box: rendered only when content actually exists. */
+    if(item.extraText){
+      const secondaryBox = document.createElement("div");
+      secondaryBox.className = "secondary-box";
+      const secondaryText = document.createElement("div");
+      secondaryText.className = "secondary-text";
+      secondaryText.textContent = item.extraText;
+      secondaryBox.appendChild(secondaryText);
+      card.appendChild(secondaryBox);
+
+      if(item.combinedExpectedFile){
+        /* town/art each have ONE intentional combined original recording containing
+           both the individual word and the extra phrase. The combined headset sits
+           after the two text boxes so its scope is visually clear. */
+        const description = `${item.word}. ${item.extraText}`;
+        const combinedArea = makeAudioArea({
+          label:`Play ${item.word} and ${item.extraText} twice`,
+          onClick:button => playOriginalTwice(ITEMS[absoluteIndex].combinedAudio, button, description),
+          className:"secondary-audio-area combined-audio-area"
+        });
+        card.appendChild(combinedArea);
+      }else if(item.extraExpectedFile){
+        const extraArea = makeAudioArea({
+          label:`Play ${item.extraText} twice`,
+          onClick:button => playOriginalTwice(ITEMS[absoluteIndex].extraAudio, button, item.extraText),
+          className:"secondary-audio-area"
+        });
+        card.appendChild(extraArea);
+      }
+    }
+
+    cardsEl.appendChild(card);
+  });
+
+  pagePill.textContent = `Page ${currentPage + 1} of ${pages}`;
+  prevButton.disabled = currentPage === 0;
+  nextButton.disabled = currentPage === pages - 1;
+  renderDots();
+}
+
+function goToPage(index){
+  const pages = totalPages();
+  const next = Math.max(0, Math.min(pages - 1, index));
+  if(next === currentPage){
+    stopAudio();
+    return;
+  }
+  currentPage = next;
+  renderPage();
+  window.scrollTo({top:0,behavior:"auto"});
+}
+
+function showHome(){
+  stopAudio();
+  lessonScreen.classList.remove("active");
+  homeScreen.classList.add("active");
+  updateEmbedVisibility();
+}
+
+function showLesson(){
+  stopAudio();
+  homeScreen.classList.remove("active");
+  lessonScreen.classList.add("active");
+  renderPage();
+}
+
+openVocab.addEventListener("click", showLesson);
+homeButton.addEventListener("click", showHome);
+prevButton.addEventListener("click", () => goToPage(currentPage - 1));
+nextButton.addEventListener("click", () => goToPage(currentPage + 1));
+
+/* -------- ORIGINAL MP3 EMBEDDER — CONTENT-DRIVEN -------- */
+embedButton.addEventListener("click", () => {
+  audioPicker.value = "";
+  audioPicker.click();
+});
+
+audioPicker.addEventListener("change", async () => {
+  const files = Array.from(audioPicker.files || []);
+  if(!files.length) return;
+
+  const fileMap = new Map();
+  files.forEach(file => fileMap.set(normalizeFileName(file.name), file));
+
+  const requirements = audioRequirements();
+  const missing = [];
+  const matched = [];
+
+  for(const req of requirements){
+    const file = fileMap.get(normalizeFileName(req.expected));
+    if(file) matched.push({req,file});
+    else missing.push(req.label);
+  }
+
+  if(missing.length){
+    showEmbedStatus(
+      `Missing ${missing.length} file${missing.length===1?"":"s"}: ${missing.join(", ")}. Nothing was exported.`,
+      "error"
+    );
+    return;
+  }
+
+  const count = requirements.length;
+  showEmbedStatus(`All ${count} original MP3s were found. Embedding them now…`);
+
+  try{
+    const readAsDataURL = file => new Promise((resolve,reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error || new Error("Could not read file"));
+      reader.readAsDataURL(file);
+    });
+
+    for(const {req,file} of matched){
+      req.assign(await readAsDataURL(file));
+    }
+
+    document.getElementById("vocab-data").textContent = JSON.stringify(ITEMS);
+
+    showEmbedStatus(
+      `All ${count} original MP3s were embedded successfully. Creating the final standalone student HTML…`,
+      "ok"
+    );
+
+    exportStandaloneHTML();
+  }catch(err){
+    showEmbedStatus(`Audio embedding failed: ${err && err.message ? err.message : err}`,"error");
+  }
+});
+
+function exportStandaloneHTML(){
+  stopAudio();
+
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelector("#homeScreen").classList.add("active");
+  clone.querySelector("#lessonScreen").classList.remove("active");
+  clone.querySelector("#vocab-data").textContent = JSON.stringify(ITEMS);
+
+  /* Keep the exported student file light: cards regenerate from the single
+     lesson-data copy, so large embedded pictures are not serialized twice. */
+  const cloneCards = clone.querySelector("#cards");
+  if(cloneCards){
+    cloneCards.innerHTML = "";
+    cloneCards.className = "cards";
+  }
+
+  const cloneEmbedStatus = clone.querySelector("#embedStatus");
+  if(cloneEmbedStatus){
+    cloneEmbedStatus.className = "embed-status";
+    cloneEmbedStatus.textContent = "";
+  }
+
+  const clonePicker = clone.querySelector("#audioPicker");
+  if(clonePicker) clonePicker.removeAttribute("value");
+
+  clone.querySelectorAll(".audio-btn.playing").forEach(el => {
+    el.classList.remove("playing");
+    el.setAttribute("aria-pressed","false");
+  });
+
+  const source = "<!doctype html>\n" + clone.outerHTML;
+  const blob = new Blob([source], {type:"text/html;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Everybody_Up_3_Unit_02_Lesson_04_Art_Class_Vocab_EMBEDDED.html";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 3000);
+}
+
+
+/* ===== LASIN Motivation v3.0 parent bridge: preview-only lifecycle ===== */
+let lasinMotivationIsActive=true;
+function lasinMotivationActivate(){ lasinMotivationIsActive=true; }
+function lasinMotivationDeactivate(){ lasinMotivationIsActive=false; try{ stopAudio(); }catch(e){} }
+window.LASIN_MOTIVATION_CHILD={exerciseId:'vocab',activate:lasinMotivationActivate,deactivate:lasinMotivationDeactivate,getLocalIndex:()=>null};
+/* ===== End LASIN Motivation bridge ===== */
+
+/* -------- LIFECYCLE SAFETY -------- */
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden) stopAudio();
+});
+window.addEventListener("pagehide", stopAudio);
+window.addEventListener("beforeunload", stopAudio);
+
+updateEmbedVisibility();
+renderPage();
+})();
+</script>
+
+</body></html>

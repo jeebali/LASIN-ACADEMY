@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>LASIN | Everybody Up 1 | First Next Then Finally | Exercise 02</title>
+<style>
+:root{--blue:#103d9b;--blue2:#0b2f7e;--soft:#eef4ff;--line:#dbe7ff;--good:#1d9d58;--bad:#d93b3b;--red:#e52d35;--red2:#bd2028;--text:#102247;--muted:#61749c;--paper:#fff;}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;min-height:100dvh;overflow-x:hidden}
+button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+img{-webkit-user-drag:none;user-select:none}
+#app{min-height:100vh;min-height:100dvh;width:100vw;display:flex;align-items:center;justify-content:center;padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));}
+.screen{width:min(95vw,1500px);min-height:min(95dvh,980px);margin:auto;text-align:center;display:flex;align-items:center;justify-content:center;min-width:0}
+.screen.activity-screen{width:100%;height:calc(100dvh - 20px);min-height:0;}
+/* Opening layer intentionally keeps the approved reference design. */
+.intro{width:min(760px,94vw);padding:46px 28px;border:2px solid var(--line);border-radius:30px;background:#fff;box-shadow:0 14px 38px rgba(28,68,140,.10)}
+.intro h1{font-size:clamp(42px,6vw,68px);font-weight:900;color:var(--blue);margin:0;line-height:1.08}
+.start,.restart{margin:30px auto 0;border:none;border-radius:999px;background:var(--blue);color:#fff;font-size:clamp(24px,4vw,35px);font-weight:900;padding:16px 50px;cursor:pointer;animation:glow 1.45s ease-in-out infinite alternate}
+.start:disabled{opacity:.38;cursor:not-allowed;animation:none;box-shadow:none}
+@keyframes glow{from{box-shadow:0 0 8px rgba(16,61,155,.26)}to{box-shadow:0 0 28px rgba(16,61,155,.72)}}
+
+.stage{width:100%;height:100%;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr);gap:7px;}
+.progress-wrap{width:min(1500px,97%);margin:0 auto}
+.progress-meta{display:flex;justify-content:flex-end;margin-bottom:4px;color:var(--muted);font-size:14px;font-weight:900}
+.progress-track{height:11px;border-radius:999px;background:#eaf0ff;border:1px solid #d7e2fb;overflow:hidden}
+.progress-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#3f8cff,#103d9b);transition:width .4s ease}
+.halves{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(9px,1vw,16px);align-items:stretch;width:100%;height:100%;min-height:0}
+.half{border:2px solid #e1eaff;border-radius:24px;background:#fff;padding:clamp(9px,1vw,15px);box-shadow:0 8px 22px rgba(28,68,140,.075);min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
+.half-title{font-size:clamp(20px,1.8vw,28px);font-weight:900;color:var(--blue2);margin:0 0 5px;line-height:1.08}
+.half.locked{opacity:.48;transition:opacity .25s ease}
+.half.open{opacity:1}
+.audio-btn{width:clamp(52px,4vw,66px);height:clamp(52px,4vw,66px);border:none;border-radius:50%;background:var(--soft);cursor:pointer;display:grid;place-items:center;margin:0 auto 6px;box-shadow:0 6px 18px rgba(20,64,140,.13);transition:transform .15s ease,opacity .2s ease,box-shadow .15s ease;flex:0 0 auto}
+.audio-btn:hover:not(:disabled){box-shadow:0 9px 24px rgba(20,64,140,.19)}
+.audio-btn:active:not(:disabled){transform:scale(.94)}
+.audio-btn:disabled{opacity:.32;cursor:not-allowed;box-shadow:none}
+.audio-btn.ready{animation:pulse 1.05s ease-in-out infinite alternate}
+.audio-btn.playing{animation:pulse .7s ease-in-out infinite alternate}
+@keyframes pulse{from{box-shadow:0 0 5px rgba(16,61,155,.16)}to{box-shadow:0 0 25px rgba(16,61,155,.58)}}
+.audio-btn svg{width:54%;height:54%;fill:var(--blue)}
+
+.picture-stage{position:relative;flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid #edf2ff;border-radius:18px;background:#fff;box-shadow:0 5px 15px rgba(20,64,140,.05);opacity:0;transition:opacity .12s ease}
+.picture-stage.ready{opacity:1}
+.picture-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.picture-mask{position:absolute;z-index:5;background:#fff;border:3px dashed #9bb7ef;border-radius:10px;box-shadow:0 3px 12px rgba(16,61,155,.13),inset 0 0 0 2px rgba(255,255,255,.9);pointer-events:none}
+.picture-mask::after{content:'?';position:absolute;inset:0;display:grid;place-items:center;color:#9aabd1;font-weight:1000;font-size:clamp(13px,1.4vw,22px);opacity:.9}
+.left-caption{margin:5px 0 0;color:var(--muted);font-size:14px;font-weight:800;min-height:17px;flex:0 0 auto}
+
+.task-wrap{display:flex;flex-direction:column;flex:1;justify-content:center;align-items:center;min-height:0;width:100%}
+.listen-note{min-height:23px;font-size:clamp(13px,1.1vw,16px);font-weight:900;color:var(--muted);margin:0 0 7px}
+.sentence-area{width:min(760px,98%);margin:2px auto 18px;padding:15px 10px 10px;min-height:84px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;border-bottom:5px solid var(--blue);color:var(--blue);font-size:clamp(24px,2.5vw,38px);font-weight:900;line-height:1.18}
+.answer-slot{min-width:clamp(118px,12vw,210px);min-height:50px;border:2px dashed #b8c9ec;border-radius:13px;background:#f8faff;display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;color:#9aabd1;font-size:.78em}
+.word-bank{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(8px,1vw,13px);min-height:70px;margin:0 auto 6px;width:100%;padding:0 4px}
+.word-tile{border:3px solid transparent;border-radius:14px;background:var(--red);color:#fff;padding:11px 18px;font-size:clamp(18px,1.8vw,27px);font-weight:900;cursor:pointer;box-shadow:0 7px 16px rgba(180,35,42,.18);transition:transform .14s ease,opacity .18s ease,box-shadow .14s ease,border-color .14s ease;max-width:96%;white-space:normal;line-height:1.12}
+.word-tile:hover:not(:disabled){transform:translateY(-2px)}
+.word-tile:active:not(:disabled){transform:scale(.97)}
+.word-tile:disabled{opacity:.38;cursor:not-allowed}
+.word-tile.is-wrong{background:var(--red2);border-color:#8f1118;box-shadow:0 0 0 5px rgba(217,59,59,.12)}
+.word-tile.moved{opacity:0;pointer-events:none;transform:translateY(-18px) scale(.9)}
+.built-word{background:var(--blue);color:#fff;border-radius:12px;padding:8px 12px;font-size:.86em;font-weight:900;box-shadow:0 6px 14px rgba(16,61,155,.17);animation:wordPop .27s ease-out;display:inline-flex;align-items:center;justify-content:center;max-width:100%;white-space:normal}
+@keyframes wordPop{from{transform:translateY(14px) scale(.92);opacity:.2}to{transform:none;opacity:1}}
+.feedback{min-height:29px;margin:6px 0 0;font-size:18px;font-weight:900;color:var(--good)}
+.feedback.bad{color:var(--bad)}
+.shake{animation:shake .34s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-4px)}}
+.fly-tile{position:fixed;z-index:10000;margin:0;pointer-events:none;transition:transform .33s cubic-bezier(.2,.8,.25,1),opacity .33s ease;will-change:transform,opacity}
+
+.celebration{position:fixed;inset:0;z-index:9999;background:rgba(220,252,231,.97);display:flex;align-items:center;justify-content:center;overflow:hidden;animation:celebrateIn .25s ease-out}
+@keyframes celebrateIn{from{opacity:0}to{opacity:1}}
+.celebration-core{position:relative;z-index:2;text-align:center;animation:bravoPop .48s cubic-bezier(.2,.9,.25,1.35)}
+.celebration-title{font-size:clamp(76px,15vw,176px);font-weight:1000;letter-spacing:2px;color:#138a4f;text-shadow:0 6px 0 rgba(255,255,255,.9),0 12px 30px rgba(20,140,80,.18);line-height:.9}
+.celebration-sub{margin-top:16px;font-size:clamp(20px,3vw,35px);font-weight:900;color:var(--blue2)}
+@keyframes bravoPop{0%{transform:scale(.45) rotate(-4deg);opacity:.1}70%{transform:scale(1.08) rotate(1deg);opacity:1}100%{transform:scale(1)}}
+.star{position:absolute;z-index:1;font-size:clamp(26px,4vw,54px);color:#f4b400;text-shadow:0 3px 0 rgba(255,255,255,.75);animation:starFly 1.7s ease-out forwards;pointer-events:none}
+@keyframes starFly{0%{transform:translate(0,0) rotate(0) scale(.2);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1.25);opacity:0}}
+.complete{width:min(700px,94vw);padding:38px 24px;border:2px solid var(--line);border-radius:30px;background:#fff;box-shadow:0 14px 38px rgba(28,68,140,.10)}
+.complete h2{font-size:clamp(38px,6vw,62px);color:var(--blue);margin:0 0 10px;font-weight:900}
+.complete p{font-size:21px;font-weight:700;color:#5a6b8f;margin:0}
+
+.audio-setup{width:min(680px,96%);margin:18px auto 0;padding:15px 17px;border:2px solid #dbe7ff;border-radius:18px;background:#f8faff;box-shadow:0 8px 20px rgba(16,61,155,.07)}
+.audio-setup-title{font-size:16px;font-weight:1000;color:var(--blue2);margin-bottom:5px}
+.audio-setup-text{font-size:13px;line-height:1.45;font-weight:800;color:var(--muted)}
+.audio-setup-btn{margin-top:11px;border:0;border-radius:14px;background:var(--blue);color:#fff;padding:12px 17px;font-weight:1000;cursor:pointer;box-shadow:0 8px 16px rgba(16,61,155,.16)}
+.audio-setup-status{min-height:20px;margin-top:9px;font-size:13px;font-weight:900;color:var(--muted)}
+.audio-setup-status.ok{color:var(--good)}.audio-setup-status.bad{color:var(--bad)}
+.audio-setup-track{height:8px;background:#e5edfc;border-radius:999px;overflow:hidden;margin-top:9px}
+.audio-setup-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .15s ease}
+
+@media(max-width:900px){
+  #app{align-items:flex-start}
+  .screen{width:96vw;min-height:auto}
+  .screen.activity-screen{width:100%;height:auto;min-height:calc(100dvh - 20px);align-items:flex-start}
+  .stage{height:auto;min-height:100dvh;display:flex;flex-direction:column}
+  .halves{grid-template-columns:1fr;height:auto;min-height:0;gap:8px}
+  .half{padding:10px 8px 11px;border-radius:20px;overflow:visible}
+  .picture-stage{height:min(66vw,510px);min-height:245px;flex:none}
+  .task-wrap{min-height:330px}
+  .sentence-area{margin-bottom:14px}
+}
+@media(max-width:520px){
+  #app{padding:max(8px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(9px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left))}
+  .intro{padding:36px 18px;border-radius:22px}.intro h1{font-size:clamp(36px,11vw,48px)}
+  .progress-wrap{width:99%}.progress-track{height:9px}
+  .half{border-radius:17px;padding:8px 6px 10px}.half-title{font-size:21px}
+  .audio-btn{width:54px;height:54px;margin-bottom:5px}
+  .picture-stage{height:72vw;min-height:225px;border-radius:14px}
+  .picture-mask{border-width:2px;border-radius:7px}
+  .task-wrap{min-height:310px}
+  .sentence-area{font-size:22px;gap:5px;padding:10px 4px 8px;border-bottom-width:4px;min-height:68px}
+  .answer-slot{min-width:96px;min-height:43px;padding:3px 7px}
+  .word-bank{gap:7px;min-height:62px}.word-tile{padding:10px 12px;font-size:18px;border-radius:11px}
+  .feedback{font-size:16px;min-height:25px}.audio-setup{width:98%;padding:12px}.audio-setup-btn{width:100%}
+}
+@media(max-height:720px) and (min-width:901px){
+  #app{padding-top:4px;padding-bottom:4px}.progress-wrap{margin-bottom:0}.progress-track{height:9px}
+  .half{padding-top:6px;padding-bottom:6px;border-radius:20px}.half-title{font-size:21px;margin-bottom:3px}
+  .audio-btn{width:48px;height:48px;margin-bottom:3px}
+  .left-caption{margin-top:2px;font-size:12px}.sentence-area{min-height:62px;margin-bottom:10px;padding-top:8px}
+  .word-tile{padding:8px 14px}.listen-note{margin-bottom:3px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<div id="app"><main class="screen" id="screen"><section class="intro"><h1>Let's make ...</h1><button class="start" id="startBtn">Start</button></section></main></div>
+<script id="lesson-data" type="application/json">{"title":"Let's make ...","images":{"school":"../assets/f318986c3d39e0d1f9be.png","supermarket":"../assets/7976ada3c1acfff41717.png","flowers":"../assets/cae5bcb8aeb89b526e0d.png"},"masks":{"school":{"intro_phrase":{"x":244,"y":5,"w":568,"h":101},"intro_object":{"x":812,"y":5,"w":352,"h":101},"step1_connector":{"x":111,"y":487,"w":169,"h":62},"step1_action":{"x":291,"y":493,"w":337,"h":55},"step2_connector":{"x":817,"y":488,"w":178,"h":62},"step2_action":{"x":1002,"y":493,"w":315,"h":55},"step3_connector":{"x":95,"y":951,"w":194,"h":69},"step3_action":{"x":304,"y":970,"w":326,"h":52},"step4_connector":{"x":777,"y":951,"w":237,"h":69},"step4_action":{"x":1023,"y":970,"w":334,"h":52}},"supermarket":{"intro_phrase":{"x":168,"y":5,"w":570,"h":101},"intro_object":{"x":737,"y":5,"w":525,"h":101},"step1_connector":{"x":80,"y":493,"w":173,"h":60},"step1_action":{"x":258,"y":500,"w":410,"h":53},"step2_connector":{"x":806,"y":493,"w":184,"h":60},"step2_action":{"x":1002,"y":500,"w":316,"h":53},"step3_connector":{"x":98,"y":953,"w":195,"h":68},"step3_action":{"x":304,"y":973,"w":327,"h":50},"step4_connector":{"x":744,"y":955,"w":263,"h":66},"step4_action":{"x":1020,"y":973,"w":354,"h":50}},"flowers":{"intro_phrase":{"x":278,"y":5,"w":491,"h":101},"intro_object":{"x":768,"y":5,"w":373,"h":101},"step1_connector":{"x":110,"y":487,"w":170,"h":62},"step1_action":{"x":291,"y":493,"w":355,"h":55},"step2_connector":{"x":817,"y":488,"w":178,"h":62},"step2_action":{"x":1002,"y":493,"w":315,"h":55},"step3_connector":{"x":96,"y":951,"w":194,"h":69},"step3_action":{"x":303,"y":970,"w":329,"h":52},"step4_connector":{"x":779,"y":951,"w":235,"h":69},"step4_action":{"x":1022,"y":970,"w":347,"h":52}}},"audio":{"school_intro":"../assets/8cc4316b5cb54e4dbc14.mp3","school_first":"../assets/3a1c09e75a4c5d0717f6.mp3","school_next":"../assets/135bf115c1b1f0455a88.mp3","school_then":"../assets/7d2f1dfbe05a41858786.mp3","school_finally":"../assets/9e6fc72fd42e0674b5b3.mp3","supermarket_intro":"../assets/3ef8668dd7c23fa25fb8.mp3","supermarket_first":"../assets/d96d1186ed664a848cc1.mp3","supermarket_next":"../assets/97375a237ec3a35cfbb5.mp3","supermarket_then":"../assets/4ee40918e4fead964126.mp3","supermarket_finally":"../assets/1acdb4557a0ed24a34d6.mp3","flowers_intro":"../assets/056ddb0915d4562041c5.mp3","flowers_first":"../assets/8de2656d437a77ac21b7.mp3","flowers_next":"../assets/e381b3a9760b723a3172.mp3","flowers_then":"../assets/3d14eafad7e6cd3d9359.mp3","flowers_finally":"../assets/fc490aefefdc50e3a7ca.mp3"},"audioFiles":{"school_intro":"convo 01 Let's make a school.mp3","school_first":"convo 01 First, color the school.mp3","school_next":"convo 01 Next, cut the paper.mp3","school_then":"convo 01 Then, fold the paper.mp3","school_finally":"convo 01 Finally, glue the school.mp3","supermarket_intro":"convo 02 Let's make a supermarket.mp3","supermarket_first":"convo 02 First, color the supermarket.mp3","supermarket_next":"convo 02 Next, cut the paper.mp3","supermarket_then":"convo 02 Then, fold the paper.mp3","supermarket_finally":"convo 02 Finally, glue the supermarket.mp3","flowers_intro":"convo 03 Let's make flowers.mp3","flowers_first":"convo 03 First, color the flowers.mp3","flowers_next":"convo 03 Next, cut the paper.mp3","flowers_then":"convo 03 Then, fold the paper.mp3","flowers_finally":"convo 03 Finally, glue the flowers.mp3"},"rounds":[{"project":"school","audio":"school_intro","mask":"intro_object","prefix":"Let's make a ","suffix":".","correct":"school","choices":["flowers","school","supermarket"],"aria":"Let's make a school."},{"project":"school","audio":"school_intro","mask":"intro_phrase","prefix":"","suffix":" school.","correct":"Let's make a","choices":["Let's color a","Let's make a","Let's cut a"],"aria":"Let's make a school."},{"project":"school","audio":"school_first","mask":"step1_connector","prefix":"","suffix":", color the school.","correct":"First","choices":["Then","First","Next"],"aria":"First, color the school."},{"project":"school","audio":"school_next","mask":"step2_connector","prefix":"","suffix":", cut the paper.","correct":"Next","choices":["Finally","Then","Next"],"aria":"Next, cut the paper."},{"project":"school","audio":"school_then","mask":"step3_connector","prefix":"","suffix":", fold the paper.","correct":"Then","choices":["Next","Then","First"],"aria":"Then, fold the paper."},{"project":"school","audio":"school_finally","mask":"step4_connector","prefix":"","suffix":", glue the school.","correct":"Finally","choices":["Finally","First","Next"],"aria":"Finally, glue the school."},{"project":"school","audio":"school_first","mask":"step1_action","prefix":"First, ","suffix":".","correct":"color the school","choices":["glue the school","color the school","cut the paper"],"aria":"First, color the school."},{"project":"school","audio":"school_next","mask":"step2_action","prefix":"Next, ","suffix":".","correct":"cut the paper","choices":["fold the paper","cut the paper","color the school"],"aria":"Next, cut the paper."},{"project":"school","audio":"school_then","mask":"step3_action","prefix":"Then, ","suffix":".","correct":"fold the paper","choices":["fold the paper","glue the school","cut the paper"],"aria":"Then, fold the paper."},{"project":"school","audio":"school_finally","mask":"step4_action","prefix":"Finally, ","suffix":".","correct":"glue the school","choices":["color the school","fold the paper","glue the school"],"aria":"Finally, glue the school."},{"project":"supermarket","audio":"supermarket_intro","mask":"intro_object","prefix":"Let's make a ","suffix":".","correct":"supermarket","choices":["school","supermarket","flowers"],"aria":"Let's make a supermarket."},{"project":"supermarket","audio":"supermarket_intro","mask":"intro_phrase","prefix":"","suffix":" supermarket.","correct":"Let's make a","choices":["Let's cut a","Let's make a","Let's color a"],"aria":"Let's make a supermarket."},{"project":"supermarket","audio":"supermarket_first","mask":"step1_connector","prefix":"","suffix":", color the supermarket.","correct":"First","choices":["Next","Finally","First"],"aria":"First, color the supermarket."},{"project":"supermarket","audio":"supermarket_next","mask":"step2_connector","prefix":"","suffix":", cut the paper.","correct":"Next","choices":["Then","Next","Finally"],"aria":"Next, cut the paper."},{"project":"supermarket","audio":"supermarket_then","mask":"step3_connector","prefix":"","suffix":", fold the paper.","correct":"Then","choices":["First","Finally","Then"],"aria":"Then, fold the paper."},{"project":"supermarket","audio":"supermarket_finally","mask":"step4_connector","prefix":"","suffix":", glue the supermarket.","correct":"Finally","choices":["Next","Finally","Then"],"aria":"Finally, glue the supermarket."},{"project":"supermarket","audio":"supermarket_first","mask":"step1_action","prefix":"First, ","suffix":".","correct":"color the supermarket","choices":["cut the paper","glue the supermarket","color the supermarket"],"aria":"First, color the supermarket."},{"project":"supermarket","audio":"supermarket_next","mask":"step2_action","prefix":"Next, ","suffix":".","correct":"cut the paper","choices":["cut the paper","fold the paper","color the supermarket"],"aria":"Next, cut the paper."},{"project":"supermarket","audio":"supermarket_then","mask":"step3_action","prefix":"Then, ","suffix":".","correct":"fold the paper","choices":["glue the supermarket","color the supermarket","fold the paper"],"aria":"Then, fold the paper."},{"project":"supermarket","audio":"supermarket_finally","mask":"step4_action","prefix":"Finally, ","suffix":".","correct":"glue the supermarket","choices":["fold the paper","glue the supermarket","cut the paper"],"aria":"Finally, glue the supermarket."},{"project":"flowers","audio":"flowers_intro","mask":"intro_object","prefix":"Let's make ","suffix":".","correct":"flowers","choices":["supermarket","flowers","school"],"aria":"Let's make flowers."},{"project":"flowers","audio":"flowers_intro","mask":"intro_phrase","prefix":"","suffix":" flowers.","correct":"Let's make","choices":["Let's color","Let's make","Let's cut"],"aria":"Let's make flowers."},{"project":"flowers","audio":"flowers_first","mask":"step1_connector","prefix":"","suffix":", color the flowers.","correct":"First","choices":["First","Then","Finally"],"aria":"First, color the flowers."},{"project":"flowers","audio":"flowers_next","mask":"step2_connector","prefix":"","suffix":", cut the paper.","correct":"Next","choices":["Then","First","Next"],"aria":"Next, cut the paper."},{"project":"flowers","audio":"flowers_then","mask":"step3_connector","prefix":"","suffix":", fold the paper.","correct":"Then","choices":["Finally","Then","Next"],"aria":"Then, fold the paper."},{"project":"flowers","audio":"flowers_finally","mask":"step4_connector","prefix":"","suffix":", glue the flowers.","correct":"Finally","choices":["Next","First","Finally"],"aria":"Finally, glue the flowers."},{"project":"flowers","audio":"flowers_first","mask":"step1_action","prefix":"First, ","suffix":".","correct":"color the flowers","choices":["fold the paper","color the flowers","glue the flowers"],"aria":"First, color the flowers."},{"project":"flowers","audio":"flowers_next","mask":"step2_action","prefix":"Next, ","suffix":".","correct":"cut the paper","choices":["color the flowers","cut the paper","fold the paper"],"aria":"Next, cut the paper."},{"project":"flowers","audio":"flowers_then","mask":"step3_action","prefix":"Then, ","suffix":".","correct":"fold the paper","choices":["fold the paper","glue the flowers","cut the paper"],"aria":"Then, fold the paper."},{"project":"flowers","audio":"flowers_finally","mask":"step4_action","prefix":"Finally, ","suffix":".","correct":"glue the flowers","choices":["cut the paper","color the flowers","glue the flowers"],"aria":"Finally, glue the flowers."}],"imageWidth":1448,"imageHeight":1086}</script>
+<script>
+(()=>{
+'use strict';
+const DATA=JSON.parse(document.getElementById('lesson-data').textContent);
+const screen=document.getElementById('screen');
+const ENTRY_DELAY=800,REPEAT_GAP=500,WRONG_CLEAR=900,BRAVO_TIME=2100;
+let roundIndex=0,audioToken=0,timers=new Set(),stage='intro',mandatoryDone=false,pendingRoundFinish=false;
+let currentAudio=new Audio(); currentAudio.preload='auto'; currentAudio.setAttribute('playsinline',''); currentAudio.setAttribute('webkit-playsinline','');
+let reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches,audioCtx=null,resizeRAF=0,currentMaskRound=null;
+/* ===== LASIN Motivation v3.0 parent bridge ===== */
+const LASIN_MOTIVATION_EXERCISE_ID='exercise-02';
+const LASIN_MOTIVATION_QUESTION_IDS=["school-01-intro-object","school-02-intro-phrase","school-03-step1-connector","school-04-step2-connector","school-05-step3-connector","school-06-step4-connector","school-07-step1-action","school-08-step2-action","school-09-step3-action","school-10-step4-action","supermarket-11-intro-object","supermarket-12-intro-phrase","supermarket-13-step1-connector","supermarket-14-step2-connector","supermarket-15-step3-connector","supermarket-16-step4-connector","supermarket-17-step1-action","supermarket-18-step2-action","supermarket-19-step3-action","supermarket-20-step4-action","flowers-21-intro-object","flowers-22-intro-phrase","flowers-23-step1-connector","flowers-24-step2-connector","flowers-25-step3-connector","flowers-26-step4-connector","flowers-27-step1-action","flowers-28-step2-action","flowers-29-step3-action","flowers-30-step4-action"];
+let lasinMotivationIsActive=true,lasinRoundCompleted=false;
+function lasinMotivationAPI(){try{return window.parent&&window.parent!==window&&window.parent.LASINMotivation?window.parent.LASINMotivation:null}catch(e){return null}}
+function lasinMotivationQuestionId(index=roundIndex,r=DATA.rounds[index]){if(!r)return null;return `${r.project}-${String(index+1).padStart(2,'0')}-${String(r.mask||'round').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}`}
+function lasinMotivationPayload(r=DATA.rounds[roundIndex]){if(!r)return null;return{exerciseId:LASIN_MOTIVATION_EXERCISE_ID,questionId:lasinMotivationQuestionId(roundIndex,r),localIndex:roundIndex+1,responseMode:'selection'}}
+function lasinMotivationReady(r=DATA.rounds[roundIndex]){if(!lasinMotivationIsActive||lasinRoundCompleted)return;const api=lasinMotivationAPI(),p=lasinMotivationPayload(r);if(api&&p)api.questionReady(p)}
+function lasinMotivationMistake(r=DATA.rounds[roundIndex]){if(!lasinMotivationIsActive||lasinRoundCompleted)return;const api=lasinMotivationAPI(),p=lasinMotivationPayload(r);if(api&&p)api.questionMistake(p)}
+function lasinMotivationComplete(r=DATA.rounds[roundIndex]){if(!lasinMotivationIsActive||lasinRoundCompleted)return;lasinRoundCompleted=true;const api=lasinMotivationAPI(),p=lasinMotivationPayload(r);if(api&&p)api.questionCompleted(p)}
+function lasinMotivationFeedbackComplete(){const api=lasinMotivationAPI();if(api&&typeof api.feedbackComplete==='function')api.feedbackComplete()}
+function lasinMotivationDeactivate(){
+  lasinMotivationIsActive=false;
+  try{stopAudio()}catch(e){}
+  document.querySelectorAll('.celebration').forEach(n=>n.remove());
+}
+function lasinMotivationActivate(){
+  lasinMotivationIsActive=true;
+  if(document.getElementById('startBtn')||document.getElementById('restart'))return;
+  const r=DATA.rounds[roundIndex]; if(!r)return;
+  if(lasinRoundCompleted){document.querySelectorAll('.celebration').forEach(n=>n.remove());showBravo();return;}
+  if(mandatoryDone){document.querySelectorAll('.is-wrong,.shake').forEach(b=>b.classList.remove('is-wrong','shake'));setFeedback('');lasinMotivationReady(r);return;}
+  renderRound(roundIndex);
+}
+window.LASIN_MOTIVATION_CHILD={exerciseId:LASIN_MOTIVATION_EXERCISE_ID,activate:lasinMotivationActivate,deactivate:lasinMotivationDeactivate,getLocalIndex:()=>roundIndex+1};
+/* ===== End LASIN Motivation bridge ===== */
+
+const sleep=ms=>new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);resolve();},ms);timers.add(id);});
+function clearTimers(){for(const id of timers)clearTimeout(id);timers.clear();}
+function headphones(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 0 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z"/></svg>';}
+function audioReady(){return Object.keys(DATA.audioFiles).every(k=>typeof DATA.audio[k]==='string'&&DATA.audio[k].startsWith('data:audio'));}
+function persistData(){document.getElementById('lesson-data').textContent=JSON.stringify(DATA).replace(/<\//g,'<\/');}
+function stopAudio(){audioToken++;clearTimers();try{currentAudio.pause();currentAudio.currentTime=0;}catch(e){}document.querySelectorAll('.audio-btn').forEach(b=>b.classList.remove('playing'));}
+async function unlockAudio(){try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')await audioCtx.resume();const silent=new Audio('../assets/c0230a47897258f34fc3.wav');silent.volume=.001;await silent.play();silent.pause();}catch(e){}}
+async function playClip(src,btn,token){if(!src||token!==audioToken)return false;try{currentAudio.pause();currentAudio.currentTime=0;}catch(e){}currentAudio.src=src;if(btn)btn.classList.add('playing');return await new Promise(resolve=>{let done=false;const finish=ok=>{if(done)return;done=true;currentAudio.onended=null;currentAudio.onerror=null;if(btn)btn.classList.remove('playing');resolve(ok);};currentAudio.onended=()=>finish(token===audioToken);currentAudio.onerror=()=>finish(false);currentAudio.play().catch(()=>finish(false));});}
+async function playTwice(src,btn,token){if(!await playClip(src,btn,token))return false;if(token!==audioToken)return false;await sleep(REPEAT_GAP);if(token!==audioToken)return false;return await playClip(src,btn,token);}
+function progressMarkup(){const current=roundIndex+1,total=DATA.rounds.length,pct=current/total*100;return `<div class="progress-wrap"><div class="progress-meta">${current} / ${total}</div><div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="${total}" aria-valuenow="${current}"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;}
+function renderIntro(){stopAudio();stage='intro';roundIndex=0;currentMaskRound=null;screen.classList.remove('activity-screen');const ready=audioReady();screen.innerHTML=`<section class="intro"><h1>${escapeHTML(DATA.title)}</h1><button class="start" id="startBtn" ${ready?'':'disabled'}>Start</button>${ready?'':setupMarkup()}</section>`;document.getElementById('startBtn').addEventListener('click',async()=>{await unlockAudio();renderRound(0);});bindSetup();}
+function setupMarkup(){return `<div class="audio-setup" id="audioSetup"><div class="audio-setup-title">Original Audio Setup</div><div class="audio-setup-text">Select the 15 original MP3 files for the three “Let’s make …” projects. The exact filenames are checked, harmless apostrophe or extra-dot differences are normalized, and the original MP3 bytes are embedded without re-encoding.</div><button class="audio-setup-btn" id="embedAudio">Embed the Original MP3s</button><input id="audioFiles" type="file" accept="audio/mpeg,.mp3" multiple hidden><div class="audio-setup-track"><div class="audio-setup-fill" id="audioFill"></div></div><div class="audio-setup-status" id="audioStatus">Waiting for the 15 original MP3 files.</div></div>`;}
+function normalizeName(name){return String(name||'').normalize('NFKC').replace(/[’‘]/g,"'").split(/[\/]/).pop().trim().toLowerCase().replace(/\s+/g,' ').replace(/\.+mp3$/i,'.mp3');}
+function bindSetup(){const btn=document.getElementById('embedAudio'),input=document.getElementById('audioFiles');if(!btn||!input)return;btn.addEventListener('click',()=>input.click());input.addEventListener('change',()=>embedFiles([...input.files]));}
+async function embedFiles(files){const status=document.getElementById('audioStatus'),fill=document.getElementById('audioFill');const byName=new Map(files.map(f=>[normalizeName(f.name),f]));const expected=Object.entries(DATA.audioFiles);const missing=expected.filter(([,name])=>!byName.has(normalizeName(name)));if(missing.length){status.className='audio-setup-status bad';status.textContent='Missing: '+missing.map(x=>x[1]).join(', ');fill.style.width='0%';return;}let done=0;for(const [key,name] of expected){const f=byName.get(normalizeName(name));DATA.audio[key]=await readDataURL(f);done++;fill.style.width=(done/expected.length*100)+'%';}if(!audioReady()){status.className='audio-setup-status bad';status.textContent='Audio validation failed. Please select the files again.';return;}persistData();status.className='audio-setup-status ok';status.textContent='Original MP3s embedded successfully. The 30-question activity is ready.';document.getElementById('startBtn').disabled=false;await sleep(180);exportCleanLesson();}
+function readDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file);});}
+function exportCleanLesson(){const clone=document.documentElement.cloneNode(true);const setup=clone.querySelector('#audioSetup');if(setup)setup.remove();const start=clone.querySelector('#startBtn');if(start)start.removeAttribute('disabled');const clean='<!doctype html>\n'+clone.outerHTML;const blob=new Blob([clean],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='LASIN_Everybody_Up_1_First_Next_Then_Finally_Exercise_02_FULL_EMBEDDED.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+function renderRound(index){stopAudio();screen.classList.add('activity-screen');roundIndex=index;stage='visual';mandatoryDone=false;pendingRoundFinish=false;lasinRoundCompleted=false;const r=DATA.rounds[index];currentMaskRound=r;screen.innerHTML=`<section class="stage">${progressMarkup()}<div class="halves"><section class="half" id="leftHalf" aria-label="Picture and listening prompt"><h2 class="half-title">Look and listen.</h2><button class="audio-btn" id="leftAudio" aria-label="Listen again to the sentence" disabled>${headphones()}</button><div class="picture-stage" id="pictureStage"><img id="projectImage" src="${DATA.images[r.project]}" alt="${escapeAttr(r.aria)}"><div class="picture-mask" id="pictureMask" aria-hidden="true"></div></div><div class="left-caption" id="leftCaption">Listen carefully.</div></section><section class="half locked" id="rightHalf" aria-label="Choose the missing words"><h2 class="half-title">Listen and choose.</h2><div class="task-wrap"><div class="listen-note" id="listenNote">Listen to the whole sentence twice first.</div>${taskMarkup(r)}</div></section></div></section>`;bindRound(r);window.scrollTo({top:0,behavior:'auto'});prepareVisual(r).then(()=>beginMandatoryFlow(r));}
+function taskMarkup(r){return `<div class="sentence-area" id="sentenceArea" aria-label="Incomplete sentence"><span>${escapeHTML(r.prefix)}</span><span class="answer-slot" id="answerSlot">...</span><span>${escapeHTML(r.suffix)}</span></div><div class="word-bank" id="wordBank">${r.choices.map(w=>`<button class="word-tile" data-word="${escapeAttr(w)}" disabled>${escapeHTML(w)}</button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div>`;}
+function bindRound(r){document.getElementById('leftAudio').addEventListener('click',()=>manualReplay(r.audio,'leftAudio'));document.querySelectorAll('.word-tile').forEach(b=>b.addEventListener('click',()=>chooseAnswer(b,r)));}
+function prepareVisual(r){return new Promise(resolve=>{const img=document.getElementById('projectImage');const done=()=>{requestAnimationFrame(()=>{positionMask();document.getElementById('pictureStage')?.classList.add('ready');resolve();});};if(img.complete&&img.naturalWidth)done();else{img.addEventListener('load',done,{once:true});img.addEventListener('error',done,{once:true});}});}
+function positionMask(){if(!currentMaskRound)return;const stageEl=document.getElementById('pictureStage'),img=document.getElementById('projectImage'),mask=document.getElementById('pictureMask');if(!stageEl||!img||!mask||!img.clientWidth)return;const m=DATA.masks[currentMaskRound.project][currentMaskRound.mask];if(!m)return;const sr=stageEl.getBoundingClientRect(),ir=img.getBoundingClientRect(),sx=ir.width/DATA.imageWidth,sy=ir.height/DATA.imageHeight;mask.style.left=(ir.left-sr.left+m.x*sx)+'px';mask.style.top=(ir.top-sr.top+m.y*sy)+'px';mask.style.width=(m.w*sx)+'px';mask.style.height=(m.h*sy)+'px';}
+async function beginMandatoryFlow(r){if(!lasinMotivationIsActive)return;const token=++audioToken;clearTimers();const leftBtn=document.getElementById('leftAudio');await sleep(ENTRY_DELAY);if(token!==audioToken)return;await playTwice(DATA.audio[r.audio],leftBtn,token);if(token!==audioToken)return;mandatoryDone=true;stage='answer';document.getElementById('leftCaption').textContent='You can listen again anytime.';leftBtn.disabled=false;leftBtn.classList.add('ready');const rightHalf=document.getElementById('rightHalf');rightHalf.classList.remove('locked');rightHalf.classList.add('open');unlockChoices();lasinMotivationReady(r);const note=document.getElementById('listenNote');if(note)note.textContent='Now choose the missing words.';if(innerWidth<=900)rightHalf.scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'start'});}
+function unlockChoices(){document.querySelectorAll('.word-tile').forEach(b=>b.disabled=false);}
+async function manualReplay(audioKey,btnId){if(!mandatoryDone)return;stopAudio();const token=++audioToken,btn=document.getElementById(btnId);if(!btn)return;await playTwice(DATA.audio[audioKey],btn,token);if(token===audioToken&&pendingRoundFinish)maybeFinishRound();}
+function setFeedback(text,bad=false){const f=document.getElementById('feedback');if(!f)return;f.textContent=text;f.className='feedback'+(bad?' bad':'');}
+function wrongTile(btn){lasinMotivationMistake(DATA.rounds[roundIndex]);btn.classList.remove('shake');void btn.offsetWidth;btn.classList.add('is-wrong','shake');setFeedback('Try again!',true);const id=setTimeout(()=>{timers.delete(id);btn.classList.remove('is-wrong','shake');setFeedback('');},WRONG_CLEAR);timers.add(id);}
+async function chooseAnswer(btn,r){if(!mandatoryDone||btn.disabled)return;const word=btn.dataset.word;if(word!==r.correct){wrongTile(btn);return;}lasinMotivationComplete(r);document.querySelectorAll('.word-tile').forEach(b=>b.disabled=true);const slot=document.getElementById('answerSlot');await flyInto(btn,slot,word);slot.className='built-word';slot.textContent=word;btn.classList.add('moved');setFeedback('Great job!');finishRoundWhenSafe();}
+function flyInto(btn,target,text){return new Promise(resolve=>{if(reducedMotion){resolve();return;}const a=btn.getBoundingClientRect(),b=target.getBoundingClientRect(),clone=btn.cloneNode(true);clone.className='word-tile fly-tile';clone.disabled=true;clone.textContent=text;clone.style.left=a.left+'px';clone.style.top=a.top+'px';clone.style.width=a.width+'px';clone.style.height=a.height+'px';document.body.appendChild(clone);const dx=(b.left+b.width/2)-(a.left+a.width/2),dy=(b.top+b.height/2)-(a.top+a.height/2);requestAnimationFrame(()=>{clone.style.transform=`translate(${dx}px,${dy}px) scale(.82)`;clone.style.opacity='.12';});setTimeout(()=>{clone.remove();resolve();},340);});}
+function finishRoundWhenSafe(){pendingRoundFinish=true;maybeFinishRound();}
+function maybeFinishRound(){if(!pendingRoundFinish)return;if(currentAudio&&!currentAudio.paused)return;if(!lasinMotivationIsActive)return;pendingRoundFinish=false;const id=setTimeout(()=>{timers.delete(id);if(lasinMotivationIsActive)showBravo();else pendingRoundFinish=true;},350);timers.add(id);}
+function successChime(){try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();const now=audioCtx.currentTime,freqs=[523.25,659.25,783.99,1046.50];freqs.forEach((f,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,now+i*.11);g.gain.exponentialRampToValueAtTime(.13,now+i*.11+.02);g.gain.exponentialRampToValueAtTime(.0001,now+i*.11+.24);o.connect(g).connect(audioCtx.destination);o.start(now+i*.11);o.stop(now+i*.11+.26);});}catch(e){}}
+function showBravo(){if(!lasinMotivationIsActive)return;stage='bravo';document.querySelectorAll('.celebration').forEach(n=>n.remove());successChime();const layer=document.createElement('div');layer.className='celebration';layer.innerHTML='<div class="celebration-core"><div class="celebration-title">BRAVO!</div><div class="celebration-sub">Excellent work!</div></div>';for(let i=0;i<30;i++){const s=document.createElement('div');s.className='star';s.textContent='★';s.style.left=(46+Math.random()*8)+'%';s.style.top=(42+Math.random()*12)+'%';s.style.setProperty('--dx',((Math.random()-.5)*1100)+'px');s.style.setProperty('--dy',((Math.random()-.5)*760)+'px');s.style.setProperty('--rot',((Math.random()-.5)*680)+'deg');s.style.animationDelay=(Math.random()*.16)+'s';layer.appendChild(s);}document.body.appendChild(layer);const id=setTimeout(()=>{timers.delete(id);layer.remove();if(!lasinMotivationIsActive)return;lasinMotivationFeedbackComplete();lasinRoundCompleted=false;if(roundIndex+1<DATA.rounds.length)renderRound(roundIndex+1);else renderComplete();},BRAVO_TIME);timers.add(id);}
+function renderComplete(){stopAudio();stage='complete';currentMaskRound=null;screen.classList.remove('activity-screen');screen.innerHTML=`<section class="complete"><h2>Great job!</h2><p>You finished all ${DATA.rounds.length} questions.</p><button class="restart" id="restart">Play again</button></section>`;document.getElementById('restart').addEventListener('click',renderIntro);window.scrollTo({top:0,behavior:'auto'});}
+function escapeHTML(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function escapeAttr(v){return escapeHTML(v);}
+window.addEventListener('resize',()=>{if(resizeRAF)cancelAnimationFrame(resizeRAF);resizeRAF=requestAnimationFrame(positionMask);},{passive:true});
+document.addEventListener('pointerdown',unlockAudio,{once:false,passive:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();});
+window.addEventListener('pagehide',stopAudio);
+renderIntro();
+})();
+</script></body></html>
