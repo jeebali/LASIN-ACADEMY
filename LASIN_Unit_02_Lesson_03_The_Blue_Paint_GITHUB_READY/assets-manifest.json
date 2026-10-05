@@ -1,0 +1,277 @@
+{
+  "source_file": "LASIN_Unit_02_Lesson_03_The_Blue_Paint_Merged_Motivation_v3.html",
+  "source_size_bytes": 39670566,
+  "source_sha256": "e273846838de458771a4a050637f98d2709791c5c25263c93ba355cfb73f241f",
+  "generated_index_size_bytes": 140157,
+  "asset_occurrences": 64,
+  "unique_assets": 42,
+  "replacement_counts": {
+    "lasin-src-vocab": 32,
+    "lasin-src-exercise-01": 32
+  },
+  "compatibility_changes": {
+    "lasin-src-vocab": {
+      "assetAudio_checks": 1,
+      "audioSource_checks": 0
+    },
+    "lasin-src-exercise-01": {
+      "assetAudio_checks": 0,
+      "audioSource_checks": 2
+    }
+  },
+  "quality_note": "All media files are exact byte-for-byte decodes of the Base64 payloads from the uploaded HTML. No image or audio re-encoding was performed.",
+  "assets": [
+    {
+      "path": "assets/audio/audio_039bdc31e519c2ef.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 45777,
+      "sha256": "039bdc31e519c2efa194288e1b2bfc1f38c9801830b6f0532b1056c9a2c615e4"
+    },
+    {
+      "path": "assets/audio/audio_07edf1e9c4a44fd1.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 44105,
+      "sha256": "07edf1e9c4a44fd1faa1bf2412cbb1d4f743eab0ebc03b7d0a3e2ade11120ad8"
+    },
+    {
+      "path": "assets/audio/audio_3e7e7b44a62bdc9b.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 51628,
+      "sha256": "3e7e7b44a62bdc9b88ad2bd190a0c001d8ef28e2361931ef0b58e35c8cda4123"
+    },
+    {
+      "path": "assets/audio/audio_66bc35296c66bbbd.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 43687,
+      "sha256": "66bc35296c66bbbd66ee3fe2812036fa7ed919ea6c35fd91228c1468b6fd762e"
+    },
+    {
+      "path": "assets/audio/audio_696b4b7a497e43fd.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 42851,
+      "sha256": "696b4b7a497e43fd629788f44e08eabb1021e214f15c7aff6366b1de923d65c2"
+    },
+    {
+      "path": "assets/audio/audio_86ac20438f01a177.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 45777,
+      "sha256": "86ac20438f01a17733a2fe54dfe914824fca32ca5f0788c8e0b7ae146f7072a3"
+    },
+    {
+      "path": "assets/audio/audio_903f5e33a0abe43c.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 48702,
+      "sha256": "903f5e33a0abe43c67744f5dd75d8b703c5842946c309c58c7bf4ed3b2ba5714"
+    },
+    {
+      "path": "assets/audio/audio_9e10185f8e907557.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 50374,
+      "sha256": "9e10185f8e907557250e79e7914eb25cccf1aa1503e3eb3180697579c9675d92"
+    },
+    {
+      "path": "assets/audio/audio_a910726a1cb90c3c.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 51628,
+      "sha256": "a910726a1cb90c3c1509abc6e076615668b8d0264f8da9b7a4f9247ae04041d8"
+    },
+    {
+      "path": "assets/audio/audio_b9d143f76b43204e.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 42851,
+      "sha256": "b9d143f76b43204e0687c0a93c815b752636bd4dc9963d3c06f3b288edd20795"
+    },
+    {
+      "path": "assets/audio/audio_ba4bb1bb07b12fe3.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 50374,
+      "sha256": "ba4bb1bb07b12fe3b142bb44a675ac08c9d4fe794367f13692b610d019cf3ea4"
+    },
+    {
+      "path": "assets/audio/audio_c47e1caafae4544b.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 45777,
+      "sha256": "c47e1caafae4544bc85cb63c143527eab437ccc01533fcdc9cf084b0281d30a5"
+    },
+    {
+      "path": "assets/audio/audio_d9b7d5cf8b27a968.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 47449,
+      "sha256": "d9b7d5cf8b27a96845660b52300c7b5c8434f89716b12c25be380efdf84b76a2"
+    },
+    {
+      "path": "assets/audio/audio_e51d44376abf9e95.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 54554,
+      "sha256": "e51d44376abf9e952de3ff8d11d5b65482713669360daa4985a96e1e2e5dc4e7"
+    },
+    {
+      "path": "assets/audio/audio_e82c00295f05b93c.mp3",
+      "mime": "audio/mpeg",
+      "size_bytes": 47449,
+      "sha256": "e82c00295f05b93cecb725817d8532e1af517dfbe0e089af7480a0376676decd"
+    },
+    {
+      "path": "assets/images/image_024d38a2c7c1d333.webp",
+      "mime": "image/webp",
+      "size_bytes": 440844,
+      "sha256": "024d38a2c7c1d333aff2c85ce1f4afcc3717462b7704f60e7f83dd19a3c97e9c"
+    },
+    {
+      "path": "assets/images/image_0e835da8b6b331e9.webp",
+      "mime": "image/webp",
+      "size_bytes": 465290,
+      "sha256": "0e835da8b6b331e98fb7c664f661f93215931e087202733bede051f4c5ea5a08"
+    },
+    {
+      "path": "assets/images/image_1d2b8757101bbc05.webp",
+      "mime": "image/webp",
+      "size_bytes": 1346636,
+      "sha256": "1d2b8757101bbc05baa3fb2748ce2d31136e9adf82ef64b252942f7c91022b12"
+    },
+    {
+      "path": "assets/images/image_3b5f1e7a8f355533.webp",
+      "mime": "image/webp",
+      "size_bytes": 1033620,
+      "sha256": "3b5f1e7a8f355533c70598dd1fd09d2bc125f2287f04c0b669d02d7c800946db"
+    },
+    {
+      "path": "assets/images/image_44c02479aca4fbcd.webp",
+      "mime": "image/webp",
+      "size_bytes": 1043696,
+      "sha256": "44c02479aca4fbcd9d06c0e1600eb22cb17f3217ec5fd2ef0a1c92b230a41a9f"
+    },
+    {
+      "path": "assets/images/image_4b896737a28faf66.webp",
+      "mime": "image/webp",
+      "size_bytes": 475682,
+      "sha256": "4b896737a28faf6634f9926ce494e61a99378757aa79db2e8a1419708a8bd6ea"
+    },
+    {
+      "path": "assets/images/image_4dc0cf50c9bc222e.webp",
+      "mime": "image/webp",
+      "size_bytes": 1042864,
+      "sha256": "4dc0cf50c9bc222e47846ee268f367a83aa65cc171d86c257e681425744f0ccd"
+    },
+    {
+      "path": "assets/images/image_529b7ebf95e3966a.webp",
+      "mime": "image/webp",
+      "size_bytes": 1001672,
+      "sha256": "529b7ebf95e3966a21d1d72871f9776223c0897cfb35b13eced057bbc23e5a43"
+    },
+    {
+      "path": "assets/images/image_549b76d9854848af.webp",
+      "mime": "image/webp",
+      "size_bytes": 1346248,
+      "sha256": "549b76d9854848af8dcc0e9d20cc5a38288bdeabf6f3efdbe27120041751b554"
+    },
+    {
+      "path": "assets/images/image_562945f0bfe8809b.webp",
+      "mime": "image/webp",
+      "size_bytes": 1010636,
+      "sha256": "562945f0bfe8809bc3a55b6fa8a606453a09d3e7b6e11082bc3530d663944e12"
+    },
+    {
+      "path": "assets/images/image_600e645dc1870f1c.webp",
+      "mime": "image/webp",
+      "size_bytes": 1046202,
+      "sha256": "600e645dc1870f1c907e743ec2cdff8c04cbad6fbfde5ce6510c7dce5026ba87"
+    },
+    {
+      "path": "assets/images/image_608f77a5567508af.webp",
+      "mime": "image/webp",
+      "size_bytes": 1033484,
+      "sha256": "608f77a5567508af7517b1d00127dd7997464e62738296a07ec89316acf0350c"
+    },
+    {
+      "path": "assets/images/image_66867e50f7fd6975.webp",
+      "mime": "image/webp",
+      "size_bytes": 449922,
+      "sha256": "66867e50f7fd6975d3eae98dabd0ab2a1658c69c09e4e5b2ff166041b3181698"
+    },
+    {
+      "path": "assets/images/image_6fb1dc0df11af8a7.webp",
+      "mime": "image/webp",
+      "size_bytes": 1010434,
+      "sha256": "6fb1dc0df11af8a7b042d04cbc3717471f7b6e48541fe151e4ee36fbe46c8a44"
+    },
+    {
+      "path": "assets/images/image_734ca1a4aa55522d.webp",
+      "mime": "image/webp",
+      "size_bytes": 1043008,
+      "sha256": "734ca1a4aa55522d86d69de54bca63071b3c9d3e2d4d33d00ad7dd7cde6e18d7"
+    },
+    {
+      "path": "assets/images/image_73dca0979b4ce337.webp",
+      "mime": "image/webp",
+      "size_bytes": 1186968,
+      "sha256": "73dca0979b4ce33774fad604483309e18ce794ac935f8495f6c6878f68622f05"
+    },
+    {
+      "path": "assets/images/image_836955b37f37cf0b.webp",
+      "mime": "image/webp",
+      "size_bytes": 435696,
+      "sha256": "836955b37f37cf0bbdc64e53a129bdb1dbde49461df99380e812db9f82ef2673"
+    },
+    {
+      "path": "assets/images/image_86f221954860ea08.webp",
+      "mime": "image/webp",
+      "size_bytes": 1187202,
+      "sha256": "86f221954860ea08f9414c32b93a36a31367fc8b8cc6bd97fe2320627116571e"
+    },
+    {
+      "path": "assets/images/image_88360e3ba03aa90f.webp",
+      "mime": "image/webp",
+      "size_bytes": 445838,
+      "sha256": "88360e3ba03aa90f550cd9847ad017a49b2a2da670112f4028211d62e6d2ff5c"
+    },
+    {
+      "path": "assets/images/image_b0dcd01395a23661.webp",
+      "mime": "image/webp",
+      "size_bytes": 1036508,
+      "sha256": "b0dcd01395a23661ee5577e28d99005e24388bef7f3dc88902b4a2b2a1528d42"
+    },
+    {
+      "path": "assets/images/image_bd0739053796f3df.webp",
+      "mime": "image/webp",
+      "size_bytes": 1042196,
+      "sha256": "bd0739053796f3df0e9958de257a7db796142109079e9a99f67ebadd6799fa1d"
+    },
+    {
+      "path": "assets/images/image_c3cb3ea15e4a9c98.webp",
+      "mime": "image/webp",
+      "size_bytes": 465594,
+      "sha256": "c3cb3ea15e4a9c98e96990f467705e17e86821e39e20aae4aedd7c0d71fbaf1b"
+    },
+    {
+      "path": "assets/images/image_cba309a511f2afa5.webp",
+      "mime": "image/webp",
+      "size_bytes": 1042756,
+      "sha256": "cba309a511f2afa56f11850bdf65c43dff0d7ac73f0346aaeb2c3341f0ac3f30"
+    },
+    {
+      "path": "assets/images/image_d2961daa407097ea.webp",
+      "mime": "image/webp",
+      "size_bytes": 1001664,
+      "sha256": "d2961daa407097eac844f2e4bf61ff5c6a9ef250299dd6848223e2de13fb02db"
+    },
+    {
+      "path": "assets/images/image_d79e3d8ac6176c35.webp",
+      "mime": "image/webp",
+      "size_bytes": 1036574,
+      "sha256": "d79e3d8ac6176c35cc6810e6a88cd88e9296cdba36a90f7a775ed67d7bf012d9"
+    },
+    {
+      "path": "assets/images/image_dcb783de6ef70125.webp",
+      "mime": "image/webp",
+      "size_bytes": 1187454,
+      "sha256": "dcb783de6ef70125eba8b55fce051d27ffd417e7f2a5e7ed3ac74f415adfde29"
+    },
+    {
+      "path": "assets/images/image_eb3e4c00d6485e28.webp",
+      "mime": "image/webp",
+      "size_bytes": 1186710,
+      "sha256": "eb3e4c00d6485e28c29aa65dcf9079dfe6f9dabb2e72bd1c5ba6fd3ea1b823d1"
+    }
+  ]
+}

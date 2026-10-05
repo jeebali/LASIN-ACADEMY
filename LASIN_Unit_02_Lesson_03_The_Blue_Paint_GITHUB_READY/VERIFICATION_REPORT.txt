@@ -1,0 +1,48 @@
+LASIN GITHUB-READY VERIFICATION REPORT
+======================================
+
+Source SHA-256:
+e273846838de458771a4a050637f98d2709791c5c25263c93ba355cfb73f241f
+
+Original HTML size:
+39,670,566 bytes
+
+Generated index.html size:
+140,157 bytes
+
+Embedded media occurrences externalized:
+64
+
+Unique exact media files:
+42
+- Images: 27
+- Audio:  15
+
+Asset references checked:
+64
+
+Missing asset references:
+0
+
+Media SHA-256 mismatches:
+0
+
+Remaining static Base64 media URIs:
+0
+
+JavaScript syntax checks:
+PASS
+
+Wrapper sections preserved:
+Vocab, Exercise 01
+
+Final scoring display preserved:
+39 questions / 195 maximum points
+
+Largest individual package file:
+assets/images/image_1d2b8757101bbc05.webp — 1,346,636 bytes
+(comfortably below 25 MiB)
+
+QUALITY RESULT:
+PASS — all extracted media is byte-for-byte identical to the media embedded
+in the uploaded HTML; no picture or audio quality reduction was performed.
