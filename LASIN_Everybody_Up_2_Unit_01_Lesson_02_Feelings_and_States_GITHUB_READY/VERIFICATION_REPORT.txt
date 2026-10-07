@@ -1,0 +1,39 @@
+LASIN GITHUB-READY VERIFICATION REPORT
+======================================
+
+Source SHA-256: 3b3b40ed65723765db4b3a394d65ce261912e6ba17497999e2f8a124ef294cf9
+
+Original merged HTML size: 10,371,216 bytes
+Generated index.html size: 174,068 bytes
+
+Lesson structure preserved:
+- Vocab
+- Exercise 01
+- 150 scored questions
+- 50-second smart motivation timer
+- LASIN session persistence and postMessage wrapper preserved
+
+Media extraction:
+- Embedded media occurrences externalized: 104
+- Unique exact media files: 84
+- Unique WebP images: 30
+- Unique MP3 files: 54
+- Missing asset references: 0
+- Media SHA-256 mismatches: 0
+- Reversible embedded-HTML comparison: PASS (exact match after restoring asset data URIs and the 3 path-readiness checks)
+- JavaScript syntax validation: PASS
+- WebP decode validation: PASS (30/30)
+- MP3 ffprobe validation: PASS (54/54)
+- Largest individual file: assets/images/image_96e86f9ed1bfb748.webp — 257,380 bytes
+
+QUALITY RESULT
+--------------
+PASS. Images and audio are exact byte-for-byte decodes of the source Base64 media. No resize, recompression, transcoding, or re-encoding was performed.
+
+BROWSER TEST NOTE
+-----------------
+Chromium smoke test could not be executed in this sandbox because local/file navigation is blocked by the environment administrator policy (ERR_BLOCKED_BY_ADMINISTRATOR). This is an environment restriction, not a lesson error.
+
+HTTP SERVER CHECK
+-----------------
+The generated index was successfully served by a local HTTP server and returned HTTP 200. Static asset paths were also structurally verified against existing files.
